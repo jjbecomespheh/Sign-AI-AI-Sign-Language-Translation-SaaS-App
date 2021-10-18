@@ -25,14 +25,14 @@
 #   username: anirudh
 #   password: 6969
 
-# default: &default
-#   adapter: postgresql
-#   # Configure additional properties here.
-#   username: "postgres" # e.g. "my-database-user"
-#   password: "postgres" # e.g. "my-database-password"
-#   database: "chats"
-#   host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
-#   port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
+default: &default
+  adapter: postgresql
+  # Configure additional properties here.
+  username: "postgres" # e.g. "my-database-user"
+  password: "postgres" # e.g. "my-database-password"
+  database: "chats"
+  host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
+  port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
 
 # Runs db on gcp even on development environment
 development:
