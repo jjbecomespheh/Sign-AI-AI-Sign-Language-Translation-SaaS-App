@@ -14,18 +14,35 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: anirudh
-  password: 6969
 
+# This is to run locally 
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see Rails configuration guide
+#   # https://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: anirudh
+#   password: 6969
+
+# default: &default
+#   adapter: postgresql
+#   # Configure additional properties here.
+#   username: "postgres" # e.g. "my-database-user"
+#   password: "postgres" # e.g. "my-database-password"
+#   database: "chats"
+#   host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
+#   port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
+
+# Runs db on gcp even on development environment
 development:
-  <<: *default
-  database: backend_development
+  adapter: postgresql
+  # Configure additional properties here.
+  username: "postgres" # e.g. "my-database-user"
+  password: "postgres" # e.g. "my-database-password"
+  database: "chats"
+  host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
+  port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
