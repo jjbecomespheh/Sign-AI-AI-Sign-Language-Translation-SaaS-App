@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Translate from './components/translate';
-import Chat from './components/chat'
+import ChatHistory from './components/chat'
 import Header from './components/header'
 
 
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path = '/translate' component={Translate}/>
-          <Route path = '/chat' component={Chat}/>
+          <Route path = '/chat-history' component={ChatHistory}/>
 
           
         </Switch>
