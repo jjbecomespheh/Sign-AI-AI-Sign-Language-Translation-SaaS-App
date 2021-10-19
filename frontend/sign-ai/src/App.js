@@ -12,7 +12,7 @@ function App() {
       
       <BrowserRouter>
         <Switch>
-          <Route path = '/history' component={ChatHistory}/>
+          <Route path = '/chat-history' component={ChatHistory}/>
           <Route path = '/translate' component={Translate}/>
           <Route path = '/chat-history-list' component={ChatHistoryNestedList}/>
 

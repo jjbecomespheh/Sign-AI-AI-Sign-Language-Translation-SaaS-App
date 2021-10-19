@@ -1,41 +1,37 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './chatHistory.css';
 import MessageDeaf from './messageDeaf';
 import MessageOfficer from './MessageOfficer';
 
-export default class ChatHistory extends Component {
-    state = {
-        error:null,
-        isLoaded: false,
-        items: []
+export default function ChatHistory () {
+
+    const [data, setData] = useState([]);
+
+    useEffect(()=> {
+        loadData();
+    },[])
+
+    const loadData = ()=> {
+        axios.get("/chats.json")
+        .then((res) => {
+            setData(res.data)
+        })
     }
 
-    componentDidMount(){
-        axios.get('https://localhost:4000/chat') //to be edited
-        .then(res => res.json())
-        .then(result => {
-            this.setState({
-                isLoaded: true,
-                items: result.data
-            });
-        });
-    }
+    var messages = data.map((obj) => obj.message)
+    var sender = data.map((obj) => obj.sender)
+    
+    return (
+        <div>
 
-    render() {
-        const {error, isLoaded, items} = this.state;
-        if (error) {
-            return <div>Error: {error.message}</div>
-        // } else if (!isLoaded) {
-        //     return <div>Loading...</div>
-        } else {
-            return(            
-            <div>
-                <MessageOfficer message={"Hello How are you today"}/>
-                <MessageDeaf message={"Hi Iam fine thank you"}/>
-            </div>)
-        }
+            {
+                data.map((obj) => <MessageOfficer message = {obj.message} sender = {obj.sender} time = {obj.created_at}/>)
+            }
+            {/* {JSON.stringify(data)}
+            {sender}
+            <MessageOfficer message={messages}/> */}
+        </div>
+    )
 
-
-    };
 }

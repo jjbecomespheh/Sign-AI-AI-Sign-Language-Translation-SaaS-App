@@ -1,11 +1,14 @@
 import React from "react";
 
-export default function MessageOfficer ({ message }) {
+export default function MessageOfficer (props) {
+    const  message = props.message
+    const sender = props.sender
+    const time = props.time
     return (
         <div class="container">
-            <img src="/frontend/sign-ai/public/duck.jpeg" alt="Duck"/>
-            <p>{message}</p>
-            <span class="time-right">11:00</span>
+            <img src="/frontend/sign-ai/public/duck.jpeg" alt={sender}/>
+            <p>{JSON.stringify(message)}</p>
+            <span class="time-right">{time}</span>
         </div>
     )
   };
