@@ -22,4 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-../../cloud_sql_proxy
+frontend/node_modules
+
+../node_modules
