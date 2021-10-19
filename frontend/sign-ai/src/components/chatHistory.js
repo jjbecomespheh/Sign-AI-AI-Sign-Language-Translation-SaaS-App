@@ -12,7 +12,7 @@ export default class ChatHistory extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://localhost:4000/chat') //to be edited
+        axios.get('/chats.json') //to be edited
         .then(res => res.json())
         .then(result => {
             this.setState({
@@ -26,11 +26,12 @@ export default class ChatHistory extends Component {
         const {error, isLoaded, items} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>
-        // } else if (!isLoaded) {
-        //     return <div>Loading...</div>
+        } else if (!isLoaded) {
+            return <div>Loading...</div>
         } else {
             return(            
             <div>
+                console.log(items)
                 <MessageOfficer message={"Hello How are you today"}/>
                 <MessageDeaf message={"Hi Iam fine thank you"}/>
             </div>)
