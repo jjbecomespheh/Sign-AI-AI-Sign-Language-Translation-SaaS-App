@@ -7,8 +7,11 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
+import TodayIcon from '@mui/icons-material/Today';
+import MessageIcon from '@mui/icons-material/Message';
 import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import {Button} from '@material-ui/core';
@@ -33,9 +36,9 @@ export default function NestedList(props) {
       for(var datapoint of propsList){
           console.log("datapoint is ", datapoint)
           var created_at = datapoint.created_at.toString()
-          var conversation_id = datapoint.conversation_id 
+          var conversation_id = datapoint.conversation_id.toString() 
           if(mydict[created_at] === undefined){
-              mydict[created_at] = { conversation_id :[datapoint.message] }
+              mydict[created_at][conversation_id] = [datapoint.message]
               console.log("added ", mydict[created_at])
           }
           else{
@@ -72,49 +75,7 @@ export default function NestedList(props) {
     return(
       Object.entries(dataList).map( ([key,value]) =>{
         
-      return <div>
-        {console.log(key,"is key and value is ",value)}
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText primary={key.toString()} />
-          {openLayer1 ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        {Object.entries(value).map(([conv_id,messages]) => {
-
-          return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItemButton onClick={handleClick2}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={conv_id.toString()} />
-                {openLayer2 ? <ExpandMore /> : <ExpandLess />}
-              </ListItemButton>
-            {messages.map((message) => {
-              return <Collapse in={openLayer2} timeout="auto" unmountOnExit>
-                          <List component="div" disablePadding>
-                            <ListItemButton>
-                              <ListItemIcon>
-                                <InboxIcon />
-                              </ListItemIcon>
-                              <ListItemText primary={message.toString()} />
-                            </ListItemButton>
-                            </List>
-                      </Collapse>
-                      })}
-                      </List>
-                      </Collapse>
-            
-          })}
-    </div>
-     })
-  )}
- 
-
-  return (
-    <List
+      return <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       component="nav"
       aria-labelledby="nested-list-subheader"
@@ -124,7 +85,48 @@ export default function NestedList(props) {
         </ListSubheader>
       }
     >
-      {dataDict ? <CreateNestedList dataList={dataDict} /> : "Lol what is going on"}
+        {console.log(key,"is key and value is ",value)}
+        <ListItemButton onClick={handleClick}>
+          <ListItemIcon>
+            <TodayIcon />
+          </ListItemIcon>
+          <ListItemText primary={key.toString()} />
+          {openLayer1 ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        {Object.entries(value).map(([conv_id,messages]) => {
+
+          return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItemButton onClick={handleClick2}>
+                      <ListItemIcon>
+                        <QuestionAnswerIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={conv_id.toString()} />
+                      {openLayer2 ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+            {messages.map((message) => {
+              return <Collapse in={openLayer2} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        <ListItemButton>
+                          <ListItemIcon>
+                            <MessageIcon />
+                          </ListItemIcon>
+                          <ListItemText primary={message.toString()} />
+                        </ListItemButton>
+                        </List>
+                    </Collapse>
+                      })}
+                  </List>
+                </Collapse>
+          })}
     </List>
+     })
+  )}
+ 
+
+  return (
+    <>
+      {dataDict ? <CreateNestedList dataList={dataDict} /> : "Lol what is going on"}
+    </>
   );
 }
