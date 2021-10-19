@@ -26,6 +26,12 @@
 #   password: 6969
 
 default: &default
+  # adapter: sqlite3
+  # encoding: unicode
+  # # For details on connection pooling, see Rails configuration guide
+  # # https://guides.rubyonrails.org/configuring.html#database-pooling
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
   adapter: postgresql
   # Configure additional properties here.
   username: "postgres" # e.g. "my-database-user"

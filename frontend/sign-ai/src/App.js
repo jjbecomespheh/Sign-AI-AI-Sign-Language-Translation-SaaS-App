@@ -1,18 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ChatHistory from './components/chatHistory';
 import Translate from './components/translate';
 import ChatHistory from './components/chat'
 import Header from './components/header'
 
-
-
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <AppBar/>
+      
       <BrowserRouter>
         <Switch>
+          <Route path = '/history' component={ChatHistory}/>
           <Route path = '/translate' component={Translate}/>
           <Route path = '/chat-history' component={ChatHistory}/>
 
@@ -22,5 +22,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

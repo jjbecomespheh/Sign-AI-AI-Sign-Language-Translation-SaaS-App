@@ -30,11 +30,19 @@ function Translate(){
     
         return(
             <div>
+
                 <div>
                     <Webcam videoConstraints={videoConstraints}
-                        style={{borderRadius: '50px', margin: '5px', height: '500px'}}
+                        style={{borderRadius: '50px', margin: '5px', height: '500px', width:'300px'}}
                     />  
                 </div>
+                
+                <div>
+                    <Typography
+                        style={{borderRadius: '20px', margin: '5px', height: '50px', width:'400px'}}
+                    >Translating...Translating...Translating...Translating</Typography>
+                </div>
+
                 <div>
                     <Button 
                         onClick={activateYes} 
@@ -45,13 +53,13 @@ function Translate(){
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
                         style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px'}}
-                        >Wrong</Button>
+                        >Sign again</Button>
                 </div>
 
                 <div>
                 <Button 
                         onClick={activateHome} 
-                        style={{backgroundColor: '#67549c', color: '#FFFFFF', borderRadius: '15px', margin: '2px', justifyContent: 'left'}}
+                        style={{backgroundColor: '#67549c', color: '#FFFFFF', borderRadius: '15px', margin: '2px', justifyContent: 'left', display: 'flex', justifyContent: 'flex-end'}}
                         >Back To Home</Button>
                 </div>
             </div>

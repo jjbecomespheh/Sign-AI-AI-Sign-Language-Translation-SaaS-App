@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_10_18_095111) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "chats", id: :serial, force: :cascade do |t|
+  create_table "chats", force: :cascade do |t|
     t.string "sender"
     t.integer "conversation_id"
     t.text "message"
