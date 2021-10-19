@@ -33,36 +33,19 @@ export default class Translate extends React.Component{
         
         return(
             <div>
-                
-
-                <div>
-                <Box sx={{ flexGrow: 1 }}>
-                    <AppBar 
-                        position="static"
-                        style={{ background: '#2E3B55'}}>
-                        <Toolbar>
-                            <IconButton
-                                size="large"
-                                edge="start"
-                                color="primary"
-                                aria-label="menu"
-                                sx={{ mr: 2 }}>
-                                
-                                <MenuIcon />
-                            </IconButton>
-                            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                                Sign.ai
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    </Box>
-                </div>
 
                 <div>
                     <Webcam videoConstraints={videoConstraints}
-                        style={{borderRadius: '50px', margin: '5px', height: '500px'}}
+                        style={{borderRadius: '50px', margin: '5px', height: '500px', width:'300px'}}
                     />  
                 </div>
+                
+                <div>
+                    <Typography
+                        style={{borderRadius: '20px', margin: '5px', height: '50px', width:'400px'}}
+                    >Translating...Translating...Translating...Translating</Typography>
+                </div>
+
                 <div>
                     <Button 
                         onClick={activateYes} 
@@ -73,19 +56,17 @@ export default class Translate extends React.Component{
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
                         style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px'}}
-                        >Wrong</Button>
+                        >Sign again</Button>
                 </div>
 
                 <div>
                 <Button 
                         onClick={activateHome} 
-                        style={{backgroundColor: '#67549c', color: '#FFFFFF', borderRadius: '15px', margin: '2px', justifyContent: 'left'}}
+                        style={{backgroundColor: '#67549c', color: '#FFFFFF', borderRadius: '15px', margin: '2px', justifyContent: 'left', display: 'flex', justifyContent: 'flex-end'}}
                         >Back To Home</Button>
                 </div>
             </div>
         )
     }
-    
 
-    
 }
