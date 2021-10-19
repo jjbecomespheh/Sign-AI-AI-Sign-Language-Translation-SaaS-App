@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core'
 import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
@@ -30,7 +31,7 @@ function Translate(){
     }
 
     function activateHome(){
-        alert("You clicked Home!")
+        //alert("You clicked Home!")
     }
     
     const camera = useRef(null);
@@ -87,10 +88,12 @@ function Translate(){
                 </div>
 
                 <div>
-                <Button 
+                    <Link to='/home'>
+                        <Button 
                         onClick={activateHome} 
                         style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '70px', borderRadius: '15px', margin: '10px', justifyContent: 'left', display: 'flex', justifyContent: 'flex-end'}}
                         >Back To Home</Button>
+                    </Link>
                 </div>
             </div>
         )
