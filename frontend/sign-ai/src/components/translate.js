@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios"
 import { Button } from '@material-ui/core'
 import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
@@ -10,27 +9,25 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-export default class Translate extends React.Component{
-    render(){
-        const videoConstraints = {
-            facingMode: "user"
-          };
+function Translate(){
         
-        function activateYes(){
-            alert("You clicked Correct!")
-        }
+    const videoConstraints = {
+        facingMode: "user"
+        };
+    
+    function activateYes(){
+        alert("You clicked Correct!")
+    }
 
-        function activateNo(){
-            alert("You clicked Wrong!")
-        }
+    function activateNo(){
+        alert("You clicked Wrong!")
+    }
 
-        function activateHome(){
-            alert("You clicked Home!")
-        }
-
-        
+    function activateHome(){
+        alert("You clicked Home!")
+    }
+    
         return(
             <div>
 
@@ -67,6 +64,6 @@ export default class Translate extends React.Component{
                 </div>
             </div>
         )
-    }
-
 }
+
+export default Translate;
