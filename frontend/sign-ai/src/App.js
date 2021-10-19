@@ -2,8 +2,9 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ChatHistory from './components/chatHistory';
 import Translate from './components/translate';
-import ChatHistory from './components/chat'
-import Header from './components/header'
+//import ChatHistory from './components/chat';
+import Header from './components/header';
+import AppBar from './components/appBar';
 
 function App() {
   return (
