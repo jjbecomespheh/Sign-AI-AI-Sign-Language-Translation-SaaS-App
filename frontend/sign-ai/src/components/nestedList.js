@@ -11,64 +11,106 @@ import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import {Button} from '@material-ui/core';
 
 export default function NestedList(props) {
-  const [open, setOpen] = React.useState(true);
-  const [dataDict, setDataDict] = React.useState(props.data)
+  const [openLayer1, setOpenLayer1] = React.useState(true);
+  const [openLayer2, setOpenLayer2] = React.useState(true);
+  const [dataDict, setDataDict] = React.useState(false)
 
-React.useEffect(() =>
- {  createDataDict(props.data);console.log("stuff is ",props.data) },[dataDict]);
+  React.useEffect(() =>{
+    dataDict == false ? createDataDict(props.data) : console.log("DATA DICT IS SET LOL");
+    console.log("stuff is ",props.data); 
+  },[dataDict]);
+
 
   function createDataDict(propsList){
       console.log("this is propslist", propsList)
       if(propsList.length<2){
-          return
+          return {lol:"what"}
       }
       var mydict = {}
       for(var datapoint of propsList){
           console.log("datapoint is ", datapoint)
-          if(mydict.datapoint.created_at === undefined){
-              mydict[datapoint.created_at] = [datapoint.conversation_id]
+          var created_at = datapoint.created_at.toString()
+          var conversation_id = datapoint.conversation_id 
+          if(mydict[created_at] === undefined){
+              mydict[created_at] = { conversation_id :[datapoint.message] }
+              console.log("added ", mydict[created_at])
           }
           else{
-              mydict[datapoint.created_at] = mydict[datapoint.created_at].push(datapoint.conversation_id)
+            if(mydict[created_at][conversation_id] === undefined){
+              mydict[created_at][conversation_id] = [datapoint.message]
+            }
+            else{
+              mydict[created_at][conversation_id].push(datapoint.message)
+            }
+              
           }
       }
       setDataDict(mydict)
+      console.log("mydict is ", mydict)
   }
+  console.log("datadict is ",dataDict);
+
   const handleClick = () => {
-    setOpen(!open);
+    setOpenLayer1(!openLayer1);
   };
 
-  function CreateNestedList(dataList){
-      if(dataList.length <2){
-          return <div>Lol length is lesser than one</div>
-      }
-      return(
-      Object.keys(dataList).map((data,datapoints) =>{
-      <div> 
-      <ListItemButton onClick={handleClick}>
-      <ListItemIcon>
-        <InboxIcon />
-      </ListItemIcon>
-      <ListItemText primary={data} />
-      {open ? <ExpandLess /> : <ExpandMore />}
-    </ListItemButton>
-    {dataList[data].map((datapoint) => {
-        <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary={datapoint} />
-          </ListItemButton>
-        </List>
-      </Collapse>
-        })}
+  const handleClick2 = () => {
+    setOpenLayer2(!openLayer2);
+  };
+
+  function CreateNestedList(args){
+    const dataList = args.dataList
+    const scam = ["hello", "hi", "lmaoo", "why will this work"]
+    {console.log("Please work I will give you 2 dollars", dataList)}
+    if(dataList.length <2){
+        return <div>Lol length is lesser than one</div>
+    }
+
+    return(
+      Object.entries(dataList).map( ([key,value]) =>{
+        
+      return <div>
+        {console.log(key,"is key and value is ",value)}
+        <ListItemButton onClick={handleClick}>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary={key.toString()} />
+          {openLayer1 ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        {Object.entries(value).map(([conv_id,messages]) => {
+
+          return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton onClick={handleClick2}>
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary={conv_id.toString()} />
+                {openLayer2 ? <ExpandMore /> : <ExpandLess />}
+              </ListItemButton>
+            {messages.map((message) => {
+              return <Collapse in={openLayer2} timeout="auto" unmountOnExit>
+                          <List component="div" disablePadding>
+                            <ListItemButton>
+                              <ListItemIcon>
+                                <InboxIcon />
+                              </ListItemIcon>
+                              <ListItemText primary={message.toString()} />
+                            </ListItemButton>
+                            </List>
+                      </Collapse>
+                      })}
+                      </List>
+                      </Collapse>
+            
+          })}
     </div>
-    })
-      )}
+     })
+  )}
  
 
   return (
@@ -82,7 +124,7 @@ React.useEffect(() =>
         </ListSubheader>
       }
     >
-      <CreateNestedList dataList={dataDict} />
+      {dataDict ? <CreateNestedList dataList={dataDict} /> : "Lol what is going on"}
     </List>
   );
 }
