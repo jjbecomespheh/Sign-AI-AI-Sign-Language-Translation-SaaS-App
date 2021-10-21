@@ -4,20 +4,22 @@ import './chatHistory.css';
 import MessageDeaf from './messageDeaf';
 import MessageOfficer from './MessageOfficer';
 import {useParams} from 'react-router-dom';
-export default function ChatHistory (props) {
 
-    const data = props.data
+export default function Message () {
+
     const {conv_id} = useParams()
 
-    var messages = data.map((obj) => obj.message)
-    var sender = data.map((obj) => obj.sender)
+    // var messages = data.map((obj) => obj.message)
+    // var sender = data.map((obj) => obj.sender)
     
     return (
         <div>
 
-            {
-                data.map((obj) => <MessageOfficer message = {obj.message} sender = {obj.sender} time = {obj.created_at}/>)
-            }
+            
+                WILL DISPLAY CHATS HERE
+                <p>
+                IN PROGRESS
+                </p>
             {/* {JSON.stringify(data)}
             {sender}
             <MessageOfficer message={messages}/> */}
