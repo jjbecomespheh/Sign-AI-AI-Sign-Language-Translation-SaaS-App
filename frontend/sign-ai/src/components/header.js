@@ -9,10 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 class Header extends React.Component{
     render(){
         return (
+            
         <Box sx={{ flexGrow: 1 }}>
+            
             <AppBar 
                 position="static"
-                style={{ background: '#2E3B55'}}>
+                style={{ background: '#4C7031'}}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -28,6 +30,12 @@ class Header extends React.Component{
                     </Typography>
                 </Toolbar>
             </AppBar>
+            <div
+      style={{
+        backgroundColor: 'blue',
+        
+      }}
+    />
             </Box>
             )
     }
