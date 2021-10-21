@@ -2,4 +2,15 @@
     position: relative;
     height: 200px;
     width: 200px;
+    /* padding-bottom: 10%; */
+    /* display: contents; */
   }
+.intro{
+    position: relative;
+    height: 200px;
+}
+
+.NextHome{
+    position: relative;
+    
+}
