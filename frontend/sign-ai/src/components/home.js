@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import logo from '../logo.png'
 import "./home.css";
-import { RandomBlob, RandomHLine } from 'react-random-shapes'
 
 console.log(logo); // /logo.84287d09.png
 
