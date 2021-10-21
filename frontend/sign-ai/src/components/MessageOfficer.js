@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function MessageOfficer (props) {
-    const  message = props.message
+    const message = props.message
     const sender = props.sender
     const time = props.time
     return (
