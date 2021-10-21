@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './chatHistory.css';
 import MessageOfficer from './MessageOfficer';
+import {useParams} from 'react-router-dom';
+export default function ChatHistory (props) {
 
 export default function ChatHistory () {
     const [data, setData] = useState([]);
@@ -30,6 +32,9 @@ export default function ChatHistory () {
           msg: groups[date]
         };
       });
+      
+    const data = props.data
+    const {conv_id} = useParams()
 
       const sortedData = groupArrays.map((nestedObj) =>{
           const viewMsg = () => {
