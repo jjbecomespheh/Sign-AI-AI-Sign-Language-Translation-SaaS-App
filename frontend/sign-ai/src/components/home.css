@@ -1,0 +1,19 @@
+.photo {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    /* padding-bottom: 10%; */
+    /* display: contents; */
+  }
+.intro{
+    position: relative;
+    height: 200px;
+}
+.svg-blob{
+    padding-inline-start: 0%;
+}
+
+.NextHome{
+    position: relative;
+
+}
