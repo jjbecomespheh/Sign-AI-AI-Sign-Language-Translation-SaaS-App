@@ -6,8 +6,8 @@ import Header from './components/header'
 import Message from './components/Messages'
 import Consent from './components/consent'
 import Tutorial from './components/tutorial'
-// import Welcome from './components/welcome';
-import Home from './components/home'
+import Home from './components/Home'
+import CoverPage from './components/CoverPage'
 
 
 function App() {
@@ -18,8 +18,9 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path='/messages/:index/:conv_id' component={Message} />
-          <Route path = '/home' component={Home}/>
+          <Route path = '/cover-page' component={CoverPage}/>
           {/* <Route path='/' component={Home} /> */}
+          <Route path='/home' component={Home} />
           <Route path = '/consent' component={Consent}/>
           <Route path = '/tutorial' component={Tutorial}/>
           <Route path = '/translate' component={Translate}/>
