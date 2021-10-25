@@ -10,7 +10,7 @@ function ChatHistoryNestedList(){
     const [display, setDisplay] = useState(false)
 
     function getDbStuff(){
-        axios.get("/chats.json").then((res) => {console.log(res); setData(res.data); return});
+        axios.get("/chats.json").then((res) => {setData(res.data); return});
         setDisplay(true)
     }
 

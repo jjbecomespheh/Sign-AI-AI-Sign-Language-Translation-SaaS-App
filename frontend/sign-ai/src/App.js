@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ChatHistory from './components/chatHistory';
 import Translate from './components/translate';
-import Welcpme from './components/welcome'
+import Welcome from './components/welcome'
 import ChatHistoryNestedList from './components/chat'
 import Header from './components/header'
 import Message from './components/Messages'
@@ -19,8 +19,9 @@ function App() {
       
       <BrowserRouter>
         <Switch>
-          <Route path='/messages/:conv_id' component={Message} />
+          <Route path='/messages/:index/:conv_id' component={Message} />
           <Route path = '/home' component={Home}/>
+          {/* <Route path='/' component={Home} /> */}
           <Route path = '/consent' component={Consent}/>
           <Route path = '/tutorial' component={Tutorial}/>
           <Route path = '/chat-history' component={ChatHistory}/>
