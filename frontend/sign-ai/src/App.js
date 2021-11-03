@@ -1,10 +1,13 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ChatHistory from './components/chatHistory';
 import Translate from './components/translate';
-import Home from './components/home'
 import ChatHistoryNestedList from './components/chat'
 import Header from './components/header'
+import Message from './components/Messages'
+import Consent from './components/consent'
+import Tutorial from './components/tutorial'
+import Home from './components/Home'
+import CoverPage from './components/CoverPage'
 
 
 function App() {
@@ -14,10 +17,14 @@ function App() {
       
       <BrowserRouter>
         <Switch>
-          <Route path = '/home' component={Home}/>
-          <Route path = '/chat-history' component={ChatHistory}/>
+          <Route path='/messages/:index/:conv_id' component={Message} />
+          <Route path = '/cover-page' component={CoverPage}/>
+          {/* <Route path='/' component={Home} /> */}
+          <Route path='/home' component={Home} />
+          <Route path = '/consent' component={Consent}/>
+          <Route path = '/tutorial' component={Tutorial}/>
           <Route path = '/translate' component={Translate}/>
-          <Route path = '/chat-history-list' component={ChatHistoryNestedList}/>
+          <Route path = '/chat-history' component={ChatHistoryNestedList}/>
           
         </Switch>
       </BrowserRouter>

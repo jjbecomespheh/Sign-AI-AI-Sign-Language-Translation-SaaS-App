@@ -5,14 +5,18 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
+// import logo2 from '../logo.png'
 
+// console.log(logo2); // /logo.84287d09.png
 class Header extends React.Component{
     render(){
         return (
+            
         <Box sx={{ flexGrow: 1 }}>
+            
             <AppBar 
                 position="static"
-                style={{ background: '#2E3B55'}}>
+                style={{ background: '#4C7031'}}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -23,11 +27,18 @@ class Header extends React.Component{
                         
                         <MenuIcon />
                     </IconButton>
+                    {/* <img className="photo" src={logo} alt="Logo"/> */}
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Sign.ai
                     </Typography>
                 </Toolbar>
             </AppBar>
+            <div
+      style={{
+        backgroundColor: 'blue',
+        
+      }}
+    />
             </Box>
             )
     }

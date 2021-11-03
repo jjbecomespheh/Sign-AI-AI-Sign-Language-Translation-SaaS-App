@@ -12,11 +12,12 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
-import TextField from '@mui/material/TextField';
+import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 function Translate(){
+    const history = useHistory()
     const videoConstraints = {
         facingMode: "user"
         };
@@ -31,6 +32,7 @@ function Translate(){
 
     function activateHome(){
         //alert("You clicked Home!")
+        history.push('/')
     }
     const camera = useRef(null);
     const [image, setImage] = useState(null);
