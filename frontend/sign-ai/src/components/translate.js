@@ -12,9 +12,8 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
-
+import TextField from '@mui/material/TextField';
 import useCamera from "use-camera";
-
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 function Translate(){
@@ -33,72 +32,52 @@ function Translate(){
     function activateHome(){
         //alert("You clicked Home!")
     }
-    
     const camera = useRef(null);
     const [image, setImage] = useState(null);
-
     const ref = useCamera({ audio: false });
    
         return(
             <div>
-
-                {/* <div>
-                    <Webcam videoConstraints={videoConstraints}
-                        style={{borderRadius: '50px', margin: '5px', height: '500px', width:'300px'}}
-                    /> 
-                </div> */}
-
                 <div>
-                    <video ref={ref} autoPlay width={'300px'} height={'300px'}/>
+                    <video ref={ref} autoPlay width={'300px'} height={'300px'}
+                        style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}
+                    />
                 </div>
 
                 <div>
-                    <Box
-                        border={2}
-                        borderRadius={2}
-                        bheight={300}
-                        height={100}
-                        width={300}
-                        marginLeft={5}
-                        width={300}
-                        display="flex"
-                        order={1}
-                        borderColor="black"
-                        justifyContent="center"
-                        alignItems="center"
-                        bgcolor="white"
-                        color="black"
-                        fontSize={15}
-                        >
-                        Translating Sign language to Text...
-                    </Box>
+                    <TextField
+                        id="translation"
+                        label="Translating.."
+                        multiline
+                        rows={4}
+                        hintText="Translating Sign language to Text..."
+                        style={{width: 300, height: 50, alignContent: "center", margin: '15px'}}
+                        />
+                    
                 </div>
 
                 <div>
-                    <Button 
-                        onClick={activateYes} 
-                        startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
-                        >Correct</Button>
                     <Button 
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
+                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
                         >Sign again</Button>
+                    <Button 
+                        onClick={activateYes} 
+                        startIcon={<ThumbUpIcon />}
+                        style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        >Correct</Button>
                 </div>
 
                 <div>
                     <Link to='/home'>
                         <Button 
                         onClick={activateHome} 
-                        style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '70px', borderRadius: '15px', margin: '10px', justifyContent: 'left', display: 'flex', justifyContent: 'flex-end'}}
+                        style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px'}}
                         >Back To Home</Button>
                     </Link>
                 </div>
             </div>
         )
 }
-
-
-
 export default Translate;
