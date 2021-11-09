@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import axios from "axios"
-import { Button } from '@material-ui/core'
-import Webcam from "react-webcam";
 import NestedList from "./nestedList";
 
 function ChatHistoryNestedList(){
@@ -10,7 +8,7 @@ function ChatHistoryNestedList(){
     const [display, setDisplay] = useState(false)
 
     function getDbStuff(){
-        axios.get("/chats.json").then((res) => {console.log(res); setData(res.data); return});
+        axios.get("/chats.json").then((res) => {setData(res.data); return});
         setDisplay(true)
     }
 

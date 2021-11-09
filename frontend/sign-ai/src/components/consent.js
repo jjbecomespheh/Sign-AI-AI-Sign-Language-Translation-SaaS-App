@@ -12,8 +12,8 @@ function Consent(){
                 <h3>Show a THUMBS UP if you consent</h3>
                 <h3>Show a THUMBS DOWN if you do not consent</h3>
                 <Button variant="contained" href="/tutorial">
-                Next
-      </Button>
+                    Next
+                </Button>
             </div>
             
         )
