@@ -5,38 +5,30 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import TodayIcon from '@mui/icons-material/Today';
-import MessageIcon from '@mui/icons-material/Message';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import { useHistory } from 'react-router-dom';
-import {Button} from '@material-ui/core';
 
 export default function NestedList(props) {
   const [openLayer1, setOpenLayer1] = React.useState(true);
-  const [openLayer2, setOpenLayer2] = React.useState(true);
   const [dataDict, setDataDict] = React.useState(false)
 
   React.useEffect(() =>{
-    dataDict == false ? createDataDict(props.data) : console.log("ok");
+    dataDict == false ? createDataDict(props.data): console.log("");
 
   },[dataDict]);
 
 
   function createDataDict(propsList){
-      if(propsList.length<2){
-          return {lol:"what"}
+      if(propsList.length<1){
+          return {ERROR:"No entries"}
       }
       var mydict = {}
       for(var datapoint of propsList){
           var created_at = datapoint.created_at.split('T')[0];
           var conversation_id = datapoint.conversation_id.toString() 
-          console.log("created at is ", created_at)
           if(mydict[created_at] === undefined){
             mydict[created_at] = {}
               mydict[created_at][conversation_id] = {index: datapoint.id}
@@ -60,8 +52,8 @@ export default function NestedList(props) {
 
   function CreateNestedList(args){
     const dataList = args.dataList
-    if(dataList.length <2){
-        return <div>Lol length is lesser than one</div>
+    if(dataList.length <1){
+        return <div>No entries</div>
     }
 
     return(

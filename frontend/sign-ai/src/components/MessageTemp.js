@@ -1,7 +1,7 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
-import { deepOrange } from "@material-ui/core/colors";
+import { lightGreen } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -47,24 +47,24 @@ const useStyles = makeStyles((theme) =>
         left: "-17px"
       }
     },
-    messageOrange: {
+    messageLightGreen: {
       position: "relative",
       marginRight: "20px",
       marginBottom: "10px",
       padding: "10px",
-      backgroundColor: "#f8e896",
+      backgroundColor: "#9ccc65",
       width: "60%",
       //height: "50px",
       textAlign: "left",
       font: "400 .9em 'Open Sans', sans-serif",
-      border: "1px solid #dfd087",
+      border: "1px solid #9ccc65",
       borderRadius: "10px",
       "&:after": {
         content: "''",
         position: "absolute",
         width: "0",
         height: "0",
-        borderTop: "15px solid #f8e896",
+        borderTop: "15px solid #9ccc65",
         borderLeft: "15px solid transparent",
         borderRight: "15px solid transparent",
         top: "0",
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) =>
         position: "absolute",
         width: "0",
         height: "0",
-        borderTop: "17px solid #dfd087",
+        borderTop: "17px solid #9ccc65",
         borderLeft: "16px solid transparent",
         borderRight: "16px solid transparent",
         top: "-1px",
@@ -96,9 +96,9 @@ const useStyles = makeStyles((theme) =>
       right: "5px"
     },
 
-    orange: {
-      color: theme.palette.getContrastText(deepOrange[500]),
-      backgroundColor: deepOrange[500],
+    lightGreen: {
+      color: theme.palette.getContrastText(lightGreen[500]),
+      backgroundColor: lightGreen[500],
       width: theme.spacing(4),
       height: theme.spacing(4)
     },
@@ -126,7 +126,7 @@ export const MessageLeft = (props) => {
       <div className={classes.messageRow}>
         <Avatar
           alt={displayName}
-          className={classes.orange}
+          className={classes.lightGreen}
           src={photoURL}
         ></Avatar>
         <div>
@@ -149,7 +149,7 @@ export const MessageRight = (props) => {
   const timestamp = props.timestamp ? props.timestamp : "";
   return (
     <div className={classes.messageRowRight}>
-      <div className={classes.messageOrange}>
+      <div className={classes.messageLightGreen}>
         <p className={classes.messageContent}>{message}</p>
         <div className={classes.messageTimeStampRight}>{timestamp}</div>
       </div>
