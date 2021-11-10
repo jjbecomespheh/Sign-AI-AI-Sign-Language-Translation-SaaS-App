@@ -37,20 +37,69 @@ Then('the page title should start with {string}', async function (searchTerm) {
 Given('I am on the chat history page', async function () {
     // Write code here that turns the phrase above into concrete actions
     await driver.get(url+'chat-history');
+    await driver.sleep(3*1000)
 
-  });
+});
 
-  When('I click on the button with date', async function () {
+When('I click on the button with date', async function () {
     // Write code here that turns the phrase above into concrete actions
     const chat_button = await driver.findElement(By.id("conv_id"));
     await chat_button.click();
-  });
+    await driver.sleep(3*1000)
+});
 
-  Then('i should be able to see the conversation history', async function () {
+Then('i should be able to see the conversation history', async function () {
     // Write code here that turns the phrase above into concrete actions
     expected_url = "messages";
-    
+
     actual_url = await driver.getCurrentUrl();
     actual_url = actual_url.split("/")[3]
     expect(actual_url).to.equal(expected_url);
-  });
+});
+
+Given('the user navigates to the translate page', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    driver.get(url+'translate');
+});
+
+When('he signs {string}', async function (string) {
+    // Write code here that turns the phrase above into concrete actions
+    await driver.sleep(6*1000)
+    if (string == "successfully"){
+        const correct_button = await driver.findElement(By.id("correct_btn"));
+
+        const expect_correct_button_tag_name = await correct_button.getTagName();
+        expect(expect_correct_button_tag_name).to.equal('button');
+
+        await correct_button.click();
+        await driver.switchTo().alert().accept(); //catch alert
+
+    } else if(string == "failed"){
+        const fail_button = await driver.findElement(By.id("sign_again_btn"));
+
+        const expect_fail_button_tag_name = await fail_button.getTagName();
+        expect(expect_fail_button_tag_name).to.equal('button');        
+
+        await fail_button.click();
+        await driver.switchTo().alert().accept(); //catch alert
+    }
+});
+
+Then('he should be notified', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    driver.get(url+'translate');
+});
+
+When('he clicks on the home page button',async function () {
+    // Write code here that turns the phrase above into concrete actions
+    const home_button = await driver.findElement(By.id("home_btn"));
+    await home_button.click()
+});
+
+Then('he should be redirected back to home page',async function () {
+    // Write code here that turns the phrase above into concrete actions
+    expected_home_url = 'http://localhost:3000/home';
+
+    actual_home_url = await driver.getCurrentUrl();
+    expect(actual_home_url).to.equal(expected_home_url);
+});

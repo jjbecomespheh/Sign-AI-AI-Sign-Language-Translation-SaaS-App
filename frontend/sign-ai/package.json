@@ -28,6 +28,7 @@
     "react-random-shapes": "^0.6.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-video-recorder": "^3.19.1",
     "react-webcam": "^6.0.0",
     "selenium-webdriver": "^4.0.0",
     "styled-components": "^5.3.1",
@@ -37,7 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cucumber-js src/features/selenium-test.feature",
+    "test": "cucumber-js src/features/translate.feature --format progress-bar --format html:./cucumber-report.html --publish",
     "eject": "react-scripts eject"
   },
   "proxy": "http://127.0.0.1:8000",
