@@ -75,7 +75,7 @@ export default function Message () {
         return(
             myMessages.map((messageObj) => {
                 return(<div>
-                {messageObj.sender == 'Me' ? 
+                {messageObj.sender == 'Police' ? 
             <MessageRight
                 message={messageObj.message}
                 photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
@@ -97,8 +97,10 @@ export default function Message () {
     return (
         <div className={classes.container}>
         <Paper className={classes.paper} zDepth={2}>
-          <Paper id="style-1" className={classes.messagesBody}>
-           {allMessages(message)}
+          <Paper id="style-1" className={classes.messagesBody} style={{ background: "#D3D3D3" }} >
+            <p>
+               {allMessages(message)}
+            </p>
           </Paper>
         </Paper>
       </div>
