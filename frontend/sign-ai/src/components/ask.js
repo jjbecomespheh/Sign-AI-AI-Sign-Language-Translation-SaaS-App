@@ -17,12 +17,6 @@ function Ask(){
 
     }
 
-    
-    function activateHome(){
-        //alert("You clicked Home!")
-        history.push('/')
-    }
-
 
     return(
         <div>
@@ -48,17 +42,14 @@ function Ask(){
                     style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
                     >Submit</Button>
             </div>
-                
 
             <div>
-                <Link to='/home'>
-                    <Button 
-                    onClick={activateHome} 
-                    style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px'}}
-                    >Back To Home</Button>
-                </Link>
-
+                Thumbs up if you understand the question!
             </div>
+
+
+                
+
         </div>
     )
 
