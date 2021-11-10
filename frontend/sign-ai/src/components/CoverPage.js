@@ -2,7 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import logo from '../logo.png'
-import background from "../placeholder.png";
+// import background from "../placeholder.png";
 import { useHistory } from "react-router";
 import "./coverPage.css";
 
@@ -15,7 +15,7 @@ function CoverPage(){
     }
         return(
             
-            <div style={{ backgroundImage: `url(${background})` }}>
+            <div>
                 <div className="intro">
                 <img className="photo" src={logo} alt="Logo"/>
                     <h2>HELLO! </h2>
