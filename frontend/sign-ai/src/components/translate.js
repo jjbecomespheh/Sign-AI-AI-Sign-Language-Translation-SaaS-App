@@ -107,8 +107,8 @@ function Translate(){
                         <Button 
                         id="home_btn"
                         onClick={activateHome} 
-                        style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px'}}
-                        >Back To Home</Button>
+                        style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px' }}
+                        >Home</Button>
                     </Link>
                 </div>
             </div>
