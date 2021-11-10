@@ -25,7 +25,7 @@ function Home(){
     }
    
         return(
-            <div style={{marginTop: '70px'}}>
+            <div style={{marginTop: '150px'}}>
                 {/* <h3> Welcome to Sign.ai!</h3>
                 <h3>To start using Sign.ai</h3>
                 <h3>Click on Cover page button</h3> */}

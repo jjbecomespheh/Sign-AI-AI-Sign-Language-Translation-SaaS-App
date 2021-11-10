@@ -36,7 +36,7 @@ export default function MenuAppBar() {
       
       <AppBar 
         position="static"
-        style={{ background: '#2E3B55' }}
+        style={{ background: '#2c7973' }}
       >
         <Toolbar>
           <IconButton

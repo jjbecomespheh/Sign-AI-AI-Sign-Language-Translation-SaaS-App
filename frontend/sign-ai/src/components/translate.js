@@ -5,6 +5,8 @@ import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import CallEndIcon from '@mui/icons-material/CallEnd';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -48,15 +50,10 @@ function Translate(){
             <div>
                 <div width={'300px'} height={'300px'}
                     style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
-                    {/* <VideoRecorder
-                        onRecordingComplete={videoBlob => {
-                        // Do something with the video...
-                        console.log('videoBlob', videoBlob)
-                        }}
-                    /> */}
+                    
                     <VideoRecorder
                         isFlipped={false}
-                        // isOnInitially
+                        //isOnInitially
                         countdownTime={0}
                         mimeType="video/webm;codecs=vp8,opus"
                         constraints={{
@@ -76,29 +73,30 @@ function Translate(){
                         />
                 </div>
                 
-                <div>
-                    <TextField
-                        id="translation"
-                        label="Translating.."
-                        multiline
-                        rows={4}
-                        hintText="Translating Sign language to Text..."
-                        style={{width: 300, height: 50, alignContent: "center", margin: '15px'}}
-                        />
+                <div style={{
+                            position: 'absolute', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '80px'}}>
+                    <Button
+                        id="translated_text"
+                        style={{width: 363, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
+                        
+                        >Translating...</Button>
                 </div>
 
                 <div>
-                    <Button 
-                        id="correct_btn"
-                        onClick={activateNo} 
-                        startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
-                        >Sign again</Button>
+                    
                     <Button 
                         id="sign_again_btn"
+                        onClick={activateNo} 
+                        startIcon={<ThumbDownIcon />} 
+                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
+                        >Sign again</Button>
+                    <Button 
+                        id="correct_btn"
                         onClick={activateYes} 
                         startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
                         >Correct</Button>
                 </div>
 
@@ -107,8 +105,17 @@ function Translate(){
                         <Button 
                         id="home_btn"
                         onClick={activateHome} 
-                        style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px' }}
-                        >Home</Button>
+                        startIcon={<CallEndIcon />}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px' ,marginTop: '4px'}}
+                        >End Convo</Button>
+                    </Link>
+                    <Link to='/ask'>
+                        <Button 
+                        id="ask_btn"
+                        onClick={activateHome} 
+                        startIcon={<QuestionAnswerIcon />}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '4px' }}
+                        >Ask Question</Button>
                     </Link>
                 </div>
             </div>
