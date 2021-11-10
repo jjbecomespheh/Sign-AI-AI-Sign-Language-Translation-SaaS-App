@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -15,6 +14,8 @@ import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
+import { TextField } from "@mui/material";
+
 // import { TextField } from "@mui/material";
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import VideoRecorder from 'react-video-recorder'

@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core'
-import { TextField } from "@mui/material";
+import { containerClasses, TextField } from "@mui/material";
 import {useHistory} from 'react-router-dom';
+import axios from "axios";
+
 
 function Ask(){
     const history = useHistory()
-    
-    function askButton(){
+
+    const [question, setQuestion] = useState('');
+
+    const askButton = () => {
+        axios.post('/chats.json',{Officer: question})
         alert("You submitted question!")
+
     }
 
+    
     function activateHome(){
         //alert("You clicked Home!")
         history.push('/')
@@ -29,6 +36,8 @@ function Ask(){
                     rows={4}
                     hintText="Enter Question Here..."
                     style={{width: 300, height: 50, alignContent: "center", margin: '15px'}}
+                    value={question}
+                    onChange={(event) => {setQuestion(event.target.value)}}
                     />
                 
             </div>
