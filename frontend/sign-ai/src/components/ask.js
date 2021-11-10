@@ -24,11 +24,11 @@ function Ask(){
             <div>
                 <TextField
                     id="asking"
-                    label="Ask Away!!"
+                    label="Questions for Deaf/Mute Person:"
                     multiline
                     rows={4}
                     hintText="Enter Question Here..."
-                    style={{width: 300, height: 50, alignContent: "center", margin: '15px'}}
+                    style={{width: 350, height: 50, alignContent: "center", margin: '15px', fontSize: '20'}}
                     />
                 
             </div>
