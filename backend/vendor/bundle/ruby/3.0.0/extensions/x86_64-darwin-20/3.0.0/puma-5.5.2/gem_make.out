@@ -1,0 +1,32 @@
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/3.0.2_1/lib/ruby/3.0.0 -r ./siteconf20211111-85612-mmdckw.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+checking for DTLS_method() in openssl/ssl.h... yes
+checking for TLS_server_method() in openssl/ssl.h... yes
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... yes
+checking for X509_STORE_up_ref()... yes
+checking for SSL_CTX_set_ecdh_auto(NULL, 0) in openssl/ssl.h... yes
+checking for Random.bytes... yes
+creating Makefile
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make DESTDIR\= clean
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make DESTDIR\=
+compiling http11_parser.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling mini_ssl.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling puma_http11.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+linking shared-object puma/puma_http11.bundle
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20211111-85612-f6peqf/puma

@@ -8,6 +8,8 @@ import Consent from './components/consent'
 import Tutorial from './components/tutorial'
 import Home from './components/Home'
 import CoverPage from './components/CoverPage'
+import Ask from './components/ask';
+
 
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
           <Route path = '/tutorial' component={Tutorial}/>
           <Route path = '/translate' component={Translate}/>
           <Route path = '/chat-history' component={ChatHistoryNestedList}/>
-          
+          <Route path = '/ask' component={Ask}/>
+
         </Switch>
       </BrowserRouter>
     </div>

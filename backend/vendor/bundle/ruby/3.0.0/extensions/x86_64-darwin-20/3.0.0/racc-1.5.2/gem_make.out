@@ -1,0 +1,18 @@
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/racc-1.5.2/ext/racc/cparse
+/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/3.0.2_1/lib/ruby/3.0.0 -r ./siteconf20211111-85612-a24wb1.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/racc-1.5.2/ext/racc/cparse
+make DESTDIR\= clean
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/racc-1.5.2/ext/racc/cparse
+make DESTDIR\=
+compiling cparse.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/racc-1.5.2/ext/racc/cparse
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20211111-85612-cwm0xu/racc

@@ -25,22 +25,27 @@ function Home(){
     }
    
         return(
-            <div>
-                <Button 
-                    onClick={goChatHistory} 
-                    startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
-                    >Chat History</Button>
-                <Button 
-                    onClick={goTranslate} 
-                    startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
-                    >Translate</Button>
+            <div style={{marginTop: '150px'}}>
+                {/* <h3> Welcome to Sign.ai!</h3>
+                <h3>To start using Sign.ai</h3>
+                <h3>Click on Cover page button</h3> */}
                 <Button 
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '10px', borderRadius: '15px', margin: '2px'}}
+                style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
                 >Cover Page</Button>
+                
+                <Button 
+                    onClick={goTranslate} 
+                    startIcon={<TranslateIcon />} 
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    >Translate</Button>
+                
+                <Button 
+                    onClick={goChatHistory} 
+                    startIcon={<HistoryIcon />}
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    >Chat History</Button>
             </div>
         )
 }

@@ -11,6 +11,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import logo from '../logo.png'
+console.log(logo); // /logo.84287d09.png
+
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
@@ -33,7 +36,7 @@ export default function MenuAppBar() {
       
       <AppBar 
         position="static"
-        style={{ background: '#2E3B55' }}
+        style={{ background: '#2c7973' }}
       >
         <Toolbar>
           <IconButton
@@ -50,6 +53,7 @@ export default function MenuAppBar() {
           </Typography>
           {auth && (
             <div>
+              <img className="photo" src={logo} alt="Logo"/>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -78,6 +82,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
+              <img className="photo" src={logo} alt="Logo"/>
             </div>
           )}
         </Toolbar>

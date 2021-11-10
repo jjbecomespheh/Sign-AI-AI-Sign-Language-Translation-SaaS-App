@@ -26,3 +26,8 @@ Just change the gemfile to the version you used
 `cd frontend/sign-ai && npm install`   
 `npm start`    
 the frontend side will be started on localhost:3000
+
+## To run the cucumber test cases
+`cd frontend/sign-ai && npm test`
+
+If it fails, run the second time. Make sure you run `npm install` after you do a pull
