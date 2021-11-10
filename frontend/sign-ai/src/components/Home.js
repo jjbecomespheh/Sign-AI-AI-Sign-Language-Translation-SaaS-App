@@ -25,25 +25,26 @@ function Home(){
     }
    
         return(
-            <div>
-                <h3> Welcome to Sign.ai!</h3>
-                <h3>To start using Sign.ai, Click on Cover page button</h3>
+            <div style={{marginTop: '70px'}}>
+                {/* <h3> Welcome to Sign.ai!</h3>
+                <h3>To start using Sign.ai</h3>
+                <h3>Click on Cover page button</h3> */}
                 <Button 
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '10px', borderRadius: '15px', margin: '2px', width: '275px', height: '67px', position:'relative'}}
+                style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '15px', borderRadius: '12px', margin: '2px', width: '275px', height: '60px', position:'relative'}}
                 >Cover Page</Button>
                 
                 <Button 
                     onClick={goTranslate} 
                     startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px', width: '275px', height: '67px', position:'relative'}}
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
                     >Translate</Button>
                 
                 <Button 
                     onClick={goChatHistory} 
                     startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px', width: '275px', height: '67px', position:'relative'}}
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
                     >Chat History</Button>
             </div>
         )
