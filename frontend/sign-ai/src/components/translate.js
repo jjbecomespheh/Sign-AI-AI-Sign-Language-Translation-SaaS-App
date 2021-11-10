@@ -82,7 +82,8 @@ function Translate(){
                         
                         >Translating...</Button>
                 </div>
-
+                
+                <div>
                 <div>
                     
                     <Button 
@@ -117,6 +118,9 @@ function Translate(){
                         >Ask Question</Button>
                     </Link>
                 </div>
+                </div>
+
+                
             </div>
         )
 }
