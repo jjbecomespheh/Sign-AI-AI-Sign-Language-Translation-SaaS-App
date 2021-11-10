@@ -27,21 +27,21 @@ function Home(){
         return(
             <div>
                 <h3> Welcome to SignOn.ai!</h3>
-                <h3>To start using SIgnOn.ai, Click on Cover page button below</h3>
+                <h3>To start using SIgnOn.ai, Click on Cover page button</h3>
                 <Button 
                     onClick={goChatHistory} 
                     startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px', width: '275px', height: '67px', position:'relative'}}
                     >Chat History</Button>
                 <Button 
                     onClick={goTranslate} 
                     startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
+                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px', width: '275px', height: '67px', position:'relative'}}
                     >Translate</Button>
                 <Button 
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '10px', borderRadius: '15px', margin: '2px'}}
+                style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '10px', borderRadius: '15px', margin: '2px', width: '275px', height: '67px', position:'relative'}}
                 >Cover Page</Button>
             </div>
         )
