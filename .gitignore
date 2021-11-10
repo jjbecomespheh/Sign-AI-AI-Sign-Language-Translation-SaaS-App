@@ -1,1 +1,3 @@
 cloud_sql_proxy
+/frontend/node_modules
+/fontend/sign-ai/node_modules
