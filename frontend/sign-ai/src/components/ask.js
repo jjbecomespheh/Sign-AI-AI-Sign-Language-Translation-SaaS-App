@@ -41,10 +41,12 @@ function Ask(){
             </div>
 
             <div>
-                <Button 
-                    onClick={askButton} 
-                    style={{backgroundColor: '#ff4747', width: 200, color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '60px', height: '50px'}}
-                    >Submit</Button>
+                <Link to='/translate'>
+                    <Button 
+                        onClick={askButton} 
+                        style={{backgroundColor: '#ff4747', width: 200, color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '60px', height: '50px'}}
+                        >Submit</Button>
+                </Link>
             </div>
 
 
