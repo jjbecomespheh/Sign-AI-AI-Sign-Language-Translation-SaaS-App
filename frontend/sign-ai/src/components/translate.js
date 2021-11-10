@@ -88,16 +88,17 @@ function Translate(){
 
                 <div>
                     <Button 
-                        id="correct_btn"
+                        
+                        id="sign_again_btn"
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        style={{backgroundColor: '#ff4747', width: '150px' , color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
                         >Sign again</Button>
                     <Button 
-                        id="sign_again_btn"
+                        id="correct_btn"
                         onClick={activateYes} 
                         startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        style={{backgroundColor: '#2c7973', width: '150px' , color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
                         >Correct</Button>
                 </div>
 
@@ -106,8 +107,8 @@ function Translate(){
                         <Button 
                         id="home_btn"
                         onClick={activateHome} 
-                        style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px' }}
-                        >Home</Button>
+                        style={{backgroundColor: '#f7b34d', width: '300px' , color: '#000000',marginTop: '50px', borderRadius: '15px', margin: '10px' }}
+                        >Back to Home</Button>
                     </Link>
                 </div>
             </div>
