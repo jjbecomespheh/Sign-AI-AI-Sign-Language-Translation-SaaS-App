@@ -26,6 +26,8 @@ function Home(){
    
         return(
             <div>
+                <h3> Welcome to SignOn.ai!</h3>
+                <h3>To start using SIgnOn.ai, Click on Cover page button below</h3>
                 <Button 
                     onClick={goChatHistory} 
                     startIcon={<HistoryIcon />}
