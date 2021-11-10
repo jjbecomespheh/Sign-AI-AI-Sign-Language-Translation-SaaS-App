@@ -32,7 +32,7 @@ function Home(){
                 <Button 
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#4C7031', color: '#FFFFFF',marginTop: '15px', borderRadius: '12px', margin: '2px', width: '275px', height: '60px', position:'relative'}}
+                style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
                 >Cover Page</Button>
                 
                 <Button 
