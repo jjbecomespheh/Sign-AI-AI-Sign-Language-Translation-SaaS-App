@@ -5,9 +5,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-// import logo2 from '../logo.png'
+import logo2 from '../logo2.png'
+import "./header.css";
 
-// console.log(logo2); // /logo.84287d09.png
+console.log(logo2); // /logo.84287d09.png
 class Header extends React.Component{
     render(){
         return (
@@ -27,9 +28,9 @@ class Header extends React.Component{
                         
                         <MenuIcon />
                     </IconButton>
-                    {/* <img className="photo" src={logo} alt="Logo"/> */}
+                    
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Sign.ai
+                    <img className="photo2" src={logo2} alt="Logo"/>
                     </Typography>
                 </Toolbar>
             </AppBar>
