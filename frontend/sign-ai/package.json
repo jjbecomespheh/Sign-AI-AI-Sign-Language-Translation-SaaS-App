@@ -19,6 +19,7 @@
     "i": "^0.3.7",
     "material-ui": "^0.20.2",
     "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-cam": "^1.1.11",
     "react-camera-pro": "^1.1.0",
@@ -31,7 +32,7 @@
     "react-video-recorder": "^3.19.1",
     "react-webcam": "^6.0.0",
     "selenium-webdriver": "^4.0.0",
-    "styled-components": "^5.3.1",
+    "styled-components": "^5.3.3",
     "use-camera": "^0.2.2",
     "web-vitals": "^1.0.1"
   },

@@ -21,6 +21,7 @@ import VideoRecorder from 'react-video-recorder'
 
 
 function Translate(){
+
     const history = useHistory()
     const videoConstraints = {
         facingMode: "user"
@@ -46,14 +47,34 @@ function Translate(){
             <div>
                 <div width={'300px'} height={'300px'}
                     style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
-                    <VideoRecorder
+                    {/* <VideoRecorder
                         onRecordingComplete={videoBlob => {
                         // Do something with the video...
                         console.log('videoBlob', videoBlob)
                         }}
-                    />
+                    /> */}
+                    <VideoRecorder
+                        isFlipped={false}
+                        // isOnInitially
+                        countdownTime={0}
+                        mimeType="video/webm;codecs=vp8,opus"
+                        constraints={{
+                            audio: true,
+                            video: {
+                            width: { exact: 480, ideal: 480 },
+                            height: { exact: 640, ideal: 640 },
+                            aspectRatio: { exact: 0.7500000001, ideal: 0.7500000001 },
+                            resizeMode: "crop-and-scale"
+                            }
+                        }}
+                        onRecordingComplete={(videoBlob) => {
+                            // Do something with the video...
+                            console.log("videoBlob", videoBlob);
+                            //push("/videoPreview", { videoBlob });
+                        }}
+                        />
                 </div>
-
+                
                 <div>
                     <TextField
                         id="translation"
