@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -17,11 +16,8 @@ import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
-<<<<<<< HEAD
-import TextField from '@material-ui/core/TextField';
-=======
+import { TextField } from "@mui/material";
 // import { TextField } from "@mui/material";
->>>>>>> 6bad94d1140ac491c343fcd29a470d264ba1bd79
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import VideoRecorder from 'react-video-recorder'
 
@@ -86,7 +82,8 @@ function Translate(){
                         
                         >Translating...</Button>
                 </div>
-
+                
+                <div>
                 <div>
                     
                     <Button 
@@ -121,6 +118,9 @@ function Translate(){
                         >Ask Question</Button>
                     </Link>
                 </div>
+                </div>
+
+                
             </div>
         )
 }
