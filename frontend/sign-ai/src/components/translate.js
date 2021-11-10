@@ -64,7 +64,7 @@ function Translate(){
                             width: { exact: 480, ideal: 480 },
                             height: { exact: 640, ideal: 640 },
                             aspectRatio: { exact: 0.7500000001, ideal: 0.7500000001 },
-                            resizeMode: "crop-and-scale"
+                            resizeMode: "fix"
                             }
                         }}
                         onRecordingComplete={(videoBlob) => {
