@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core'
+import { Button } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Webcam from "react-webcam";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import CallEndIcon from '@mui/icons-material/CallEnd';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,10 +17,17 @@ import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
+<<<<<<< HEAD
 import TextField from '@material-ui/core/TextField';
+=======
+// import { TextField } from "@mui/material";
+>>>>>>> 6bad94d1140ac491c343fcd29a470d264ba1bd79
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
+import VideoRecorder from 'react-video-recorder'
+
 
 function Translate(){
+
     const history = useHistory()
     const videoConstraints = {
         facingMode: "user"
@@ -41,43 +51,74 @@ function Translate(){
    
         return(
             <div>
-                <div>
-                    <video ref={ref} autoPlay width={'300px'} height={'300px'}
-                        style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}
-                    />
-                </div>
-
-                <div>
-                    <TextField
-                        id="translation"
-                        label="Translating.."
-                        multiline
-                        rows={4}
-                        hintText="Translating Sign language to Text..."
-                        style={{width: 300, height: 50, alignContent: "center", margin: '15px'}}
-                        />
+                <div width={'300px'} height={'300px'}
+                    style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
                     
+                    <VideoRecorder
+                        isFlipped={false}
+                        //isOnInitially
+                        countdownTime={0}
+                        mimeType="video/webm;codecs=vp8,opus"
+                        constraints={{
+                            audio: true,
+                            video: {
+                            width: { exact: 480, ideal: 480 },
+                            height: { exact: 640, ideal: 640 },
+                            aspectRatio: { exact: 0.7500000001, ideal: 0.7500000001 },
+                            resizeMode: "crop"
+                            }
+                        }}
+                        onRecordingComplete={(videoBlob) => {
+                            // Do something with the video...
+                            console.log("videoBlob", videoBlob);
+                            //push("/videoPreview", { videoBlob });
+                        }}
+                        />
+                </div>
+                
+                <div style={{
+                            position: 'absolute', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '80px'}}>
+                    <Button
+                        id="translated_text"
+                        style={{width: 363, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
+                        
+                        >Translating...</Button>
                 </div>
 
                 <div>
+                    
                     <Button 
+                        id="sign_again_btn"
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
                         >Sign again</Button>
                     <Button 
+                        id="correct_btn"
                         onClick={activateYes} 
                         startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#008000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
                         >Correct</Button>
                 </div>
 
                 <div>
                     <Link to='/home'>
                         <Button 
+                        id="home_btn"
                         onClick={activateHome} 
-                        style={{backgroundColor: '#67549c', color: '#FFFFFF',marginTop: '50px', borderRadius: '15px', margin: '10px'}}
-                        >Back To Home</Button>
+                        startIcon={<CallEndIcon />}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px' ,marginTop: '4px'}}
+                        >End Convo</Button>
+                    </Link>
+                    <Link to='/ask'>
+                        <Button 
+                        id="ask_btn"
+                        onClick={activateHome} 
+                        startIcon={<QuestionAnswerIcon />}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '4px' }}
+                        >Ask Question</Button>
                     </Link>
                 </div>
             </div>

@@ -1,0 +1,89 @@
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/sqlite3-1.4.2/ext/sqlite3
+/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/3.0.2_1/lib/ruby/3.0.0 -r ./siteconf20211111-85612-195q64.rb extconf.rb
+checking for sqlite3.h... yes
+checking for pthread_create() in -lpthread... yes
+checking for -ldl... yes
+checking for sqlite3_libversion_number() in -lsqlite3... yes
+checking for rb_proc_arity()... yes
+checking for rb_integer_pack()... yes
+checking for sqlite3_initialize()... yes
+checking for sqlite3_backup_init()... yes
+checking for sqlite3_column_database_name()... yes
+checking for sqlite3_enable_load_extension()... yes
+checking for sqlite3_load_extension()... yes
+checking for sqlite3_open_v2()... yes
+checking for sqlite3_prepare_v2()... yes
+checking for sqlite3_int64 in sqlite3.h... yes
+checking for sqlite3_uint64 in sqlite3.h... yes
+creating Makefile
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/sqlite3-1.4.2/ext/sqlite3
+make DESTDIR\= clean
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/sqlite3-1.4.2/ext/sqlite3
+make DESTDIR\=
+compiling aggregator.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling backup.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling database.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+database.c:38:9: warning: unused variable 'flags' [-Wunused-variable]
+  VALUE flags;
+        ^
+database.c:109:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+  return INT2NUM((long)sqlite3_total_changes(ctx->db));
+         ~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+database.c:150:67: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+  VALUE result = rb_funcall(handle, rb_intern("call"), 1, INT2NUM((long)count));
+                                                          ~~~~~~~ ^~~~~~~~~~~
+database.c:395:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+  return INT2NUM((long)sqlite3_errcode(ctx->db));
+         ~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+database.c:726:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
+                                                        ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:405:9: note: passing argument to parameter 'callback' here
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+        ^
+database.c:726:81: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
+                                                                                ^~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:406:9: note: passing argument to parameter here
+  void *,                                    /* 1st argument to callback */
+        ^
+database.c:728:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:405:9: note: passing argument to parameter 'callback' here
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+        ^
+database.c:728:84: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
+                                                                                   ^~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:406:9: note: passing argument to parameter here
+  void *,                                    /* 1st argument to callback */
+        ^
+9 warnings generated.
+compiling exception.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling sqlite3.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+1 warning generated.
+compiling statement.c
+warning: unknown warning option '-Wmisleading-indentation'; did you mean '-Wbinding-in-condition'? [-Wunknown-warning-option]
+statement.c:351:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+  return INT2NUM((long)sqlite3_column_count(ctx->st));
+         ~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+statement.c:400:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+  return INT2NUM((long)sqlite3_bind_parameter_count(ctx->st));
+         ~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+linking shared-object sqlite3/sqlite3_native.bundle
+
+current directory: /Users/jjbecomespheh/SUTD/Term 6/SDS/1d-final-project-team-4/backend/vendor/bundle/ruby/3.0.0/gems/sqlite3-1.4.2/ext/sqlite3
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20211111-85612-p722vy/sqlite3

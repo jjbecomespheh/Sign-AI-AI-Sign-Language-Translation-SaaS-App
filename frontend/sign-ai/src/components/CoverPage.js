@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import logo from '../logo.png'
+// import background from "../placeholder.png";
 import { useHistory } from "react-router";
 import "./coverPage.css";
 
@@ -23,9 +24,9 @@ function CoverPage(){
                     <h3>After reading this Please show a thumbs up to go on to the tutorial</h3>
                     <Button 
                     className="NextHome" 
-                    variant="contained" 
-                    onClick={()=> onClick()}
-                    size="small" >
+                    variant="contained"
+                    style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
+                    onClick={()=> onClick()}> 
                         Next
                     </Button>
                 </div>
