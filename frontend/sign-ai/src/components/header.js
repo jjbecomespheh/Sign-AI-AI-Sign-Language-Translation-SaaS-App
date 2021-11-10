@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo2 from '../logo2.png'
 
+
 console.log(logo2); // /logo.84287d09.png
 class Header extends React.Component{
     render(){
