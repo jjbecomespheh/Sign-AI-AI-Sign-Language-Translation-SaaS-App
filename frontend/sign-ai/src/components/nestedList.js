@@ -99,7 +99,7 @@ export default function NestedList(props) {
           <ListItemIcon>
             <TodayIcon />
           </ListItemIcon>
-          <ListItemText primary={key.toString()} />
+          <ListItemText primary={key.toString()} id="chat-history-date"/>
           {openLayer1 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         {Object.entries(value).map(([conv_id,indices]) => {
@@ -136,7 +136,7 @@ export default function NestedList(props) {
                       <ListItemIcon>
                         <QuestionAnswerIcon />
                       </ListItemIcon>
-                      <ListItemText primary={conv_id.toString()} />
+                      <ListItemText primary={conv_id.toString()} id="conv_id"/>
                   </ListItemButton>
                   </List>
                 </Collapse>

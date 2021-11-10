@@ -37,7 +37,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cucumber-js src/features/*",
+    "test": "cucumber-js src/features/selenium-test.feature",
     "eject": "react-scripts eject"
   },
   "proxy": "http://127.0.0.1:8000",
