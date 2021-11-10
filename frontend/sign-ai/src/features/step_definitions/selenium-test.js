@@ -66,28 +66,33 @@ When('he signs {string}', async function (string) {
     // Write code here that turns the phrase above into concrete actions
     await driver.sleep(6*1000)
     if (string == "successfully"){
-        const correct_button = await driver.findElement(By.id("correct_btn"));
+        const translate_button = await driver.findElement(By.id("correct_btn"));
 
-        const expect_correct_button_tag_name = await correct_button.getTagName();
+        const expect_correct_button_tag_name = await translate_button.getTagName();
         expect(expect_correct_button_tag_name).to.equal('button');
 
-        await correct_button.click();
-        await driver.switchTo().alert().accept(); //catch alert
-
     } else if(string == "failed"){
-        const fail_button = await driver.findElement(By.id("sign_again_btn"));
+        const translate_button = await driver.findElement(By.id("sign_again_btn"));
 
-        const expect_fail_button_tag_name = await fail_button.getTagName();
+        const expect_fail_button_tag_name = await translate_button.getTagName();
         expect(expect_fail_button_tag_name).to.equal('button');        
-
-        await fail_button.click();
-        await driver.switchTo().alert().accept(); //catch alert
     }
 });
 
-Then('he should be notified', async function () {
+Then('he should be notified of {string} translation', async function (string) {
     // Write code here that turns the phrase above into concrete actions
-    driver.get(url+'translate');
+
+    if(string == "successful"){
+        const translate_button = await driver.findElement(By.id("correct_btn"));
+        await translate_button.click();
+        await driver.switchTo().alert().accept(); //catch alert
+    }else if (string == "failed"){
+        const translate_button = await driver.findElement(By.id("sign_again_btn"));
+        await translate_button.click();
+        await driver.switchTo().alert().accept(); //catch alert
+    }
+    
+    driver.sleep(6*1000)
 });
 
 When('he clicks on the home page button',async function () {
