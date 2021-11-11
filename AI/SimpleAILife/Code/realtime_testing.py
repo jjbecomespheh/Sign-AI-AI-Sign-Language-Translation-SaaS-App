@@ -7,7 +7,6 @@ from folder_setup import *
 from visualization import prob_viz,colors
 
 
-print("OEWUHFIUWEHFIUWEFIUEWBFIWEBFEWJHFBWEKFHBEWFHEWBFHWE")
 sequence = []
 sentence = []
 threshold = 0.8
@@ -24,12 +23,8 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
 
 
         image, results = mediapipe_detection(frame, holistic)
-        # print(results, "efiewofijweofijwoifwjef")
-        # print("HELLOOOOOO")
-        
-
+        # print(results)
         draw_styled_landmarks(image, results)
-        
 
         keypoints = extract_keypoints(results)
         sequence.append(keypoints)
