@@ -4,15 +4,19 @@ import { Button } from '@material-ui/core'
 import { containerClasses, TextField } from "@mui/material";
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
+import {store, useGlobalState} from 'state-pool';
 
 
 function Ask(){
     const history = useHistory()
+    const [conversation_id] = useGlobalState("conversation_id");
 
     const [question, setQuestion] = useState('');
 
     const askButton = () => {
-        axios.post('/chats.json',{Officer: question})
+
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+        // alert(conversation_id)
 
     }
 
@@ -42,6 +46,7 @@ function Ask(){
             <div>
                 <Link to='/translate'>
                     <Button 
+                        id = "ask_submit"
                         onClick={askButton} 
                         style={{backgroundColor: '#ff4747', width: 200, color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '60px', height: '50px'}}
                         >Submit</Button>
