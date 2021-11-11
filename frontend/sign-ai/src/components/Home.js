@@ -35,21 +35,27 @@ function Home(){
                 <h3>To start using Sign.ai</h3>
                 <h3>Click on Cover page button</h3> */}
                 <Button 
+                className="NextHome" 
+                variant="contained"
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
+                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
                 >Cover Page</Button>
                 
                 <Button 
+                    className="NextHome" 
+                    variant="contained"
                     onClick={goTranslate} 
                     startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
-                    >Translate</Button>
+                    style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    >New Conversation</Button>
                 
                 <Button 
+                    className="NextHome" 
+                    variant="contained"
                     onClick={goChatHistory} 
                     startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#4C7031', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
                     >Chat History</Button>
             </div>
         )

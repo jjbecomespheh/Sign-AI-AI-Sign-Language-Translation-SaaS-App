@@ -17,11 +17,22 @@ function CoverPage(){
             
             <div>
                 <div className="intro">
-                <img className="photo" src={logo} alt="Logo"/>
-                    <h2>HELLO! </h2>
-                    <h3>We will be using SignOn.ai for effective communication between you and our HomeTeam Officer!</h3>
-                    <h3>This will be done via a transcription service through the recording of your signing.</h3>
-                    <h3>After reading this Please show a thumbs up to go on to the tutorial</h3>
+                <img className="photo" src={logo} alt="Logo" style={{marginTop: '10px'}}/>
+                    {/* <h2>Hi! </h2> */}
+                    
+                    <div style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '40px'}}>
+                    <Button
+                        id="translated_text"
+                        className="NextHome" 
+                        variant="contained"
+                        style={{width: 350, height: 250, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}
+                        
+                        >We will be using Sign.ai for effective communication between you and our HomeTeam Officer! This will be done via a transcription service through the recording of your signing.</Button>
+                </div>
+
                     <Button 
                     className="NextHome" 
                     variant="contained"

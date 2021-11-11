@@ -30,7 +30,7 @@ class Header extends React.Component{
                     </IconButton>
                     
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} position='relative'>
-                    <img className="photo2" src={logo2} alt="Logo"/> 
+                    <img className="photo2" src={logo2} alt="Logo"/>
                     </Typography>
                 </Toolbar>
             </AppBar>
