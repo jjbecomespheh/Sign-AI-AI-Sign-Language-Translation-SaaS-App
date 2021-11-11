@@ -5,6 +5,7 @@ import { Paper } from "@material-ui/core";
 import {useParams} from 'react-router-dom';
 import {MessageLeft} from './MessageTemp';
 import {MessageRight} from './MessageTemp';
+import ListSubheader from '@mui/material/ListSubheader';
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -30,15 +31,22 @@ const useStyles = makeStyles((theme) =>
             width: "100vw",
             height: "100vh",
             display: "flex",
+            flexFlow: "column",
             alignItems: "center",
             justifyContent: "center"
             },
             messagesBody: {
-            width: "calc( 100% - 20px )",
+            width: "calc( 100% - 30px )",
             margin: 10,
             overflowY: "scroll",
-            height: "calc( 100% - 80px )"
-            }
+            height: "calc( 100% - 100px )"
+            },
+            heading: {
+                display: "flex",
+                alignItems: "top",
+                justifyContent: "center"
+                },
+
         })
     );
 
@@ -75,7 +83,7 @@ export default function Message () {
         return(
             myMessages.map((messageObj) => {
                 return(<div>
-                {messageObj.sender == 'Me' ? 
+                {messageObj.sender == 'Police' ? 
             <MessageRight
                 message={messageObj.message}
                 photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
@@ -96,11 +104,18 @@ export default function Message () {
     
     return (
         <div className={classes.container}>
-        <Paper className={classes.paper} zDepth={2}>
-          <Paper id="style-1" className={classes.messagesBody}>
-           {allMessages(message)}
-          </Paper>
-        </Paper>
+            <ListSubheader component="div" id="nested-list-subheader">
+                <h2 className={classes.heading} styles={{fontFamily: "Audrey", bgcolor: 'background.radio'}}>
+                    Conversation
+                </h2>
+            </ListSubheader>
+            <Paper className={classes.paper} zDepth={2}>
+                <Paper id="style-1" className={classes.messagesBody} style={{ background: "#D3D3D3" }} >
+                    <p>
+                    {allMessages(message)}
+                    </p>
+                </Paper>
+            </Paper>
       </div>
     )
 

@@ -32,14 +32,16 @@
     "react-video-recorder": "^3.19.1",
     "react-webcam": "^6.0.0",
     "selenium-webdriver": "^4.0.0",
+    "state-pool": "^0.6.0",
     "styled-components": "^5.3.3",
     "use-camera": "^0.2.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cucumber-js src/features/translate.feature --format progress-bar --format html:./cucumber-report.html --publish",
+    "test": "cucumber-js src/features/ask.feature --format progress-bar --format html:./cucumber-report.html --publish",
     "eject": "react-scripts eject"
   },
   "proxy": "http://127.0.0.1:8000",
