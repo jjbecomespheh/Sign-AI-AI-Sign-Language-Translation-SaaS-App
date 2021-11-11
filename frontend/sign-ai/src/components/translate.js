@@ -22,6 +22,7 @@ import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 
 
+
 function Translate(){
 
     const history = useHistory()
@@ -47,7 +48,7 @@ function Translate(){
    
         return(
             <div>
-                <div width={'300px'} height={'300px'}
+                <div width={'300px'} height={'900px'}
                     style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
                     
                     <VideoRecorder
@@ -55,27 +56,28 @@ function Translate(){
                         //isOnInitially
                         countdownTime={0}
                         mimeType="video/webm;codecs=vp8,opus"
-                        constraints={{
-                            audio: true,
-                            video: {
-                            width: { exact: 480, ideal: 480 },
-                            height: { exact: 640, ideal: 640 },
-                            aspectRatio: { exact: 0.7500000001, ideal: 0.7500000001 },
-                            resizeMode: "crop"
-                            }
-                        }}
+                        // constraints={{
+                        //     audio: true,
+                        //     video: {
+                        //     width: { exact: 480, ideal: 480 },
+                        //     height: { exact: 940, ideal: 940 },
+                        //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
+                        //     }
+                        //}}
                         onRecordingComplete={(videoBlob) => {
                             // Do something with the video...
                             console.log("videoBlob", videoBlob);
                             //push("/videoPreview", { videoBlob });
+                        
                         }}
+                        style={{width: 300}}
                         />
                 </div>
                 
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '80px'}}>
+                            marginTop: '130px'}}>
                     <Button
                         id="translated_text"
                         style={{width: 363, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
@@ -119,8 +121,6 @@ function Translate(){
                     </Link>
                 </div>
                 </div>
-
-                
             </div>
         )
 }
