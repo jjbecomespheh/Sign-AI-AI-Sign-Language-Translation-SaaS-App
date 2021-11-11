@@ -17,9 +17,9 @@ class Header extends React.Component{
             
             <AppBar 
                 position="static"
-                style={{ background: '#4C7031'}}>
+                style={{ background: '#2c7973'}}>
                 <Toolbar>
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         edge="start"
                         color="primary"
@@ -27,10 +27,10 @@ class Header extends React.Component{
                         sx={{ mr: 2 }}>
                         
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                     
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} position='relative'>
-                    <img className="photo2" src={logo2} alt="Logo"/> 
+                    <img className="photo2" src={logo2} alt="Logo"/>
                     </Typography>
                 </Toolbar>
             </AppBar>

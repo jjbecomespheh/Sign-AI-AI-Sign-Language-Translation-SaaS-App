@@ -13,7 +13,6 @@ function Ask(){
 
     const askButton = () => {
         axios.post('/chats.json',{Officer: question})
-        alert("You submitted question!")
 
     }
 
