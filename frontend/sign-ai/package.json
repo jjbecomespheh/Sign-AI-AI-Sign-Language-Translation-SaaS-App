@@ -39,7 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cucumber-js src/features/translate.feature --format progress-bar --format html:./cucumber-report.html --publish",
+    "test": "cucumber-js src/features/* --format progress-bar --format html:./cucumber-report.html --publish",
     "eject": "react-scripts eject"
   },
   "proxy": "http://127.0.0.1:8000",
