@@ -10,10 +10,28 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { useHistory } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
 
+const useStyles = makeStyles((theme) =>
+        createStyles({
+            chatList: {
+            width: "80vw",
+            height: "80vh",
+            marginLeft: "10%",
+            marginRight: "10%",
+            maxWidth: "500px",
+            maxHeight: "700px",
+            alignItems: "center",
+            },
+        })
+    );
 export default function NestedList(props) {
   const [openLayer1, setOpenLayer1] = React.useState(true);
   const [dataDict, setDataDict] = React.useState(false)
+  const classes = useStyles();
 
   React.useEffect(() =>{
     dataDict == false ? createDataDict(props.data): console.log("");
@@ -61,92 +79,98 @@ export default function NestedList(props) {
         
       return (
         <div>
-        <ListItemButton size="large"
-                  sx={{
-                    '& svg': {
-                      color: 'rgb(76,112,49)',
-                      transition: '0.2s',
-                      transform: 'translateX(0) rotate(0)',
-                    },
-                    '&:hover, &:focus': {
-                      bgcolor: 'unset',
-                      '& svg:first-of-type': {
-                        transform: 'translateX(-4px) rotate(-20deg)',
+        <Card>
+          <CardContent style={{backgroundColor: "#d3d3d3"}}>
+            <ListItemButton size="medium"
+                      sx={{
+                        '& svg': {
+                          color: 'black',
+                          transition: '0.2s',
+                          transform: 'translateX(0) rotate(0)',
+                        },
+                        '&:hover, &:focus': {
+                          bgcolor: 'unset',
+                          '& svg:first-of-type': {
+                            transform: 'translateX(-4px) rotate(-20deg)',
+                          },
+                          '& svg:last-of-type': {
+                            right: 0,
+                            opacity: 1,
+                          },
+                        },
+                        '&:after': {
+                          content: '""',
+                          position: 'absolute',
+                          height: '80%',
+                          display: 'block',
+                          left: 0,
+                          width: '1px',
+                          bgcolor: 'divider',
+                        },
+                      }} onClick={handleClick}>
+              <ListItemIcon>
+                <TodayIcon />
+              </ListItemIcon>
+              <ListItemText primary={key.toString()} id="chat-history-date"/>
+              {openLayer1 ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+          </CardContent >
+          {Object.entries(value).map(([conv_id,indices]) => {
+            return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding style={{backgroundColor:"#f3f3f3"}}>
+                  <ListItemButton size="medium"
+                    sx={{
+                      '& svg': {
+                        color: '#424242',
+                        transition: '0.2s',
+                        transform: 'translateX(0) rotate(0)',
                       },
-                      '& svg:last-of-type': {
-                        right: 0,
-                        opacity: 1,
+                      '&:hover, &:focus': {
+                        bgcolor: 'grey',
+                        '& svg:first-of-type': {
+                          transform: 'translateX(-4px) rotate(-20deg)',
+                        },
+                        '& svg:last-of-type': {
+                          right: 0,
+                          opacity: 1,
+                        },
                       },
-                    },
-                    '&:after': {
-                      content: '""',
-                      position: 'absolute',
-                      height: '80%',
-                      display: 'block',
-                      left: 0,
-                      width: '1px',
-                      bgcolor: 'divider',
-                    },
-                  }} onClick={handleClick}>
-          <ListItemIcon>
-            <TodayIcon />
-          </ListItemIcon>
-          <ListItemText primary={key.toString()} id="chat-history-date"/>
-          {openLayer1 ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        {Object.entries(value).map(([conv_id,indices]) => {
-          return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton size="large"
-                  sx={{
-                    '& svg': {
-                      color: 'rgb(76,112,49)',
-                      transition: '0.2s',
-                      transform: 'translateX(0) rotate(0)',
-                    },
-                    '&:hover, &:focus': {
-                      bgcolor: 'unset',
-                      '& svg:first-of-type': {
-                        transform: 'translateX(-4px) rotate(-20deg)',
+                      '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        height: '80%',
+                        display: 'block',
+                        left: 0,
+                        width: '1px',
+                        bgcolor: 'divider',
                       },
-                      '& svg:last-of-type': {
-                        right: 0,
-                        opacity: 1,
-                      },
-                    },
-                    '&:after': {
-                      content: '""',
-                      position: 'absolute',
-                      height: '80%',
-                      display: 'block',
-                      left: 0,
-                      width: '1px',
-                      bgcolor: 'divider',
-                    },
                   }}
-                  onClick={() => handleClick2(indices.index, conv_id)}>
-                      <ListItemIcon>
-                        <QuestionAnswerIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={conv_id.toString()} id="conv_id"/>
-                  </ListItemButton>
-                  </List>
-                </Collapse>
+                onClick={() => handleClick2(indices.index, conv_id)}>
+                    <ListItemIcon>
+                      <QuestionAnswerIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={conv_id.toString()} id="conv_id"/>
+                </ListItemButton>
+              </List>
+            </Collapse>
           })}
+      </Card>
     </div>
       )})
   )}
  
 
   return (
-    <div>
+    <div className={classes.chatList}>
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.radio' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={
-          <ListSubheader component="div" id="nested-list-subheader" >
-            Chat History
+          <ListSubheader component="div" id="nested-list-subheader">
+            <h2>
+              Chat History
+            </h2>
           </ListSubheader>
         }
         >

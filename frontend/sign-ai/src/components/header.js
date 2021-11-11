@@ -17,7 +17,7 @@ class Header extends React.Component{
             
             <AppBar 
                 position="static"
-                style={{ background: '#4C7031'}}>
+                style={{ background: '#2c7973'}}>
                 <Toolbar>
                     <IconButton
                         size="large"
