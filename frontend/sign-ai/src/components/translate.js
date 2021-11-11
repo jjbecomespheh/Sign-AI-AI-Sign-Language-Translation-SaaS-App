@@ -53,7 +53,7 @@ function Translate(){
                     
                     <VideoRecorder
                         isFlipped={false}
-                        //isOnInitially
+                        isOnInitially
                         countdownTime={0}
                         mimeType="video/webm;codecs=vp8,opus"
                         // constraints={{
@@ -77,10 +77,10 @@ function Translate(){
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '130px'}}>
+                            marginTop: '90px'}}>
                     <Button
                         id="translated_text"
-                        style={{width: 363, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
+                        style={{width: 400, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
                         
                         >Translating...</Button>
                 </div>
