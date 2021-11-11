@@ -81,7 +81,7 @@ export default function NestedList(props) {
         <div>
         <Card>
           <CardContent style={{backgroundColor: "#d3d3d3"}}>
-            <ListItemButton size="large"
+            <ListItemButton size="medium"
                       sx={{
                         '& svg': {
                           color: 'black',
@@ -118,7 +118,7 @@ export default function NestedList(props) {
           {Object.entries(value).map(([conv_id,indices]) => {
             return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding style={{backgroundColor:"#f3f3f3"}}>
-                  <ListItemButton size="large"
+                  <ListItemButton size="medium"
                     sx={{
                       '& svg': {
                         color: '#424242',
