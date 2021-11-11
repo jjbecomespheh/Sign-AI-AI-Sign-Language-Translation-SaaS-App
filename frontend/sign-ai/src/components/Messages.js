@@ -30,15 +30,22 @@ const useStyles = makeStyles((theme) =>
             width: "100vw",
             height: "100vh",
             display: "flex",
+            flexFlow: "column",
             alignItems: "center",
             justifyContent: "center"
             },
             messagesBody: {
-            width: "calc( 100% - 20px )",
+            width: "calc( 100% - 30px )",
             margin: 10,
             overflowY: "scroll",
-            height: "calc( 100% - 80px )"
-            }
+            height: "calc( 100% - 100px )"
+            },
+            heading: {
+                display: "flex",
+                alignItems: "top",
+                justifyContent: "center"
+                },
+
         })
     );
 
@@ -96,6 +103,9 @@ export default function Message () {
     
     return (
         <div className={classes.container}>
+            <h2 className={classes.heading} fontFamily="Audrey">
+                Conversation 
+            </h2>
         <Paper className={classes.paper} zDepth={2}>
           <Paper id="style-1" className={classes.messagesBody} style={{ background: "#D3D3D3" }} >
             <p>
