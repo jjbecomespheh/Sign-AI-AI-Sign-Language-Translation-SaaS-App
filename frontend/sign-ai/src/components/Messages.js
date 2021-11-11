@@ -5,6 +5,7 @@ import { Paper } from "@material-ui/core";
 import {useParams} from 'react-router-dom';
 import {MessageLeft} from './MessageTemp';
 import {MessageRight} from './MessageTemp';
+import ListSubheader from '@mui/material/ListSubheader';
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -103,16 +104,18 @@ export default function Message () {
     
     return (
         <div className={classes.container}>
-            <h2 className={classes.heading} fontFamily="Audrey">
-                Conversation 
-            </h2>
-        <Paper className={classes.paper} zDepth={2}>
-          <Paper id="style-1" className={classes.messagesBody} style={{ background: "#D3D3D3" }} >
-            <p>
-               {allMessages(message)}
-            </p>
-          </Paper>
-        </Paper>
+            <ListSubheader component="div" id="nested-list-subheader">
+                <h2 className={classes.heading} styles={{fontFamily: "Audrey", bgcolor: 'background.radio'}}>
+                    Conversation
+                </h2>
+            </ListSubheader>
+            <Paper className={classes.paper} zDepth={2}>
+                <Paper id="style-1" className={classes.messagesBody} style={{ background: "#D3D3D3" }} >
+                    <p>
+                    {allMessages(message)}
+                    </p>
+                </Paper>
+            </Paper>
       </div>
     )
 
