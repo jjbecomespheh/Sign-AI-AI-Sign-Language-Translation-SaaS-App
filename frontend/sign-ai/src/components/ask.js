@@ -15,8 +15,6 @@ function Ask(){
 
     const askButton = () => {
 
-        
-
         axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
         // alert(conversation_id)
 

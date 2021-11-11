@@ -2,7 +2,6 @@ import React from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {useHistory} from 'react-router-dom';
-import background from "../placeholder.png";
 
 function Tutorial(){
     const history = useHistory()
@@ -10,24 +9,11 @@ function Tutorial(){
         history.push('/translate')
     }
         return(
-            <div style={{ }}> 
+            <div>
                 <h1>Tutorial </h1>
-                
-                <div style={{
-                            position: 'relative', left: '50%', top: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            marginTop: '150px'}}>
-                    <Button
-                        id="translated_text"
-                        className="NextHome" 
-                        variant="contained"
-                        style={{width: 350, height: 250, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}
-                        
-                        >To use Sign.ai, start signing when the HomeTeam Officer shows a thumbs up. Once done, Show a thumbs up and hold for 3 seconds to mark the end of the signing</Button>
-                </div>
-
-                <h3>Show thumbs up once ready!</h3>
-
+                <h3>To use SignOn.ai, start signing when the HomeTeam Officer shows a thumbs up.</h3>
+                <h3>Once done, Show a thumbs up and hold for 3 seconds to mark the end of the signing</h3>
+                <h3>Show THUMBS UP once ready!</h3>
                 <Button className="NextHome" 
                     variant="contained"
                     style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}

@@ -89,19 +89,15 @@ function Translate(){
                 <div>
                     <Button 
                         id="sign_again_btn"
-                        className="NextHome" 
-                        variant="contained"
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px',}}
+                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px',marginBottom:'10px'}}
                         >Sign again</Button>
                     <Button 
                         id="correct_btn"
-                        className="NextHome" 
-                        variant="contained"
                         onClick={activateYes} 
                         startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative', marginLeft:'10px'}}
+                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative', marginBottom:'10px'}}
                         >Correct</Button>
                 </div>
 
@@ -109,21 +105,17 @@ function Translate(){
                     <Link to='/home'>
                         <Button 
                         id="home_btn"
-                        className="NextHome" 
-                        variant="contained"
                         onClick={activateHome} 
                         startIcon={<CallEndIcon />}
-                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px'}}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
                         >End Convo</Button>
                     </Link>
                     <Link to='/ask'>
                         <Button 
                         id="ask_btn"
-                        className="NextHome" 
-                        variant="contained"
                         onClick={activateHome} 
                         startIcon={<QuestionAnswerIcon />}
-                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginLeft:'10px' }}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginBottom:'10px' }}
                         >Ask Question</Button>
                     </Link>
                 </div>
