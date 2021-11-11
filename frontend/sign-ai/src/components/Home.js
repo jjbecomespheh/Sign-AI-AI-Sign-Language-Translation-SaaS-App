@@ -21,6 +21,7 @@ function Home(){
         var convo_id = uuidv4(); 
         store.setState("conversation_id", convo_id); 
         history.push('/translate')
+        //alert(convo_id)
   
     }
 
@@ -43,6 +44,7 @@ function Home(){
                 >Cover Page</Button>
                 
                 <Button 
+                    id = "newconv"
                     className="NextHome" 
                     variant="contained"
                     onClick={goTranslate} 

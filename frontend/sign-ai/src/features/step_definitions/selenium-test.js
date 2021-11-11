@@ -111,16 +111,28 @@ Then('he should be redirected back to home page',async function () {
 
 Given('the user navigates to the ask page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    driver.get(url+'ask');
+    await driver.get(url+'home');
+    const newconv_button = await driver.findElement(By.id("newconv"));
+    await newconv_button.click()
+
+    const ask_btn = await driver.findElement(By.id("ask_btn"));
+    await ask_btn.click()
+
   });
 
 
-When('he submits the question after typing in it', async function () {
+When('he types in the textfield and submits the question', async function () {
 // Write code here that turns the phrase above into concrete actions
-return 'pending';
+
+    const ask_button = await driver.findElement(By.id("ask_submit"));
+    await ask_button.click()
+
 });
 
-Then('he is redirected to translate page and question is added to database', async function () {
+Then('he is redirected to translate page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    var expected_translate_url = 'http://localhost:3000/translate';
+
+    var actual_translate_url = await driver.getCurrentUrl();
+    expect(actual_translate_url).to.equal(expected_translate_url);
 });
