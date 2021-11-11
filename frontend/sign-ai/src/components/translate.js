@@ -87,7 +87,6 @@ function Translate(){
                 
                 <div>
                 <div>
-                    
                     <Button 
                         id="sign_again_btn"
                         onClick={activateNo} 
