@@ -73,7 +73,7 @@ function Translate(){
                 </div>
                 
                 <div style={{
-                            position: 'absolute', left: '50%', top: '50%',
+                            position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '80px'}}>
                     <Button
@@ -90,13 +90,13 @@ function Translate(){
                         id="sign_again_btn"
                         onClick={activateNo} 
                         startIcon={<ThumbDownIcon />} 
-                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
+                        style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative'}}
                         >Sign again</Button>
                     <Button 
                         id="correct_btn"
                         onClick={activateYes} 
                         startIcon={<ThumbUpIcon />}
-                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '175px'}}
+                        style={{backgroundColor: '#2c7973', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative'}}
                         >Correct</Button>
                 </div>
 
@@ -106,7 +106,7 @@ function Translate(){
                         id="home_btn"
                         onClick={activateHome} 
                         startIcon={<CallEndIcon />}
-                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px' ,marginTop: '4px'}}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative'}}
                         >End Convo</Button>
                     </Link>
                     <Link to='/ask'>
@@ -114,7 +114,7 @@ function Translate(){
                         id="ask_btn"
                         onClick={activateHome} 
                         startIcon={<QuestionAnswerIcon />}
-                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '4px' }}
+                        style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative' }}
                         >Ask Question</Button>
                     </Link>
                 </div>
