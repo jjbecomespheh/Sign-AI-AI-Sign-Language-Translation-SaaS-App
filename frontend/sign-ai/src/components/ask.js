@@ -13,7 +13,6 @@ function Ask(){
 
     const askButton = () => {
         axios.post('/chats.json',{Officer: question})
-        alert("You submitted question!")
 
     }
 
@@ -37,10 +36,13 @@ function Ask(){
             </div>
 
             <div>
-                <Button 
-                    onClick={askButton} 
-                    style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
-                    >Submit</Button>
+
+                <Link to='/translate'>
+                    <Button 
+                        onClick={askButton} 
+                        style={{backgroundColor: '#FF0000', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '70px'}}
+                        >Submit</Button>
+                </Link>
             </div>
 
             <div>
