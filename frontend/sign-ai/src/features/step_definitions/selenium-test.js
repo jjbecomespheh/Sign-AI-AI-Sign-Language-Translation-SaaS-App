@@ -95,7 +95,7 @@ Then('he should be notified of {string} translation', async function (string) {
     driver.sleep(6*1000)
 });
 
-When('he clicks on the home page button',async function () {
+When('he clicks on the end convo page button',async function () {
     // Write code here that turns the phrase above into concrete actions
     const home_button = await driver.findElement(By.id("home_btn"));
     await home_button.click()
@@ -108,3 +108,17 @@ Then('he should be redirected back to home page',async function () {
     actual_home_url = await driver.getCurrentUrl();
     expect(actual_home_url).to.equal(expected_home_url);
 });
+
+When('he clicks on the ask question button', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    const ask_button = await driver.findElement(By.id("ask_btn"));
+    await ask_button.click()
+});
+
+Then('he should be redirected to the page', async function() {
+    // Write code here that turns the phrase above into concrete actions
+    expected_ask_url = 'http://localhost:3000/ask';
+
+    actual_ask_url = await driver.getCurrentUrl();
+    expect(expected_ask_url).to.equal(actual_ask_url);
+})

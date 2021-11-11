@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Translate from './components/translate';
 import ChatHistoryNestedList from './components/chat'
 import Header from './components/header'
@@ -19,6 +19,9 @@ function App() {
       
       <BrowserRouter>
         <Switch>
+          <Route exact path='/'>
+            <Redirect to="/home"/>
+          </Route>
           <Route path='/messages/:index/:conv_id' component={Message} />
           <Route path = '/cover-page' component={CoverPage}/>
           {/* <Route path='/' component={Home} /> */}

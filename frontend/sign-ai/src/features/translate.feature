@@ -1,6 +1,6 @@
 Feature: User should be able to translate the sign language to natural language
 
-    Scenario: All buttons working correctly
+    Scenario: Sign succesfully/failed
         Given the user navigates to the translate page
         When he signs "<status_1>" 
         Then he should be notified of "<status_2>" translation
@@ -12,5 +12,10 @@ Feature: User should be able to translate the sign language to natural language
     
     Scenario: Return to Home Page
         Given the user navigates to the translate page
-        When he clicks on the home page button
+        When he clicks on the end convo page button
         Then he should be redirected back to home page
+
+    Scenario: User to ask question
+        Given the user navigates to the translate page
+        When he clicks on the ask question button
+        Then he should be redirected to the page
