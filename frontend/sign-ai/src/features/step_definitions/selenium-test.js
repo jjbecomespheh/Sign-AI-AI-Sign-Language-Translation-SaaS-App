@@ -44,8 +44,13 @@ Then('i should be able to see the conversation history', async function () {
 
 Given('the user navigates to the translate page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    driver.get(url+'translate');
-    await driver.sleep(3*1000);
+
+    await driver.get(url+'home');
+    const newconv_button = await driver.findElement(By.id("newconv"));
+    await newconv_button.click()
+
+    // driver.get(url+'translate');
+    // await driver.sleep(3*1000);
 });
 
 When('he signs {string}', async function (string) {
@@ -104,9 +109,9 @@ When('he clicks on the ask question button', async function () {
 
 Then('he should be redirected to the page', async function() {
     // Write code here that turns the phrase above into concrete actions
-    expected_ask_url = 'http://localhost:3000/ask';
+    const expected_ask_url = 'http://localhost:3000/ask';
 
-    actual_ask_url = await driver.getCurrentUrl();
+    const actual_ask_url = await driver.getCurrentUrl();
     expect(expected_ask_url).to.equal(actual_ask_url);
 })
 Given('the user navigates to the ask page', async function () {
@@ -115,8 +120,12 @@ Given('the user navigates to the ask page', async function () {
     const newconv_button = await driver.findElement(By.id("newconv"));
     await newconv_button.click()
 
+    await driver.sleep(3*1000)
+
     const ask_btn = await driver.findElement(By.id("ask_btn"));
     await ask_btn.click()
+
+    await driver.sleep(3*1000)
 
   });
 

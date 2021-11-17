@@ -14,24 +14,28 @@ function CoverPage(){
         history.push('/consent')
     }
         return(
-            
             <div>
                 <div className="intro">
                 <img className="photo" src={logo} alt="Logo"/>
-                    <h2>HELLO! </h2>
-                    <h3>We will be using SignOn.ai for effective communication between you and our HomeTeam Officer!</h3>
-                    <h3>This will be done via a transcription service through the recording of your signing.</h3>
-                    <h3>After reading this Please show a thumbs up to go on to the tutorial</h3>
-                    <Button 
-                    className="NextHome" 
-                    variant="contained"
-                    style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
-                    onClick={()=> onClick()}> 
-                        Next
-                    </Button>
+                <div style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '30px'}}>
+                    <Button
+                        id="translated_text"
+                        style={{width: 300, height: 180, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}
+                        >We will be using Sign.ai for effective communication between you and our HomeTeam Officer! After reading this Please show a thumbs up to go on to the tutorial</Button>
                 </div>
-                
-                
+                    <div>
+                        <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '40px'}}
+                        onClick={()=> onClick()}> 
+                            Next
+                        </Button>
+                    </div>
+                </div>                
         </div>
             
             
