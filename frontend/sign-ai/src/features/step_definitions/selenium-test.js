@@ -3,6 +3,9 @@ const { Builder, By, Capabilities, Key, Button } = require('selenium-webdriver')
 const {initDriver} = require('../support/driverUtil')
 const { expect } = require('chai');
 const { setDefaultTimeout } = require('@cucumber/cucumber');
+const pactum = require('pactum');
+
+let spec = pactum.spec();
 
 setDefaultTimeout(60*1000)
 
@@ -13,6 +16,7 @@ let driver;
 
 Before(function(){
     driver = initDriver()
+    spec = pactum.spec();
 });
 
 After(async function(){
@@ -113,6 +117,7 @@ Then('he should be redirected to the page', async function() {
     const actual_ask_url = await driver.getCurrentUrl();
     expect(expected_ask_url).to.equal(actual_ask_url);
 })
+
 Given('the user navigates to the ask page', async function () {
     // Write code here that turns the phrase above into concrete actions
     await driver.get(url+'home');
@@ -131,19 +136,31 @@ Given('the user navigates to the ask page', async function () {
 
 When('he types in the textfield and submits the question', async function () {
 // Write code here that turns the phrase above into concrete actions
-
-    const ask_button = await driver.findElement(By.id("ask_submit"));
-    await ask_button.click();
-
+    await pactum.spec()
+        .post('http://localhost:8000/chats')
+        .withJson({
+            conversation_id: 8989,
+            sender: "Police",
+            message: "This is a stubbing test from cucumber",
+        })
+        .expectStatus(302); //redirected to the chats/:newid
 });
 
-Then('he is redirected to translate page', async function () {
+Then('the question is reflected in the chat-history', async function () {
     // Write code here that turns the phrase above into concrete actions
-    var expected_translate_url = 'http://localhost:3000/translate';
-
-    var actual_translate_url = await driver.getCurrentUrl();
-    expect(actual_translate_url).to.equal(expected_translate_url);
+    await driver.get("http://localhost:3000/chat-history")
+    
+    await driver.sleep(3*1000)
+    const chat_button = await driver.findElement(By.id("8989"));
+    await chat_button.click();
+    await driver.sleep(3*1000)
 });
+
+// Then('he is redirected to translate page', async function () {
+//     // Write code here that turns the phrase above into concrete actions
+//     var expected_translate_url = 'http://localhost:3000/translate';
+//     await driver.get(expected_translate_url)
+// });
 
 Given('the officer navigates to the home page', async function () {
     // Write code here that turns the phrase above into concrete actions
@@ -160,7 +177,7 @@ When('he gets the deaf public\'s consent', async function () {
 Then('he should be able to click a total of 3 buttons to get the consent', async function () {
     // Then('he should be able to click a total of {float} buttons to get the consent', function (float) {
     // Write code here that turns the phrase above into concrete actions
-    expected_cover_url = "http://localhost:3000/cover-page"
+    const expected_cover_url = "http://localhost:3000/cover-page"
     const actual_cover_url = await driver.getCurrentUrl();
     expect(actual_cover_url).to.equal(expected_cover_url);
 
@@ -195,3 +212,18 @@ Then('he should be able to start asking question', async function () {
     const actual_final_url = await driver.getCurrentUrl();
     expect(expected_final_url).to.equal(actual_final_url);
 });
+
+When('he submits empty question', async function () {
+    // Write code here that turns the phrase above into concrete actions
+
+    const ask_button = await driver.findElement(By.id("ask_submit"));
+    await ask_button.click();
+
+    //prompted an alert
+});
+
+Then('he is prompted to re-enter the question', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    await driver.switchTo().alert().accept(); //catch alert
+});
+

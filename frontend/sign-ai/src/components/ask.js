@@ -14,8 +14,18 @@ function Ask(){
     const [question, setQuestion] = useState('');
 
     const askButton = () => {
+        console.log(question)
+        if (question === ''){
+            alert("Please key in something into the text field")
 
-        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+        }
+        else {
+            
+            axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+            history.push('/translate');
+
+        }
+        
         // alert(conversation_id)
 
     }
@@ -44,13 +54,13 @@ function Ask(){
             </div>
 
             <div>
-                <Link to='/translate'>
-                    <Button 
-                        id = "ask_submit"
-                        onClick={askButton} 
-                        style={{backgroundColor: '#ff4747', width: 200, color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '60px', height: '50px'}}
-                        >Submit</Button>
-                </Link>
+      
+                <Button 
+                    id = "ask_submit"
+                    onClick={askButton} 
+                    style={{backgroundColor: '#ff4747', width: 200, color: '#000000', borderRadius: '12px', margin: '2px', marginTop: '60px', height: '50px'}}
+                    >Submit</Button>
+        
             </div>
 
 

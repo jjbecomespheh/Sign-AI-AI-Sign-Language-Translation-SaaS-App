@@ -149,7 +149,7 @@ export default function NestedList(props) {
                     <ListItemIcon>
                       <QuestionAnswerIcon />
                     </ListItemIcon>
-                    <ListItemText primary={conv_id.toString()} id="conv_id"/>
+                    <ListItemText primary={conv_id.toString()} id={conv_id}/>
                 </ListItemButton>
               </List>
             </Collapse>
