@@ -3,7 +3,6 @@ const { Builder, By, Capabilities, Key, Button } = require('selenium-webdriver')
 const {initDriver} = require('../support/driverUtil')
 const { expect } = require('chai');
 const { setDefaultTimeout } = require('@cucumber/cucumber');
-const { addConsoleHandler } = require('selenium-webdriver/lib/logging');
 
 setDefaultTimeout(60*1000)
 
@@ -134,7 +133,7 @@ When('he types in the textfield and submits the question', async function () {
 // Write code here that turns the phrase above into concrete actions
 
     const ask_button = await driver.findElement(By.id("ask_submit"));
-    await ask_button.click()
+    await ask_button.click();
 
 });
 
@@ -144,4 +143,55 @@ Then('he is redirected to translate page', async function () {
 
     var actual_translate_url = await driver.getCurrentUrl();
     expect(actual_translate_url).to.equal(expected_translate_url);
+});
+
+Given('the officer navigates to the home page', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    await driver.get(url+'home');
+});
+
+When('he gets the deaf public\'s consent', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    const cover_button = await driver.findElement(By.id("cover_page"));
+    await cover_button.click();
+    await driver.sleep(3*1000)
+});
+
+Then('he should be able to click a total of 3 buttons to get the consent', async function () {
+    // Then('he should be able to click a total of {float} buttons to get the consent', function (float) {
+    // Write code here that turns the phrase above into concrete actions
+    expected_cover_url = "http://localhost:3000/cover-page"
+    const actual_cover_url = await driver.getCurrentUrl();
+    expect(actual_cover_url).to.equal(expected_cover_url);
+
+    const cover_next_button = await driver.findElement(By.id("cover_next"));
+    await cover_next_button.click();
+    
+    await driver.sleep(3*1000)
+
+    const expected_consent_url = "http://localhost:3000/consent"
+    const actual_consent_url = await driver.getCurrentUrl();
+    expect(actual_consent_url).to.equal(expected_consent_url);
+
+    const consent_next_button = await driver.findElement(By.id("consent_next"));
+    await consent_next_button.click();
+
+    await driver.sleep(3*1000)
+
+    const expected_tutorial_url = "http://localhost:3000/tutorial"
+    const actual_tutorial_url = await driver.getCurrentUrl();
+    expect(actual_tutorial_url).to.equal(expected_tutorial_url);
+
+    const tutorial_next_button = await driver.findElement(By.id("tutorial_next"));
+    await tutorial_next_button.click();
+
+    await driver.sleep(3*1000)
+});
+
+Then('he should be able to start asking question', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    const expected_final_url = "http://localhost:3000/translate"
+
+    const actual_final_url = await driver.getCurrentUrl();
+    expect(expected_final_url).to.equal(actual_final_url);
 });

@@ -26,7 +26,9 @@ function Consent(){
                 <h4>Show a thumbs up if you consent</h4>
                 <h4>Show a thumbs down if you do not consent</h4>
 
-                <Button className="NextHome" 
+                <Button 
+                    id="consent_next"
+                    className="NextHome" 
                     variant="contained"
                     style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
                     onClick={()=> onClick()}>

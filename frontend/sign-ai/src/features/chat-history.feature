@@ -1,4 +1,4 @@
-Feature: Testing Selenium
+Feature: View Chat History
     Scenario: Viewing the chat history
         Given I am on the chat history page
         When I click on the button with date

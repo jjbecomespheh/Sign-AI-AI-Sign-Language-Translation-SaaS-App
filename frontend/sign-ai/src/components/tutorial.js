@@ -25,7 +25,9 @@ function Tutorial(){
                 </div>
                 
                 <h4>Show thumbs up once ready!</h4>
-                <Button className="NextHome" 
+                <Button 
+                    id="tutorial_next"
+                    className="NextHome" 
                     variant="contained"
                     style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
                     onClick={()=> onClick()}>

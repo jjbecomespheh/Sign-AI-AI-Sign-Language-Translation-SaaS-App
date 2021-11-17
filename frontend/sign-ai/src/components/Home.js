@@ -35,7 +35,8 @@ function Home(){
                 {/* <h3> Welcome to Sign.ai!</h3>
                 <h3>To start using Sign.ai</h3>
                 <h3>Click on Cover page button</h3> */}
-                <Button 
+                <Button
+                id = "cover_page"
                 className="NextHome" 
                 variant="contained"
                 onClick={goCoverPage} 

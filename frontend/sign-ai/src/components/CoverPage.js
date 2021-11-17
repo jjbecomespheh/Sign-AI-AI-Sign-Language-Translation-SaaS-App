@@ -28,6 +28,7 @@ function CoverPage(){
                 </div>
                     <div>
                         <Button 
+                        id = "cover_next"
                         className="NextHome" 
                         variant="contained"
                         style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '40px'}}
