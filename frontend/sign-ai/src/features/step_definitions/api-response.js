@@ -1,5 +1,9 @@
 const pactum = require('pactum');
 const { Given, When, Then, Before } = require('@cucumber/cucumber');
+const request = pactum.request;
+
+request.setBaseUrl('http://localhost:8000');
+
 
 let spec = pactum.spec();
 

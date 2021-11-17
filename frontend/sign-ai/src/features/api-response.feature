@@ -6,4 +6,4 @@ Feature: Check API Response
 
     Examples:
         | url                               |
-        | http://localhost:8000/chats.json  |
+        | /chats.json                       |
