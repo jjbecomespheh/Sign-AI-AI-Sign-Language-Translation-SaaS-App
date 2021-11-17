@@ -9,7 +9,7 @@ let spec = pactum.spec();
 
 setDefaultTimeout(60*1000)
 
-var url = 'http://localhost:3000/'
+const base_url = 'http://localhost:3000/'
 
 // driver setup
 let driver;
@@ -48,7 +48,7 @@ Then('i should be able to see the conversation history', async function () {
 Given('the user navigates to the translate page', async function () {
     // Write code here that turns the phrase above into concrete actions
 
-    await driver.get(url+'home');
+    await driver.get(base_url +'home');
     const newconv_button = await driver.findElement(By.id("newconv"));
     await newconv_button.click()
 
@@ -97,7 +97,7 @@ When('he clicks on the end convo page button',async function () {
 
 Then('he should be redirected back to home page',async function () {
     // Write code here that turns the phrase above into concrete actions
-    var expected_home_url = 'http://localhost:3000/home';
+    var expected_home_url = base_url + 'home';
 
     var actual_home_url = await driver.getCurrentUrl();
     expect(actual_home_url).to.equal(expected_home_url);
@@ -112,7 +112,7 @@ When('he clicks on the ask question button', async function () {
 
 Then('he should be redirected to the page', async function() {
     // Write code here that turns the phrase above into concrete actions
-    const expected_ask_url = 'http://localhost:3000/ask';
+    const expected_ask_url = base_url + 'ask';
 
     const actual_ask_url = await driver.getCurrentUrl();
     expect(expected_ask_url).to.equal(actual_ask_url);
@@ -120,7 +120,7 @@ Then('he should be redirected to the page', async function() {
 
 Given('the user navigates to the ask page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    await driver.get(url+'home');
+    await driver.get(base_url+'home');
     const newconv_button = await driver.findElement(By.id("newconv"));
     await newconv_button.click()
 
@@ -148,12 +148,17 @@ When('he types in the textfield and submits the question', async function () {
 
 Then('the question is reflected in the chat-history', async function () {
     // Write code here that turns the phrase above into concrete actions
-    await driver.get("http://localhost:3000/chat-history")
+    
+    const expected_indicator = "8989"
+    await driver.get(base_url + "chat-history")
     
     await driver.sleep(3*1000)
     const chat_button = await driver.findElement(By.id("8989"));
     await chat_button.click();
-    await driver.sleep(3*1000)
+
+    var actual_indicator = await driver.getCurrentUrl();
+    actual_indicator = actual_indicator.split("/")[5]
+    expect(actual_indicator).to.equal(expected_indicator) 
 });
 
 // Then('he is redirected to translate page', async function () {
@@ -164,7 +169,7 @@ Then('the question is reflected in the chat-history', async function () {
 
 Given('the officer navigates to the home page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    await driver.get(url+'home');
+    await driver.get(base_url +'home');
 });
 
 When('he gets the deaf public\'s consent', async function () {
@@ -177,7 +182,7 @@ When('he gets the deaf public\'s consent', async function () {
 Then('he should be able to click a total of 3 buttons to get the consent', async function () {
     // Then('he should be able to click a total of {float} buttons to get the consent', function (float) {
     // Write code here that turns the phrase above into concrete actions
-    const expected_cover_url = "http://localhost:3000/cover-page"
+    const expected_cover_url = base_url + "cover-page"
     const actual_cover_url = await driver.getCurrentUrl();
     expect(actual_cover_url).to.equal(expected_cover_url);
 
@@ -186,7 +191,7 @@ Then('he should be able to click a total of 3 buttons to get the consent', async
     
     await driver.sleep(3*1000)
 
-    const expected_consent_url = "http://localhost:3000/consent"
+    const expected_consent_url = base_url + "consent"
     const actual_consent_url = await driver.getCurrentUrl();
     expect(actual_consent_url).to.equal(expected_consent_url);
 
@@ -195,7 +200,7 @@ Then('he should be able to click a total of 3 buttons to get the consent', async
 
     await driver.sleep(3*1000)
 
-    const expected_tutorial_url = "http://localhost:3000/tutorial"
+    const expected_tutorial_url = base_url + "tutorial"
     const actual_tutorial_url = await driver.getCurrentUrl();
     expect(actual_tutorial_url).to.equal(expected_tutorial_url);
 
@@ -207,7 +212,7 @@ Then('he should be able to click a total of 3 buttons to get the consent', async
 
 Then('he should be able to start asking question', async function () {
     // Write code here that turns the phrase above into concrete actions
-    const expected_final_url = "http://localhost:3000/translate"
+    const expected_final_url = base_url + "translate"
 
     const actual_final_url = await driver.getCurrentUrl();
     expect(expected_final_url).to.equal(actual_final_url);
