@@ -31,7 +31,7 @@ Given('I am on the chat history page', async function () {
 
 When('I click on the button with date', async function () {
     // Write code here that turns the phrase above into concrete actions
-    const chat_button = await driver.findElement(By.id("conv_id"));
+    const chat_button = await driver.findElement(By.id("8989"));
     await chat_button.click();
     await driver.sleep(3*1000);
 });

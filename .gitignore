@@ -4,3 +4,4 @@ cloud_sql_proxy
 /fontend/sign-ai/node_modules
 .DS_Store
 frontend/.DS_Store
+frontend/sign-ai/cucumber-report.html
