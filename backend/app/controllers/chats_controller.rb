@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_chat, only: %i[ show edit update destroy ]
 
   # GET /chats or /chats.json
