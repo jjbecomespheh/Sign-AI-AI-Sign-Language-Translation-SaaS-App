@@ -27,6 +27,9 @@ function Home(){
 
     function goCoverPage(){
         //alert("You clicked Home!")
+        var convo_id = uuidv4(); 
+        store.setState("conversation_id", convo_id); 
+        history.push('/translate')
         history.push('/cover-page')
     }
    
