@@ -12,8 +12,6 @@ function Tutorial(){
             <div>
                 <h1>Tutorial </h1>
                
-                
-
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
