@@ -25,7 +25,7 @@ After(async function(){
 
 Given('I am on the chat history page', async function () {
     // Write code here that turns the phrase above into concrete actions
-    await driver.get(url+'chat-history');
+    await driver.get(base_url+'chat-history');
     await driver.sleep(3*1000)
 });
 
@@ -232,3 +232,44 @@ Then('he is prompted to re-enter the question', async function () {
     await driver.switchTo().alert().accept(); //catch alert
 });
 
+Given('the user started a new conversation', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    await driver.get(base_url+'home');
+    const newconv_button = await driver.findElement(By.id("newconv"));
+    await newconv_button.click()
+
+    await driver.sleep(3*1000)
+
+    const ask_btn = await driver.findElement(By.id("ask_btn"));
+    await ask_btn.click()
+
+    await driver.sleep(3*1000)
+});
+
+When('he input a message', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    await pactum.spec()
+        .post('http://localhost:8000/chats')
+        .withJson({
+            conversation_id: 8989,
+            sender: "Police",
+            message: "What colour shirt is the suspect wearing when you saw him this morning?",
+        })
+        .expectStatus(302); //redirected to the chats/:newid
+});
+
+Then('the message should be recorded immediately', async function () {
+    // Write code here that turns the phrase above into concrete actions
+    const expected_indicator = "8989"
+    await driver.get(base_url + "chat-history")
+    
+    await driver.sleep(3*1000)
+    var chat_button = await driver.findElements(By.id("8989"));
+    var chat_button = chat_button.slice(-1)[0]
+    await chat_button.click();
+
+    var actual_indicator = await driver.getCurrentUrl();
+    actual_indicator = actual_indicator.split("/")[5]
+    expect(actual_indicator).to.equal(expected_indicator) 
+    await driver.sleep(10*1000)
+});
