@@ -18,26 +18,44 @@ import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
+import axios from "axios";
 
 function Translate(){
 
     const history = useHistory()
+    const [conversation_id] = useGlobalState("conversation_id");
+    const [question, setQuestion] = useState('');
+    const translated_text = "Dummy Translated Text...";
+
     const videoConstraints = {
         facingMode: "user"
         };
     
     function activateYes(){
-        alert("You clicked Correct!")
+        //alert("You clicked Correct!")
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": translated_text});
     }
 
     function activateNo(){
-        alert("You clicked Sign Again!")
+        alert("Please Sign Again!");
+        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question});
     }
 
     function activateHome(){
-        //alert("You clicked Home!")
         history.push('/')
     }
+
+    //Code start for Video Streaming to Server:
+
+
+
+
+
+
+
+
+    //Code end for Video Streaming to Server:
+
     const camera = useRef(null);
     const [image, setImage] = useState(null);
     const ref = useCamera({ audio: false });
@@ -61,6 +79,7 @@ function Translate(){
                         //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
                         //     }
                         //}}
+
                         onRecordingComplete={(videoBlob) => {
                             // Do something with the video...
                             console.log("videoBlob", videoBlob);
