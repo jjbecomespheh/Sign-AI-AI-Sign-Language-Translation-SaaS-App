@@ -19,11 +19,14 @@ import useCamera from "use-camera";
 import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
+//import io from "socket.io-client"
+
+//const socket = io.connect('http://localhost:8000')
 
 function Translate(){
 
     const history = useHistory()
-    const [conversation_id] = useGlobalState("conversation_id");
+    //const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
     const translated_text = "Dummy Translated Text...";
 
@@ -33,7 +36,7 @@ function Translate(){
     
     function activateYes(){
         //alert("You clicked Correct!")
-        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": translated_text});
+        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": translated_text});
     }
 
     function activateNo(){
@@ -45,21 +48,20 @@ function Translate(){
         history.push('/')
     }
 
-    //Code start for Video Streaming to Server:
+    //Code start for socket:
+    // useEffect(() => {
+	// 	navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+	// 		setStream(stream)
+	// 			myVideo.current.srcObject = stream
+	// 	})
+    
+    //Code end for socket:
 
-
-
-
-
-
-
-
-    //Code end for Video Streaming to Server:
 
     const camera = useRef(null);
     const [image, setImage] = useState(null);
     const ref = useCamera({ audio: false });
-   
+
         return(
             <div>
                 <div width={'300px'} height={'900px'}
@@ -88,6 +90,17 @@ function Translate(){
                         }}
                         style={{width: 300}}
                         />
+
+                        {/* <div className="video-container">
+                            <div className="video">
+                                {stream &&  <video playsInline muted ref={myVideo} autoPlay style={{ width: "300px" }} />}
+                            </div>
+                            <div className="video">
+                                {callAccepted && !callEnded ?
+                                <video playsInline ref={userVideo} autoPlay style={{ width: "300px"}} />:
+                                null}
+                            </div>
+                        </div> */}
                 </div>
                 
                 <div style={{
