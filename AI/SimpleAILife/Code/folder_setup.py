@@ -3,6 +3,7 @@ from modules import *
 
 DATA_PATH = os.path.join('Feature_Extraction') 
 
+# Add here
 actions = np.array(['hello', 'thanks', 'iloveyou'])
 
 number_sequences = 30
