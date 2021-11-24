@@ -3,7 +3,7 @@ from modules import *
 
 DATA_PATH = os.path.join('Feature_Extraction') 
 
-actions = np.array(['rob']) # 'he',  'wearing','black', 'hoodie','1.8m', "ran", "towards","train"])
+actions = np.array(['wearing']) # 'he', 'rob', 'wearing','black', 'hoodie','1.8m', "ran", "towards","train"])
 
 number_sequences = 20
 sequence_length = 30
