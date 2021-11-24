@@ -5,13 +5,13 @@ from keypoints_extraction import extract_keypoints
 import keras
 from folder_setup import *
 from visualization import prob_viz,colors
-
+# from Streaming.streamer import Streamer
 
 sequence = []
 sentence = []
 threshold = 0.8
 
-model = keras.models.load_model('Model\lstm_model.h5')
+model = keras.models.load_model('../Model/lstm_model.h5')
 
 cap = cv2.VideoCapture(0)
 
