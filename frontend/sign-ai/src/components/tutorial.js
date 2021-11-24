@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {useHistory} from 'react-router-dom';
+import '@fontsource/montserrat';
 
 function Tutorial(){
     const history = useHistory()
@@ -10,27 +11,42 @@ function Tutorial(){
     }
         return(
             <div>
-                <h1>Tutorial </h1>
+                <h1 
+                
+                style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: '50px'}}>Tutorial </h1>
                
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '110px'}}>
+                            marginTop: '215px'}}>
                     <Button
-                        id="translated_text"
-                        style={{width: 300, height: 180, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}
-                        >To use Sign.ai, start signing when the HomeTeam Officer shows a thumbs up. Once done, Show a thumbs up and hold for 3 seconds to mark the end of the signing</Button>
+                        id="tutorial info"
+                        
+                        className="NextHome" 
+                        variant="contained"
+                        style={{width: 350, height: 300, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', textTransform: "None", fontSize: "22px", fontFamily: 'Montserrat', textAlign: 'center'}}
+                        >Start signing when the Officer turns the phone screen to you. Nod when you are done signing</Button>
                 </div>
                 
-                <h4>Show thumbs up once ready!</h4>
-                <Button 
-                    id="tutorial_next"
-                    className="NextHome" 
-                    variant="contained"
-                    style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
-                    onClick={()=> onClick()}>
-                Next
-                </Button>
+                <h4 style={{
+                            position: 'absolute', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            color: '#26580F',
+                            marginTop: '245px',
+                            fontFamily: 'Montserrat',
+                            fontSize: '20px',
+                            }}>Nod if you are ready</h4>
+                <div>
+                    <Button 
+                        id="tutorial_next"
+                        className="NextHome" 
+                        variant="contained"
+                        style={{backgroundColor: '#F49619', width: "300px", color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '0px', fontFamily: 'Montserrat'}}
+                        onClick={()=> onClick()}>
+                    Next
+                    </Button>
+                </div>
+                
             </div>
             
         )

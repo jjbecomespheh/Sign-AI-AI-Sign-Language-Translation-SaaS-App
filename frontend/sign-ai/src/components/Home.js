@@ -8,6 +8,7 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import HelpIcon from '@mui/icons-material/Help';
 import { v4 as uuidv4 } from 'uuid';
 import {store, useGlobalState} from 'state-pool';
+import '@fontsource/montserrat';
 //import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 function Home(){
@@ -43,8 +44,8 @@ function Home(){
                 className="NextHome" 
                 variant="contained"
                 onClick={goCoverPage} 
-                tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
+                startIcon={<HelpIcon />} 
+                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
                 >Cover Page</Button>
                 
                 <Button 
@@ -53,7 +54,7 @@ function Home(){
                     variant="contained"
                     onClick={goTranslate} 
                     startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
                     >New Conversation</Button>
                 
                 <Button 
@@ -61,7 +62,7 @@ function Home(){
                     variant="contained"
                     onClick={goChatHistory} 
                     startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
+                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
                     >Chat History</Button>
             </div>
         )

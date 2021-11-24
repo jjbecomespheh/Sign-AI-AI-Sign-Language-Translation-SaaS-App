@@ -19,14 +19,17 @@ import useCamera from "use-camera";
 import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
+import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
+import '@fontsource/montserrat';
+
 
 //const socket = io.connect('http://localhost:8000')
 
 function Translate(){
 
     const history = useHistory()
-    //const [conversation_id] = useGlobalState("conversation_id");
+    const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
     const translated_text = "Dummy Translated Text...";
 
@@ -35,13 +38,11 @@ function Translate(){
         };
     
     function activateYes(){
-        //alert("You clicked Correct!")
-        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": translated_text});
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translated_text});
     }
 
     function activateNo(){
         alert("Please Sign Again!");
-        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question});
     }
 
     function activateHome(){
@@ -108,10 +109,11 @@ function Translate(){
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
                     <Button
+                        className="NextHome" 
+                        variant="contained"
                         id="translated_text"
-                        style={{width: 400, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
-                        
-                        >Translating...</Button>
+                        style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
+                        >Start signing ... <br/>nod when you're done.</Button>
                 </div>
                 
 
@@ -121,7 +123,7 @@ function Translate(){
                             id="sign_again_btn"
                             onClick={activateNo} 
                             startIcon={<ThumbDownIcon />} 
-                            style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px',marginBottom:'10px'}}
+                            style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px', marginBottom:'10px'}}
                             >Sign again</Button>
                         <Button 
                             id="correct_btn"
