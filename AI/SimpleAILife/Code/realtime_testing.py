@@ -5,7 +5,7 @@ from keypoints_extraction import extract_keypoints
 import keras
 from folder_setup import *
 from visualization import prob_viz,colors
-
+# from Streaming.streamer import Streamer
 
 sequence = []
 sentence = []
