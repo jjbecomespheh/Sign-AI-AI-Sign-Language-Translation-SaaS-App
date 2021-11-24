@@ -4,7 +4,7 @@ from modules import *
 DATA_PATH = os.path.join('Feature_Extraction') 
 
 # actions = np.array(['hello', 'thanks', 'iloveyou'])
-actions = np.array(['cafe'])
+actions = np.array(['e'])
 
 number_sequences = 20
 sequence_length = 30
