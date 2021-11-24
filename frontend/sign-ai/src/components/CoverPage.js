@@ -16,11 +16,11 @@ function CoverPage(){
         return(
             <div>
                 <div className="intro">
-                <img className="photo" src={logo} alt="Logo"/>
+                <img className="photo" src={logo} alt="Logo" style={{marginTop: '50px'}}/>
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '30px'}}>
+                            marginTop: '10px'}}>
                     <Button
                         id="translated_text"
                         style={{width: 300, height: 180, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}

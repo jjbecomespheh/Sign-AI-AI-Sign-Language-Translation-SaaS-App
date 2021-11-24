@@ -16,21 +16,24 @@ function Consent(){
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '110px'}}>
+                            marginTop: '210px'}}>
+                    
                     <Button
                         id="translated_text"
-                        style={{width: 300, height: 180, backgroundColor: '#f7b34d', borderRadius: '12px', color: '#000000'}}
-                        >We will like to inform you that your statement will be recorded via the HomeTeam Officers camera. All recordings will be kept confidential and will solely be used for law and training purposes.</Button>
+                        className="NextHome" 
+                        variant="contained"
+                        style={{width: 350, height: 220, backgroundColor: '#F49619', borderRadius: '12px', color: '#000000', textTransform: 'None', fontSize: '18px', textAlign: 'center'}}
+                        >We will like to inform you that your statement will be recorded via the HomeTeam Officers camera. All recordings will be kept confidential and will solely be used for law and training purposes.
+                    </Button>
                 </div>
                 
-                <h4>Show a thumbs up if you consent</h4>
-                <h4>Show a thumbs down if you do not consent</h4>
+                <h4>Nod if you consent</h4>
 
                 <Button 
                     id="consent_next"
                     className="NextHome" 
                     variant="contained"
-                    style={{backgroundColor: '#F49619', color: '#FFFFFF', borderRadius: '15px', margin: '2px', marginTop: '10px'}}
+                    style={{backgroundColor: '#F49619', width: 130, color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '10px'}}
                     onClick={()=> onClick()}>
                     Next
                 </Button>                

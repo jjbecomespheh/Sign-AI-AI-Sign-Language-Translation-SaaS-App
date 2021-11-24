@@ -44,7 +44,7 @@ function Home(){
                 variant="contained"
                 onClick={goCoverPage} 
                 tartIcon={<HelpIcon />} 
-                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '10px', width: '275px', height: '60px', position:'relative'}}
+                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative'}}
                 >Cover Page</Button>
                 
                 <Button 

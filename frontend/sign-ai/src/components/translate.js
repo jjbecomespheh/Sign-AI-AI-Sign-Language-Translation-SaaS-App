@@ -19,6 +19,7 @@ import useCamera from "use-camera";
 import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
+import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 
 //const socket = io.connect('http://localhost:8000')
@@ -26,7 +27,7 @@ import axios from "axios";
 function Translate(){
 
     const history = useHistory()
-    //const [conversation_id] = useGlobalState("conversation_id");
+    const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
     const translated_text = "Dummy Translated Text...";
 
@@ -35,13 +36,11 @@ function Translate(){
         };
     
     function activateYes(){
-        //alert("You clicked Correct!")
-        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": translated_text});
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translated_text});
     }
 
     function activateNo(){
         alert("Please Sign Again!");
-        //axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question});
     }
 
     function activateHome(){
