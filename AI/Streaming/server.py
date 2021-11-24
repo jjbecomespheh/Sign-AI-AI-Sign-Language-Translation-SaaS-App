@@ -9,7 +9,7 @@ def gen():
 
   while True:
     if streamer.streaming:
-      yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + streamer.get_jpeg() + b'\r\n\r\n')
+      yield (streamer.get_jpeg())
 
 @app.route('/')
 def index():

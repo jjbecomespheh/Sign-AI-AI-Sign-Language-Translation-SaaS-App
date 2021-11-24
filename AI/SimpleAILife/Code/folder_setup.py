@@ -3,9 +3,9 @@ from modules import *
 
 DATA_PATH = os.path.join('Feature_Extraction') 
 
-actions = np.array(['hello', 'thanks', 'iloveyou'])
+actions = np.array(['rob']) # 'he',  'wearing','black', 'hoodie','1.8m', "ran", "towards","train"])
 
-number_sequences = 30
+number_sequences = 20
 sequence_length = 30
 
 for action in actions: 
