@@ -21,6 +21,8 @@ import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
+import '@fontsource/montserrat';
+
 
 //const socket = io.connect('http://localhost:8000')
 
@@ -107,10 +109,11 @@ function Translate(){
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
                     <Button
+                        className="NextHome" 
+                        variant="contained"
                         id="translated_text"
-                        style={{width: 400, height: 150, backgroundColor: '#f7b34d', borderRadius: '12px'}}
-                        
-                        >Translating...</Button>
+                        style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
+                        >Start signing ... <br/>nod when you're done.</Button>
                 </div>
                 
 
@@ -120,7 +123,7 @@ function Translate(){
                             id="sign_again_btn"
                             onClick={activateNo} 
                             startIcon={<ThumbDownIcon />} 
-                            style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px',marginBottom:'10px'}}
+                            style={{backgroundColor: '#ff4747', width: '180px', height: '50px' , color: '#FFFFFF', borderRadius: '12px', position:'relative', marginRight: '10px', marginBottom:'10px'}}
                             >Sign again</Button>
                         <Button 
                             id="correct_btn"

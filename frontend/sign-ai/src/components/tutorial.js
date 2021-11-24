@@ -13,12 +13,12 @@ function Tutorial(){
             <div>
                 <h1 
                 
-                style={{color: '#26580F', fontFamily: 'Montserrat'}}>Tutorial </h1>
+                style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: '50px'}}>Tutorial </h1>
                
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '200px'}}>
+                            marginTop: '215px'}}>
                     <Button
                         id="tutorial info"
                         
@@ -29,21 +29,24 @@ function Tutorial(){
                 </div>
                 
                 <h4 style={{
-                            position: 'relative', left: '50%', top: '50%',
+                            position: 'absolute', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '0px', 
                             color: '#26580F',
+                            marginTop: '245px',
                             fontFamily: 'Montserrat',
-                            fontSize: '20px'
-                            }}>Nod if you are ready!</h4>
-                <Button 
-                    id="tutorial_next"
-                    className="NextHome" 
-                    variant="contained"
-                    style={{backgroundColor: '#F49619', width: "300px", color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '5px', fontFamily: 'Montserrat'}}
-                    onClick={()=> onClick()}>
-                Next
-                </Button>
+                            fontSize: '20px',
+                            }}>Nod if you are ready</h4>
+                <div>
+                    <Button 
+                        id="tutorial_next"
+                        className="NextHome" 
+                        variant="contained"
+                        style={{backgroundColor: '#F49619', width: "300px", color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '0px', fontFamily: 'Montserrat'}}
+                        onClick={()=> onClick()}>
+                    Next
+                    </Button>
+                </div>
+                
             </div>
             
         )

@@ -10,7 +10,7 @@ cap = cv2.VideoCapture(0)
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
 
     for action in actions:
-        for sequence in range(number_sequences):
+        for sequence in range(30, number_sequences + 30):
             for frame_num in range(sequence_length):
 
                 
