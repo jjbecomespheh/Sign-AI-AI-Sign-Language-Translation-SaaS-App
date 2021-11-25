@@ -3,12 +3,12 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useHistory } from "react-router";
 
+//Consent 
 function Consent(){
     const history = useHistory()
     function onClick(){
         history.push('/tutorial')
     }
-    
         return(
             <div>
                 <h1>Consent </h1>
@@ -26,8 +26,6 @@ function Consent(){
                         >We will like to inform you that your statement will be recorded via the HomeTeam Officers camera. All recordings will be kept confidential and will solely be used for law and training purposes.
                     </Button>
                 </div>
-                
-                <h4>Nod if you consent</h4>
 
                 <Button 
                     id="consent_next"
@@ -40,5 +38,4 @@ function Consent(){
             </div>
         )
 }
-
 export default Consent;

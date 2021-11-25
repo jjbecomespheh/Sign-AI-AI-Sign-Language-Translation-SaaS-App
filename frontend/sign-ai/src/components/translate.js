@@ -23,7 +23,6 @@ import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
 
-
 //const socket = io.connect('http://localhost:8000')
 
 function Translate(){
@@ -55,10 +54,8 @@ function Translate(){
 	// 		setStream(stream)
 	// 			myVideo.current.srcObject = stream
 	// 	})
-    
     //Code end for socket:
-
-
+x
     const camera = useRef(null);
     const [image, setImage] = useState(null);
     const ref = useCamera({ audio: false });
@@ -73,7 +70,6 @@ function Translate(){
                         isOnInitially
                         countdownTime={0}
                         mimeType="video/webm;codecs=vp8,opus"
-
                         // constraints={{
                         //     audio: true,
                         //     video: {
@@ -82,7 +78,6 @@ function Translate(){
                         //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
                         //     }
                         //}}
-
                         onRecordingComplete={(videoBlob) => {
                             // Do something with the video...
                             console.log("videoBlob", videoBlob);
@@ -116,7 +111,6 @@ function Translate(){
                         >Start signing ... <br/>nod when you're done.</Button>
                 </div>
                 
-
                 <div>
                     <div>
                         <Button 
@@ -139,7 +133,7 @@ function Translate(){
                             id="home_btn"
                             onClick={activateHome} 
                             startIcon={<CallEndIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
                             >End Convo</Button>
                         </Link>
                         <Link to='/ask'>
@@ -147,7 +141,7 @@ function Translate(){
                             id="ask_btn"
                             onClick={activateHome} 
                             startIcon={<QuestionAnswerIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#000000', borderRadius: '12px', position:'relative',marginTop:'10px', marginBottom:'10px' }}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginBottom:'10px' }}
                             >Ask Question</Button>
                         </Link>
                     </div>
