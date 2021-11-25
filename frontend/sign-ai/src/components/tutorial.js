@@ -25,7 +25,7 @@ function Tutorial(){
                         >Start signing when the Officer turns the phone screen to you. Nod when you are done signing</Button>
                 </div>
                 <h4 style={{
-                            position: 'absolute', left: '50%', top: '50%',
+                            position: 'absolute', left: '50%', top: '48%',
                             transform: 'translate(-50%, -50%)',
                             color: '#26580F',
                             marginTop: '245px',
