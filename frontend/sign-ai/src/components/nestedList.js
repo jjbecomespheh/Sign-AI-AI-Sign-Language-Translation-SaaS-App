@@ -80,14 +80,15 @@ export default function NestedList(props) {
         
       return (
         <div>
-        <Card>
-          <CardContent style={{backgroundColor: "#42B3AA", alignContent: 'left'}}>
+        <Card style={{alignContent: 'left'}}>
+          <CardContent style={{backgroundColor: "#42B3AA", alignContent: 'left', fontFamily: 'Montserrat', color: "#404040", fontSize: '50px'}}>
             <ListItemButton size="medium"
                       sx={{
                         '& svg': {
                           color: 'black',
                           transition: '0.2s',
-                          transform: 'translateX(0) rotate(0)',
+                          transform: 'translateX(0) rotate(0)'
+  
                         },
                         '&:hover, &:focus': {
                           bgcolor: 'unset',
@@ -110,9 +111,9 @@ export default function NestedList(props) {
                         },
                       }} onClick={handleClick}>
               <ListItemIcon>
-                <TodayIcon />
+                <TodayIcon style={{ color: "#404040" }}/>
               </ListItemIcon>
-              <ListItemText primary={key.toString()} id="chat-history-date"/>
+              <ListItemText primary={key.toString()} id="chat-history-date" style={{fontFamily: 'Montserrat', color: "#404040", fontSize: '25px'}}/>
               {openLayer1 ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
           </CardContent >
