@@ -23,7 +23,6 @@ import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
 
-
 //const socket = io.connect('http://localhost:8000')
 
 function Translate(){
@@ -55,9 +54,7 @@ function Translate(){
 	// 		setStream(stream)
 	// 			myVideo.current.srcObject = stream
 	// 	})
-    
     //Code end for socket:
-
 
     const camera = useRef(null);
     const [image, setImage] = useState(null);
@@ -73,7 +70,6 @@ function Translate(){
                         isOnInitially
                         countdownTime={0}
                         mimeType="video/webm;codecs=vp8,opus"
-
                         // constraints={{
                         //     audio: true,
                         //     video: {
@@ -82,7 +78,6 @@ function Translate(){
                         //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
                         //     }
                         //}}
-
                         onRecordingComplete={(videoBlob) => {
                             // Do something with the video...
                             console.log("videoBlob", videoBlob);
@@ -116,7 +111,6 @@ function Translate(){
                         >Start signing ... <br/>nod when you're done.</Button>
                 </div>
                 
-
                 <div>
                     <div>
                         <Button 

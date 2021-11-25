@@ -16,12 +16,9 @@ function CoverPage(){
     }
         return(
             <div>
-
                 <h1 
                 style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: "30px"}}>Let's talk<br/>using this App!</h1>
                 
-                
-
                 <div className="intro">
                 {/* <img className="photo" src={logo} alt="Logo" style={{marginTop: '50px'}}/> */}
                 <div style={{
@@ -43,7 +40,6 @@ function CoverPage(){
                             fontFamily: 'Montserrat',
                             fontSize: '20px',
                             }}>Nod to consent</h4>
-
                     <div>
                         <Button 
                         id = "cover_next"
@@ -56,9 +52,6 @@ function CoverPage(){
                     </div>
                 </div>                
         </div>
-            
-            
         )
 }
-
 export default CoverPage;

@@ -10,27 +10,19 @@ import '@fontsource/montserrat';
 function Ask(){
     const history = useHistory()
     const [conversation_id] = useGlobalState("conversation_id");
-
     const [question, setQuestion] = useState('');
 
     const askButton = () => {
         console.log(question)
         if (question === ''){
             alert("Please key in something into the text field")
-
         }
         else {
-            
             axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
             history.push('/translate');
 
         }
-        
-        // alert(conversation_id)
-
     }
-
-
     return(
         <div>
 
@@ -51,24 +43,16 @@ function Ask(){
                     multiline InputProps={{style: {fontSize: 50}}} // font size of input text
                     InputLabelProps={{style: {fontSize: 20}}} // font size of input label
                     />
-                
             </div>
 
             <div>
-      
                 <Button 
                     id = "ask_submit"
                     onClick={askButton} 
                     style={{backgroundColor: '#F49619', width: 300, color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '50px', height: '50px', fontFamily: 'Montserrat'}}
                     >Ask</Button>
-        
             </div>
-
-
         </div>
     )
-
-
 }
-
 export default Ask;

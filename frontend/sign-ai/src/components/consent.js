@@ -8,7 +8,6 @@ function Consent(){
     function onClick(){
         history.push('/tutorial')
     }
-    
         return(
             <div>
                 <h1>Consent </h1>
@@ -26,8 +25,6 @@ function Consent(){
                         >We will like to inform you that your statement will be recorded via the HomeTeam Officers camera. All recordings will be kept confidential and will solely be used for law and training purposes.
                     </Button>
                 </div>
-                
-                <h4>Nod if you consent</h4>
 
                 <Button 
                     id="consent_next"
@@ -40,5 +37,4 @@ function Consent(){
             </div>
         )
 }
-
 export default Consent;

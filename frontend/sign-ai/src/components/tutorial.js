@@ -12,7 +12,6 @@ function Tutorial(){
         return(
             <div>
                 <h1 
-                
                 style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: '50px'}}>Tutorial </h1>
                
                 <div style={{
@@ -21,7 +20,6 @@ function Tutorial(){
                             marginTop: '215px'}}>
                     <Button
                         id="tutorial info"
-                        
                         className="NextHome" 
                         variant="contained"
                         style={{width: 350, height: 300, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', textTransform: "None", fontSize: "22px", fontFamily: 'Montserrat', textAlign: 'center'}}
@@ -51,5 +49,4 @@ function Tutorial(){
             
         )
 }
-
 export default Tutorial;
