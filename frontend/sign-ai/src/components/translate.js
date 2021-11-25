@@ -55,7 +55,7 @@ function Translate(){
 	// 			myVideo.current.srcObject = stream
 	// 	})
     //Code end for socket:
-x
+
     const camera = useRef(null);
     const [image, setImage] = useState(null);
     const ref = useCamera({ audio: false });
