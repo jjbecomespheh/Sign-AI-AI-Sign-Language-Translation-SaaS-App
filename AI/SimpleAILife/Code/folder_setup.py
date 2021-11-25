@@ -10,7 +10,7 @@ number_sequences = 30
 sequence_length = 20
 
 for action in actions: 
-    for sequence in range(30, number_sequences + 30):
+    for sequence in range(60, number_sequences+60):
         try: 
             os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
         except:

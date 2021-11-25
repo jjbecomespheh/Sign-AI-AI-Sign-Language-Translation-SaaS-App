@@ -14,6 +14,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
+import '@fontsource/montserrat';
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -80,7 +81,7 @@ export default function NestedList(props) {
       return (
         <div>
         <Card>
-          <CardContent style={{backgroundColor: "#d3d3d3"}}>
+          <CardContent style={{backgroundColor: "#42B3AA", alignContent: 'left'}}>
             <ListItemButton size="medium"
                       sx={{
                         '& svg': {
@@ -117,7 +118,7 @@ export default function NestedList(props) {
           </CardContent >
           {Object.entries(value).map(([conv_id,indices]) => {
             return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding style={{backgroundColor:"#f3f3f3"}}>
+                <List component="div" disablePadding style={{backgroundColor:"#f8f4ec"}}>
                   <ListItemButton size="medium"
                     sx={{
                       '& svg': {
@@ -167,7 +168,7 @@ export default function NestedList(props) {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <h2>
+            <h2 style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: '50px'}}>
               Chat History
             </h2>
           </ListSubheader>
