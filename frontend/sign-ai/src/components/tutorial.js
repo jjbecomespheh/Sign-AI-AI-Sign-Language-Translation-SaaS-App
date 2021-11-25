@@ -13,7 +13,6 @@ function Tutorial(){
             <div>
                 <h1 
                 style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: '50px'}}>Tutorial </h1>
-               
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
@@ -25,7 +24,6 @@ function Tutorial(){
                         style={{width: 350, height: 300, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', textTransform: "None", fontSize: "22px", fontFamily: 'Montserrat', textAlign: 'center'}}
                         >Start signing when the Officer turns the phone screen to you. Nod when you are done signing</Button>
                 </div>
-                
                 <h4 style={{
                             position: 'absolute', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
@@ -44,9 +42,7 @@ function Tutorial(){
                     Next
                     </Button>
                 </div>
-                
             </div>
-            
         )
 }
 export default Tutorial;

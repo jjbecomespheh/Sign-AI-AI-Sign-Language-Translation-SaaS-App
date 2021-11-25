@@ -12,7 +12,6 @@ function Consent(){
         return(
             <div>
                 <h1>Consent </h1>
-                
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
