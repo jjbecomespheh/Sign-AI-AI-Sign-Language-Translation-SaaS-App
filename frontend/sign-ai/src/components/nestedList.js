@@ -159,7 +159,6 @@ export default function NestedList(props) {
       )})
   )}
  
-
   return (
     <div className={classes.chatList}>
       <List

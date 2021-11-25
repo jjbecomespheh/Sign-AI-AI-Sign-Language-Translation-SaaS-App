@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useHistory } from "react-router";
 
+//Consent 
 function Consent(){
     const history = useHistory()
     function onClick(){
