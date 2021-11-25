@@ -10,6 +10,7 @@ import Home from './components/Home'
 import CoverPage from './components/CoverPage'
 import Ask from './components/ask';
 
+import "@tensorflow/tfjs";
 
 
 function App() {
