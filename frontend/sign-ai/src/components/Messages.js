@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom';
 import {MessageLeft} from './MessageTemp';
 import {MessageRight} from './MessageTemp';
 import ListSubheader from '@mui/material/ListSubheader';
+import '@fontsource/montserrat';
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -105,7 +106,7 @@ export default function Message () {
     return (
         <div className={classes.container}>
             <ListSubheader component="div" id="nested-list-subheader">
-                <h2 className={classes.heading} styles={{fontFamily: "Audrey", bgcolor: 'background.radio'}}>
+                <h2 className={classes.heading} styles={{color: '#26580F', fontFamily: 'Montserrat'}}>
                     Conversation
                 </h2>
             </ListSubheader>
