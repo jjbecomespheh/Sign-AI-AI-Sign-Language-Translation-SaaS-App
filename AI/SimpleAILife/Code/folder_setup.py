@@ -2,15 +2,14 @@ from modules import *
 
 
 DATA_PATH = os.path.join('Feature_Extraction') 
+print(DATA_PATH)
+actions = actions = np.array(["Someone", "robbed","me", "Yes","Black", "Money"])
 
-# actions = np.array(['hello', 'thanks', 'iloveyou'])
-actions = np.array(['Phone'])
-
-number_sequences = 30
+number_sequences = 90
 sequence_length = 20
 
 for action in actions: 
-    for sequence in range(60, number_sequences+60):
+    for sequence in range(number_sequences):
         try: 
             os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
         except:

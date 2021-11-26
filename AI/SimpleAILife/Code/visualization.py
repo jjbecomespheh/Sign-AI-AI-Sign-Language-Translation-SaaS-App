@@ -2,7 +2,7 @@ from modules import *
 
 
 
-colors = [(255,0,0), (0,255,0), (0,0,255)]
+colors = [(255,0,0), (0,255,0), (0,0,255),(255,0,0), (0,255,0), (0,0,255)]
 
 
 def prob_viz(res, actions, input_frame, colors):

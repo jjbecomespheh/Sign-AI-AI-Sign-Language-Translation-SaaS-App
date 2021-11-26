@@ -22,8 +22,36 @@ import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
+import * as tf from '@tensorflow/tfjs'
 
 //const socket = io.connect('http://localhost:8000')
+
+//const MODEL_URL = 'https://github.com/Service-Design-Studio/1d-final-project-team-4/blob/main/frontend/sign-ai/public/tfjs/model.json';
+
+// const MODEL_URL = 'Users/jjbecomespheh/SUTD/Term-6/SDS/1d-final-project-team-4/frontend/sign-ai/public/tfjs/model.json'
+// const MODEL_URL = "./components/model.json"
+const MODEL_URL = 'https://drive.google.com/file/d/1Il4yTZjahSthCMlc5EkTvr6kEFoGgRYI/view?usp=sharing'
+
+
+async function LoadModel(MODEL_URL){
+
+    try {
+        // For layered model
+        const model = await tf.loadLayersModel(MODEL_URL);
+        await console.log("Load model success");
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// const [model, setModel] = useState();
+
+// React.useEffect(() => {
+//     tf.ready().then(() => {
+//         LoadModel(MODEL_URL);
+//     });
+// }, []);
+LoadModel(MODEL_URL);
 
 function Translate(){
 
@@ -54,6 +82,8 @@ function Translate(){
 	// 			myVideo.current.srcObject = stream
 	// 	})
     //Code end for socket:
+
+
     const camera = useRef(null);
     const [image, setImage] = useState(null);
     const ref = useCamera({ audio: false });

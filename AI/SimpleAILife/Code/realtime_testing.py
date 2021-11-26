@@ -11,7 +11,7 @@ sequence = []
 sentence = []
 threshold = 0.8
 
-model = keras.models.load_model('../Model/lstm_model.h5')
+model = keras.models.load_model('../Model/lstm_model_pls_work.h5')
 
 cap = cv2.VideoCapture(0)
 
