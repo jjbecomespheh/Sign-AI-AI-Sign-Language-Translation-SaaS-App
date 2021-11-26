@@ -30,7 +30,7 @@ function Translate(){
     const history = useHistory()
     const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
-    const translated_text = "Dummy Translated Text...";
+    const translated_text = "Someone molested me";
 
     const videoConstraints = {
         facingMode: "user"

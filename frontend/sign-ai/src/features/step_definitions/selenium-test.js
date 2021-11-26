@@ -58,7 +58,7 @@ Given('the user navigates to the translate page', async function () {
 
 When('he signs {string}', async function (string) {
     // Write code here that turns the phrase above into concrete actions
-    if (string == "successfully"){
+    if (string === "successfully"){
         const translate_button = await driver.findElement(By.id("correct_btn"));
 
         const expect_correct_button_tag_name = await translate_button.getTagName();
@@ -79,12 +79,12 @@ Then('he should be notified of {string} translation', async function (string) {
         const translate_button = await driver.findElement(By.id("correct_btn"));
         await translate_button.click();
         await driver.sleep(3*1000)
-        await driver.switchTo().alert().accept(); //catch alert
+        // await driver.switchTo().alert().accept(); //catch alert
     }else if (string === "failed"){
         const translate_button = await driver.findElement(By.id("sign_again_btn"));
         await translate_button.click();
         await driver.sleep(3*1000)
-        await driver.switchTo().alert().accept(); //catch alert
+        // await driver.switchTo().alert().accept(); //catch alert
     }
 });
 
@@ -191,21 +191,12 @@ Then('he should be able to click a total of 3 buttons to get the consent', async
     
     await driver.sleep(3*1000)
 
-    const expected_consent_url = base_url + "consent"
-    const actual_consent_url = await driver.getCurrentUrl();
-    expect(actual_consent_url).to.equal(expected_consent_url);
-
-    const consent_next_button = await driver.findElement(By.id("consent_next"));
-    await consent_next_button.click();
-
-    await driver.sleep(3*1000)
-
     const expected_tutorial_url = base_url + "tutorial"
-    const actual_tutorial_url = await driver.getCurrentUrl();
-    expect(actual_tutorial_url).to.equal(expected_tutorial_url);
+    const actual_consent_url = await driver.getCurrentUrl();
+    expect(actual_consent_url).to.equal(expected_tutorial_url);
 
-    const tutorial_next_button = await driver.findElement(By.id("tutorial_next"));
-    await tutorial_next_button.click();
+    const consent_next_button = await driver.findElement(By.id("tutorial_next"));
+    await consent_next_button.click();
 
     await driver.sleep(3*1000)
 });

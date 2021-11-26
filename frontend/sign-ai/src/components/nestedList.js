@@ -47,18 +47,21 @@ export default function NestedList(props) {
       var mydict = {}
       for(var datapoint of propsList){
           var created_at = datapoint.created_at.split('T')[0];
+          var conversation_time = datapoint.created_at.split('T')[1].split(".")[0];
           var conversation_id = datapoint.conversation_id.toString() 
           if(mydict[created_at] === undefined){
             mydict[created_at] = {}
-              mydict[created_at][conversation_id] = {index: datapoint.id}
+              mydict[created_at][conversation_time] = {index: datapoint.id, conv_id:conversation_id }
+              // mydict[created_at][conversation_id] = {index: datapoint.id}
           }
           else{
-            if(mydict[created_at][conversation_id] === undefined){
-              mydict[created_at][conversation_id] = {index: datapoint.id}
+            if(mydict[created_at][conversation_time] === undefined){
+              mydict[created_at][conversation_time] = {index: datapoint.id, conv_id:conversation_id }
             }
           }
       }
       setDataDict(mydict)
+      console.log(mydict)
   }
 
   const handleClick = () => {
@@ -81,7 +84,7 @@ export default function NestedList(props) {
       return (
         <div>
         <Card style={{alignContent: 'left'}}>
-          <CardContent style={{backgroundColor: "#42B3AA", alignContent: 'left', fontFamily: 'Montserrat', color: "#404040", fontSize: '50px'}}>
+          <CardContent style={{backgroundColor: "#42B3AA", fontFamily: 'Montserrat', color: "#404040", alignContent: 'left'}}>
             <ListItemButton size="medium"
                       sx={{
                         '& svg': {
@@ -113,11 +116,13 @@ export default function NestedList(props) {
               <ListItemIcon>
                 <TodayIcon style={{ color: "#404040" }}/>
               </ListItemIcon>
-              <ListItemText primary={key.toString()} id="chat-history-date" style={{fontFamily: 'Montserrat', color: "#404040", fontSize: '25px'}}/>
+              <ListItemText primary={key.toString()} id="chat-history-date" style={{fontFamily: 'Montserrat', color: "#404040", alignContent: 'left'}}/>
               {openLayer1 ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
           </CardContent >
-          {Object.entries(value).map(([conv_id,indices]) => {
+          {Object.entries(value).map(([conv_time,indices]) => {
+            console.log(indices)
+            console.log("lmaooo")
             return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding style={{backgroundColor:"#f8f4ec"}}>
                   <ListItemButton size="medium"
@@ -147,11 +152,11 @@ export default function NestedList(props) {
                         bgcolor: 'divider',
                       },
                   }}
-                onClick={() => handleClick2(indices.index, conv_id)}>
+                onClick={() => handleClick2(indices.index, indices.conv_id)}>
                     <ListItemIcon>
                       <QuestionAnswerIcon />
                     </ListItemIcon>
-                    <ListItemText primary={conv_id.toString()} id={conv_id}/>
+                    <ListItemText primary={conv_time.toString()} id={indices.conv_id}/>
                 </ListItemButton>
               </List>
             </Collapse>
