@@ -23,6 +23,12 @@ import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
 import * as tf from '@tensorflow/tfjs'
+import * as Holistic from '@mediapipe/holistic'
+import * as camera_utils from '@mediapipe/camera_utils'
+import * as control_utils from '@mediapipe/control_utils'
+import * as drawing_utils from '@mediapipe/drawing_utils'
+import Mediapipe_holistic from "./mediapipe_holistic";
+
 
 //const socket = io.connect('http://localhost:8000')
 
@@ -31,7 +37,6 @@ import * as tf from '@tensorflow/tfjs'
 // const MODEL_URL = 'Users/jjbecomespheh/SUTD/Term-6/SDS/1d-final-project-team-4/frontend/sign-ai/public/tfjs/model.json'
 // const MODEL_URL = "./components/model.json"
 const MODEL_URL = 'https://drive.google.com/file/d/1Il4yTZjahSthCMlc5EkTvr6kEFoGgRYI/view?usp=sharing'
-
 
 async function LoadModel(MODEL_URL){
 
@@ -84,13 +89,17 @@ function Translate(){
     //Code end for socket:
 
 
-    const camera = useRef(null);
-    const [image, setImage] = useState(null);
-    const ref = useCamera({ audio: false });
+    // const camera = useRef(null);
+    // const [image, setImage] = useState(null);
+    // const ref = useCamera({ audio: false });
 
+    
+    //Mediapipe
+     
+    //Mediapipe
         return(
             <div>
-                <div width={'300px'} height={'900px'}
+                {/* <div width={'300px'} height={'900px'}
                     style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
                     
                     <VideoRecorder
@@ -115,18 +124,11 @@ function Translate(){
                         style={{width: 300}}
                         />
 
-                        {/* <div className="video-container">
-                            <div className="video">
-                                {stream &&  <video playsInline muted ref={myVideo} autoPlay style={{ width: "300px" }} />}
-                            </div>
-                            <div className="video">
-                                {callAccepted && !callEnded ?
-                                <video playsInline ref={userVideo} autoPlay style={{ width: "300px"}} />:
-                                null}
-                            </div>
-                        </div> */}
-                </div>
+                        
+                    </div>  */}
                 
+                <Mediapipe_holistic />
+
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
