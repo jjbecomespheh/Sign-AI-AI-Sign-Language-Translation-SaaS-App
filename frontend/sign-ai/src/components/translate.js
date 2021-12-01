@@ -22,7 +22,7 @@ import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
-import * as tf from '@tensorflow/tfjs'
+
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
