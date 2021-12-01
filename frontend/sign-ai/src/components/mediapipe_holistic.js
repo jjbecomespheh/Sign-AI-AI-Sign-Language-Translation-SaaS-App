@@ -99,7 +99,7 @@ function Mediapipe_holistic() {
             borderRadius: '25px', 
             marginTop: '20px', 
             alignContent: 'center',
-            position: "relative",
+            position: "absolute",
             // marginLeft: "auto",
             // marginRight: "auto",
             // left: 0,
@@ -124,9 +124,9 @@ function Mediapipe_holistic() {
             // left: 0,
             // right: 0,
             // textAlign: "center",
-            // zindex: 9,
-            // width: 640,
-            // height: 480,
+            zindex: 9,
+            width: 640,
+            height: 480,
           }}
         ></canvas>
         
