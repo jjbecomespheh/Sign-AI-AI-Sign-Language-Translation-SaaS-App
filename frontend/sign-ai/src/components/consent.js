@@ -30,7 +30,7 @@ function Consent(){
                     id="consent_next"
                     className="NextHome" 
                     variant="contained"
-                    style={{backgroundColor: '#F49619', width: 130, color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '10px'}}
+                    style={{backgroundColor: '#F49619', width: 130, color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '10px', marginBottom: '10px'}}
                     onClick={()=> onClick()}>
                     Next
                 </Button>                
