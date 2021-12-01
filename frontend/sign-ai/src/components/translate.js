@@ -30,21 +30,17 @@ import * as drawing_utils from '@mediapipe/drawing_utils'
 import Mediapipe_holistic from "./mediapipe_holistic";
 
 
+import * as tf from '@tensorflow/tfjs'
 //const socket = io.connect('http://localhost:8000')
 
-//const MODEL_URL = 'https://github.com/Service-Design-Studio/1d-final-project-team-4/blob/main/frontend/sign-ai/public/tfjs/model.json';
-
-// const MODEL_URL = 'Users/jjbecomespheh/SUTD/Term-6/SDS/1d-final-project-team-4/frontend/sign-ai/public/tfjs/model.json'
-// const MODEL_URL = "./components/model.json"
-const MODEL_URL = 'https://drive.google.com/file/d/1Il4yTZjahSthCMlc5EkTvr6kEFoGgRYI/view?usp=sharing'
-
-async function LoadModel(MODEL_URL){
+async function LoadModel(){
 
     try {
         // For layered model
-        const model = await tf.loadLayersModel(MODEL_URL);
+        const model = await tf.loadLayersModel('/tfjs/model.json');
         await console.log("Load model success");
     } catch (err) {
+        console.log("GGWP");
         console.log(err);
     }
 }
@@ -56,7 +52,7 @@ async function LoadModel(MODEL_URL){
 //         LoadModel(MODEL_URL);
 //     });
 // }, []);
-LoadModel(MODEL_URL);
+LoadModel();
 
 function Translate(){
 
