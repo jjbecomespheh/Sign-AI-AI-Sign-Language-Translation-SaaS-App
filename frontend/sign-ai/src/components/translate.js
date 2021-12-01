@@ -30,7 +30,7 @@ import * as drawing_utils from '@mediapipe/drawing_utils'
 import Mediapipe_holistic from "./mediapipe_holistic";
 
 
-import * as tf from '@tensorflow/tfjs'
+// import * as tf from '@tensorflow/tfjs'
 //const socket = io.connect('http://localhost:8000')
 
 async function LoadModel(){

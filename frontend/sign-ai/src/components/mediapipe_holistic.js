@@ -96,12 +96,15 @@ function Mediapipe_holistic() {
         <Webcam
           ref={webcamRef}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
+            borderRadius: '25px', 
+            marginTop: '20px', 
+            alignContent: 'center',
+            position: "relative",
+            // marginLeft: "auto",
+            // marginRight: "auto",
+            // left: 0,
+            // right: 0,
+            // textAlign: "center",
             zindex: 9,
             width: 640,
             height: 480,
@@ -111,17 +114,22 @@ function Mediapipe_holistic() {
           ref={canvasRef}
           className="output_canvas"
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
+            borderRadius: '25px', 
+            marginTop: '20px', 
+            alignContent: 'center',
+            position: "relative",
+            // position: "absolute",
+            // marginLeft: "auto",
+            // marginRight: "auto",
+            // left: 0,
+            // right: 0,
+            // textAlign: "center",
+            // zindex: 9,
+            // width: 640,
+            // height: 480,
           }}
         ></canvas>
+        
       </div>
     </center>
   );
