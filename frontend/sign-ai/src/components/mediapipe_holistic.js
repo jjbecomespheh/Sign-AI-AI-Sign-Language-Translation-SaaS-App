@@ -5,7 +5,7 @@ import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
 
 
-function Mediapipe_holistic() {
+function MediapipeHolistic() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const connect = window.drawConnectors;
@@ -88,8 +88,12 @@ function Mediapipe_holistic() {
         height: 480,
       });
       camera.start();
+      console.log(webcamRef);
+      console.log("LOL FUCK YOU")
     }
   }, []);
+
+
   return (
     <center>
       <div className="App">
@@ -106,7 +110,7 @@ function Mediapipe_holistic() {
             width: 640,
             height: 480,
           }}
-        />{" "}
+        />
         <canvas
           ref={canvasRef}
           className="output_canvas"
@@ -127,4 +131,4 @@ function Mediapipe_holistic() {
   );
 }
 
-export default Mediapipe_holistic;
+export default MediapipeHolistic;
