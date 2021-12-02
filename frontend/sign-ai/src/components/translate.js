@@ -93,33 +93,6 @@ function Translate(){
     //Mediapipe
         return(
             <div>
-                {/* <div width={'300px'} height={'900px'}
-                    style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
-                    
-                    <VideoRecorder
-                        isFlipped={false}
-                        isOnInitially
-                        countdownTime={0}
-                        mimeType="video/webm;codecs=vp8,opus"
-                        // constraints={{
-                        //     audio: true,
-                        //     video: {
-                        //     width: { exact: 480, ideal: 480 },
-                        //     height: { exact: 940, ideal: 940 },
-                        //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
-                        //     }
-                        //}}
-                        onRecordingComplete={(videoBlob) => {
-                            // Do something with the video...
-                            console.log("videoBlob", videoBlob);
-                            //push("/videoPreview", { videoBlob });
-                        
-                        }}
-                        style={{width: 300}}
-                        />
-
-                        
-                    </div>  */}
                 
                 <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',

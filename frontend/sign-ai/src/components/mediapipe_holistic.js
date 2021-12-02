@@ -67,7 +67,7 @@ function MediapipeHolistic() {
     //All those dont need to use any Holistic. something one all will work like pose & hand w/o CONNECTIONS,
     //Same for the FACE MESH
     drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS,
-                  {color: 'white',});
+                  {color: 'white',lineWidth: 2});
 
     drawLandmarks(canvasCtx, results.leftHandLandmarks,
                   {color: '#FF0000',
@@ -76,7 +76,7 @@ function MediapipeHolistic() {
                     return lerp(data.from.z, -0.15, .1, 10, 1);
                   }});
     drawConnectors(canvasCtx, results.rightHandLandmarks, HAND_CONNECTIONS,
-                  {color: 'white',});
+                  {color: 'white',lineWidth: 2});
     drawLandmarks(canvasCtx, results.rightHandLandmarks,
                   {color: '#00FF00',
                   fillColor: '#FF0000',lineWidth: 2, 
