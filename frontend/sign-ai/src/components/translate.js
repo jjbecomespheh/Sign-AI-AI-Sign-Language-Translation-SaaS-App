@@ -111,7 +111,7 @@ function Translate(){
                             id="home_btn"
                             onClick={activateHome} 
                             startIcon={<CallEndIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginRight:'10px', marginBottom:'10px'}}
                             >End Convo</Button>
                         </Link>
                         <Link to='/ask' style={{textDecoration: 'none'}}>
@@ -119,7 +119,7 @@ function Translate(){
                             id="ask_btn"
                             onClick={activateHome} 
                             startIcon={<QuestionAnswerIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginBottom:'10px' }}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginBottom:'10px' }}
                             >Ask Question</Button>
                         </Link>
                     </div>

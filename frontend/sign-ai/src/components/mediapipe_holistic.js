@@ -39,10 +39,8 @@ function MediapipeHolistic() {
     canvasRef.current.width = videoWidth;
     canvasRef.current.height = videoHeight;
     
-
     const canvasElement = canvasRef.current;
     const canvasCtx = canvasElement.getContext("2d");
-    //canvasCtx.scale(-1,1);
 
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
@@ -164,12 +162,6 @@ function MediapipeHolistic() {
             marginTop: '20px', 
             alignContent: 'center',
             position: "absolute",
-            // marginLeft: "auto",
-            // marginRight: "auto",
-            // left: 0,
-            // right: 0,
-            // textAlign: "center",
-            mirrored: true,
             zindex: 9,
             width: 370,
             height: 277,
@@ -183,16 +175,9 @@ function MediapipeHolistic() {
             marginTop: '20px', 
             alignContent: 'center',
             position: "relative",
-            // position: "absolute",
-            // marginLeft: "auto",
-            // marginRight: "auto",
-            // left: 0,
-            // right: 0,
-            // textAlign: "center",
             zindex: 9,
             width: 370,
             height: 277,
-
           }}
         ></canvas>
         
@@ -200,5 +185,4 @@ function MediapipeHolistic() {
     </center>
   );
 }
-
 export default MediapipeHolistic;
