@@ -74,23 +74,7 @@ function Translate(){
     function activateHome(){
         history.push('/')
     }
-    //Code start for socket:
-    // useEffect(() => {
-	// 	navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-	// 		setStream(stream)
-	// 			myVideo.current.srcObject = stream
-	// 	})
-    //Code end for socket:
-
-
-    // const camera = useRef(null);
-    // const [image, setImage] = useState(null);
-    // const ref = useCamera({ audio: false });
-
     
-    //Mediapipe
-     
-    //Mediapipe
         return(
             <div>
                 

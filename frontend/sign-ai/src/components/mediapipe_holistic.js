@@ -38,11 +38,18 @@ function MediapipeHolistic() {
     // Set canvas width
     canvasRef.current.width = videoWidth;
     canvasRef.current.height = videoHeight;
+    
 
     const canvasElement = canvasRef.current;
     const canvasCtx = canvasElement.getContext("2d");
+    //canvasCtx.scale(-1,1);
+
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+
+    canvasCtx.translate(canvasRef.current.width, 0);
+    canvasCtx.scale(-1, 1);
+
     canvasCtx.drawImage(
       results.image,
       0,
@@ -163,7 +170,6 @@ function MediapipeHolistic() {
             // right: 0,
             // textAlign: "center",
             mirrored: true,
-
             zindex: 9,
             width: 370,
             height: 277,
@@ -186,7 +192,7 @@ function MediapipeHolistic() {
             zindex: 9,
             width: 370,
             height: 277,
-            mirrored: true,
+
           }}
         ></canvas>
         
