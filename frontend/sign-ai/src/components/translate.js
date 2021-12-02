@@ -20,7 +20,6 @@ import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
-//import io from "socket.io-client"
 import '@fontsource/montserrat';
 
 import * as tf from '@tensorflow/tfjs'
@@ -30,10 +29,8 @@ import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
-//const socket = io.connect('http://localhost:8000')
 
 async function LoadModel(){
-
     try {
         // For layered model
         const model = await tf.loadLayersModel('/tfjs/model.json');
@@ -43,7 +40,6 @@ async function LoadModel(){
         console.log(err);
     }
 }
-
 LoadModel();
 
 function Translate(){
@@ -74,10 +70,8 @@ function Translate(){
     function activateHome(){
         history.push('/')
     }
-    
         return(
             <div>
-                
                 <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
@@ -112,7 +106,7 @@ function Translate(){
                     </div>
 
                     <div>
-                        <Link to='/home'>
+                        <Link to='/home' style={{textDecoration: 'none'}}>
                             <Button 
                             id="home_btn"
                             onClick={activateHome} 
@@ -120,7 +114,7 @@ function Translate(){
                             style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
                             >End Convo</Button>
                         </Link>
-                        <Link to='/ask'>
+                        <Link to='/ask' style={{textDecoration: 'none'}}>
                             <Button 
                             id="ask_btn"
                             onClick={activateHome} 
