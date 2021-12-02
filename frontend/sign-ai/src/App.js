@@ -1,4 +1,6 @@
 import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Translate from './components/translate';
 import ChatHistoryNestedList from './components/chat'

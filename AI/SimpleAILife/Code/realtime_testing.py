@@ -6,20 +6,25 @@ import keras
 from folder_setup import *
 from visualization import prob_viz,colors
 # from Streaming.streamer import Streamer
+import pafy
 
 sequence = []
 sentence = []
 threshold = 0.8
 
 model = keras.models.load_model('Model/lstm_model_pls_work.h5')
-
-cap = cv2.VideoCapture(0)
+url = "https://www.youtube.com/watch?v=aKX8uaoy9c8"
+videoPafy = pafy.new(url)
+best = videoPafy.getbest(preftype = "webm")
+cap = cv2.VideoCapture(best.url)
 
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
-    while cap.isOpened():
+    while True:
         
         ret, frame = cap.read()
-
+        print(f"ret: {ret} frame: {frame}")
+        # print(frame.to_dict())
+        
         image, results = mediapipe_detection(frame, holistic)
         # print(results)
         draw_styled_landmarks(image, results)

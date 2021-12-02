@@ -23,14 +23,13 @@ import {store, useGlobalState} from 'state-pool';
 //import io from "socket.io-client"
 import '@fontsource/montserrat';
 
+import * as tf from '@tensorflow/tfjs'
+import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
-import Mediapipe_holistic from "./mediapipe_holistic";
-
-
-import * as tf from '@tensorflow/tfjs'
+import MediapipeHolistic from "./mediapipe_holistic";
 //const socket = io.connect('http://localhost:8000')
 
 async function LoadModel(){
@@ -45,18 +44,17 @@ async function LoadModel(){
     }
 }
 
-// const [model, setModel] = useState();
-
-// React.useEffect(() => {
-//     tf.ready().then(() => {
-//         LoadModel(MODEL_URL);
-//     });
-// }, []);
 LoadModel();
 
 function Translate(){
 
     const history = useHistory()
+    try{
+        useGlobalState("conversation_id")
+    }catch{
+        var convo_id = uuidv4(); 
+        store.setState("conversation_id", convo_id); 
+    }
     const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
     const translated_text = "Someone molested me";
@@ -123,7 +121,10 @@ function Translate(){
                         
                     </div>  */}
                 
-                <Mediapipe_holistic />
+                <MediapipeHolistic style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}/>
 
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
