@@ -63,8 +63,11 @@ function Translate(){
         axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translated_text});
     }
 
+
     function activateNo(){
-        alert("Please Sign Again!");
+        //alert("Please Sign Again!");
+        //ttText = "Please re-sign your message"
+        //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
 
     function activateHome(){
