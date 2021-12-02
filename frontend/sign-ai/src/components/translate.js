@@ -91,7 +91,7 @@ function Translate(){
                 </div>
                 
                 <div>
-                    <div>
+                    <div style={{marginTop: '1px'}}>
                         <Button 
                             id="sign_again_btn"
                             onClick={activateNo} 

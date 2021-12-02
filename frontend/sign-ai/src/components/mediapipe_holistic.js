@@ -158,7 +158,7 @@ function MediapipeHolistic() {
         <Webcam
           ref={webcamRef}
           style={{
-            borderRadius: '25px', 
+            borderRadius: '12px', 
             marginTop: '20px', 
             alignContent: 'center',
             position: "absolute",
