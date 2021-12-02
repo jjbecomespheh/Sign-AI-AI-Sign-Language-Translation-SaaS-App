@@ -9,7 +9,6 @@ import HelpIcon from '@mui/icons-material/Help';
 import { v4 as uuidv4 } from 'uuid';
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
-//import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 function Home(){
     const history = useHistory()
@@ -22,18 +21,13 @@ function Home(){
         var convo_id = uuidv4(); 
         store.setState("conversation_id", convo_id); 
         history.push('/translate')
-        //alert(convo_id)
-  
     }
 
     function goCoverPage(){
-        //alert("You clicked Home!")
         var convo_id = uuidv4(); 
         store.setState("conversation_id", convo_id); 
-        
         history.push('/cover-page')
     }
-   
         return(
             <div style={{marginTop: '150px'}}>
                 <Button
@@ -64,5 +58,4 @@ function Home(){
             </div>
         )
 }
-
 export default Home;

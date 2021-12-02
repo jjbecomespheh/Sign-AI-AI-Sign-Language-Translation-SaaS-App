@@ -85,6 +85,7 @@ function Translate(){
                         className="NextHome" 
                         variant="contained"
                         id="translated_text"
+                        disabled={true}
                         style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
                         >Start signing ... <br/>nod when you're done.</Button>
                 </div>
