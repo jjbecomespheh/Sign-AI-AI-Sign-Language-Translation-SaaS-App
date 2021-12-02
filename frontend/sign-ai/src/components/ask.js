@@ -20,7 +20,6 @@ function Ask(){
         else {
             axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
             history.push('/translate');
-
         }
     }
     return(

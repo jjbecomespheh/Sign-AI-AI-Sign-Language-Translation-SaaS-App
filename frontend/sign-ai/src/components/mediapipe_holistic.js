@@ -24,18 +24,15 @@ import * as camera_tils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import { drawConnectors, drawLandmarks, lerp } from '@mediapipe/drawing_utils'
 
-
 function MediapipeHolistic() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const connect = window.drawConnectors;
   var camera = null;
   function onResults(results) {
-    // const video = webcamRef.current.video;
     const videoWidth = webcamRef.current.video.videoWidth;
     const videoHeight = webcamRef.current.video.videoHeight;
 
-    // Set canvas width
     canvasRef.current.width = videoWidth;
     canvasRef.current.height = videoHeight;
     
@@ -62,7 +59,7 @@ function MediapipeHolistic() {
                   {color: '#000000', 
                   fillColor: '#00FF00',lineWidth: 1, 
                   radius: 5});
-    //Connections are the line connecting the dots
+
     drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
       {color: '#00FF00', lineWidth: 1});
 
@@ -84,7 +81,6 @@ function MediapipeHolistic() {
                     return lerp(data.from.z, -0.15, .1, 10, 1);
                   }});
     
-    // Face...
     drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_TESSELATION, {
       color: "#C0C0C070",
       lineWidth: 1
@@ -109,7 +105,6 @@ function MediapipeHolistic() {
       color: "#E0E0E0",
       lineWidth: 5
     });
-    
     canvasCtx.restore();
   }
   // }
@@ -150,7 +145,6 @@ function MediapipeHolistic() {
       camera.start();
     }
   }, []);
-
 
   return (
     <center>

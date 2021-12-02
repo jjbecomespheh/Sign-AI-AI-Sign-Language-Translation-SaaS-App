@@ -39,7 +39,6 @@ export default function NestedList(props) {
 
   },[dataDict]);
 
-
   function createDataDict(propsList){
       if(propsList.length<1){
           return {ERROR:"No entries"}
@@ -63,7 +62,6 @@ export default function NestedList(props) {
       setDataDict(mydict)
       console.log(mydict)
   }
-
   const handleClick = () => {
     setOpenLayer1(!openLayer1);
   };
@@ -71,16 +69,13 @@ export default function NestedList(props) {
   const handleClick2 = (index,conv_id) => {
     history.push(`/messages/${index}/${conv_id}`);
 }
-
   function CreateNestedList(args){
     const dataList = args.dataList
     if(dataList.length <1){
         return <div>No entries</div>
     }
-
     return(
       Object.entries(dataList).map( ([key,value]) =>{
-        
       return (
         <div>
         <Card style={{alignContent: 'left'}}>
