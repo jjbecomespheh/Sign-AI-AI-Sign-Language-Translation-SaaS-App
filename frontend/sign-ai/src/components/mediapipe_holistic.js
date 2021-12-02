@@ -61,11 +61,6 @@ function MediapipeHolistic() {
     drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
       {color: '#00FF00', lineWidth: 1});
 
-    // drawConnectors(canvasCtx, results.faceLandmarks, FaceMesh.FACEMESH_TESSELATION,
-    //               {color: '#C0C0C070', lineWidth: 1});
-    
-    //All those dont need to use any Holistic. something one all will work like pose & hand w/o CONNECTIONS,
-    //Same for the FACE MESH
     drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS,
                   {color: 'white',lineWidth: 2});
 
