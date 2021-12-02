@@ -1735,6 +1735,11 @@
   "resolved" "https://registry.npmjs.org/@mediapipe/holistic/-/holistic-0.5.1635989137.tgz"
   "version" "0.5.1635989137"
 
+"@mediapipe/pose@^0.5.1635988162":
+  "integrity" "sha512-t0dpl+iG/MTPtPPxEYHyVWo+X7G+qgYUYaB4y9pxavQRNzuQQeHeSmUnT+A8qOKnuB0ccxgyrrFmGUaaL0F3wQ=="
+  "resolved" "https://registry.npmjs.org/@mediapipe/pose/-/pose-0.5.1635988162.tgz"
+  "version" "0.5.1635988162"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   "integrity" "sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g=="
   "resolved" "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz"

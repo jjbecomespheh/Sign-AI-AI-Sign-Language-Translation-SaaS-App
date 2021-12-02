@@ -1,5 +1,21 @@
-import { Holistic } from "@mediapipe/holistic";
+import {
+  Holistic,
+  POSE_LANDMARKS,
+  POSE_LANDMARKS_LEFT,
+  POSE_LANDMARKS_RIGHT,
+  POSE_CONNECTIONS,
+  HAND_CONNECTIONS,
+  FACEMESH_TESSELATION,
+  FACEMESH_RIGHT_EYE,
+  FACEMESH_RIGHT_EYEBROW,
+  FACEMESH_LEFT_EYE,
+  FACEMESH_LEFT_EYEBROW,
+  FACEMESH_FACE_OVAL,
+  FACEMESH_LIPS,
+  VERSION,
+} from "@mediapipe/holistic";
 import { FaceMesh } from "@mediapipe/face_mesh";
+import { Pose } from "@mediapipe/pose";
 import React, { useRef, useEffect } from "react";
 import * as Facemesh from "@mediapipe/face_mesh";
 import * as cam from "@mediapipe/camera_utils";
@@ -36,32 +52,63 @@ function MediapipeHolistic() {
     );
 
     canvasCtx.globalCompositeOperation = 'source-over';
-    drawConnectors(canvasCtx, results.poseLandmarks, Holistic.POSE_CONNECTIONS,
-                  {color: '#00FF00', lineWidth: 4});
+    
     drawLandmarks(canvasCtx, results.poseLandmarks,
-                  {color: '#FF0000', lineWidth: 2});
-    drawConnectors(canvasCtx, results.faceLandmarks, Holistic.FACEMESH_TESSELATION,
-                  {color: '#C0C0C070', lineWidth: 1});
+                  {color: '#000000', 
+                  fillColor: '#FFFFFF',lineWidth: 1, 
+                  radius: 5});
+    //Connections are the line connecting the dots
+    drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
+      {color: '#000000', lineWidth: 1});
 
-                  
-    drawConnectors(canvasCtx, results.leftHandLandmarks, Holistic.HAND_CONNECTIONS,
-                  {color: '#CC0000', lineWidth: 5});
+    // drawConnectors(canvasCtx, results.faceLandmarks, FaceMesh.FACEMESH_TESSELATION,
+    //               {color: '#C0C0C070', lineWidth: 1});
+    
+    //All those dont need to use any Holistic. something one all will work like pose & hand w/o CONNECTIONS,
+    //Same for the FACE MESH
+    drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS,
+                  {color: 'white',});
+
     drawLandmarks(canvasCtx, results.leftHandLandmarks,
-                  {olor: '#FF0000',
+                  {color: '#FF0000',
                   fillColor: '#00FF00', lineWidth: 2, 
                   radius: (data) => {
                     return lerp(data.from.z, -0.15, .1, 10, 1);
                   }});
-    drawConnectors(canvasCtx, results.rightHandLandmarks, Holistic.HAND_CONNECTIONS,
-                  {color: '#00CC00', lineWidth: 5});
+    drawConnectors(canvasCtx, results.rightHandLandmarks, HAND_CONNECTIONS,
+                  {color: 'white',});
     drawLandmarks(canvasCtx, results.rightHandLandmarks,
                   {color: '#00FF00',
                   fillColor: '#FF0000',lineWidth: 2, 
                   radius: (data) => {
                     return lerp(data.from.z, -0.15, .1, 10, 1);
                   }});
-  
-
+    
+    // Face...
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_TESSELATION, {
+      color: "#C0C0C070",
+      lineWidth: 1
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_RIGHT_EYE, {
+      color: "rgb(0,217,231)"
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_RIGHT_EYEBROW, {
+      color: "rgb(0,217,231)"
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_LEFT_EYE, {
+      color: "rgb(255,138,0)"
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_LEFT_EYEBROW, {
+      color: "rgb(255,138,0)"
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_FACE_OVAL, {
+      color: "#E0E0E0",
+      lineWidth: 5
+    });
+    drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_LIPS, {
+      color: "#E0E0E0",
+      lineWidth: 5
+    });
     // if (results.multiFaceLandmarks) {
     //   for (const landmarks of results.multiFaceLandmarks) {
     //     connect(canvasCtx, landmarks, Facemesh.FACEMESH_TESSELATION, {
@@ -128,7 +175,6 @@ function MediapipeHolistic() {
         height: 480,
       });
       camera.start();
-      console.log(webcamRef);
     }
   }, []);
 
