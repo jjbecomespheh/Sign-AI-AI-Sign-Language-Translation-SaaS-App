@@ -55,11 +55,11 @@ function MediapipeHolistic() {
     
     drawLandmarks(canvasCtx, results.poseLandmarks,
                   {color: '#000000', 
-                  fillColor: '#FFFFFF',lineWidth: 1, 
+                  fillColor: '#00FF00',lineWidth: 1, 
                   radius: 5});
     //Connections are the line connecting the dots
     drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
-      {color: '#000000', lineWidth: 1});
+      {color: '#00FF00', lineWidth: 1});
 
     // drawConnectors(canvasCtx, results.faceLandmarks, FaceMesh.FACEMESH_TESSELATION,
     //               {color: '#C0C0C070', lineWidth: 1});
@@ -167,9 +167,11 @@ function MediapipeHolistic() {
             // left: 0,
             // right: 0,
             // textAlign: "center",
+            mirrored: true,
+
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: 370,
+            height: 277,
           }}
         />
         <canvas
@@ -187,8 +189,9 @@ function MediapipeHolistic() {
             // right: 0,
             // textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: 370,
+            height: 277,
+            mirrored: true,
           }}
         ></canvas>
         
