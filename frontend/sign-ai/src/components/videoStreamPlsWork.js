@@ -94,25 +94,25 @@ function VideoStreamPlsWork(){
     }, 10000/FPS);
 
 
-    socket.on('response_back', function(image){
-      image ="data:image/png;base64," + image
-      // console.log("i get shit", image)
-      image = URL.createObjectURL(image)
-      console.log("i get shit", image)
-      var video_element = webcamRef.current.video
-      video_element.src = image;
-      const canvasElement = canvasRef.current;
-      const canvasCtx = canvasElement.getContext("2d");
-      var w = video_element.videoWidth
-      var h = video_element.videoHeight
-      canvasCtx.save();
-      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-      canvasCtx.globalCompositeOperation = 'source-over'
-      canvasCtx.translate(canvasRef.current.width, 0);
-      canvasCtx.scale(-1, 1);
-      canvasCtx.drawImage(image, 0, 0, 370, 277);
-      canvasCtx.restore();
-    });
+    // socket.on('response_back', function(image){
+    //   image ="data:image/png;base64," + image
+    //   // console.log("i get shit", image)
+    //   image = URL.createObjectURL(image)
+    //   console.log("i get shit", image)
+    //   var video_element = webcamRef.current.video
+    //   video_element.src = image;
+    //   const canvasElement = canvasRef.current;
+    //   const canvasCtx = canvasElement.getContext("2d");
+    //   var w = video_element.videoWidth
+    //   var h = video_element.videoHeight
+    //   canvasCtx.save();
+    //   canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    //   canvasCtx.globalCompositeOperation = 'source-over'
+    //   canvasCtx.translate(canvasRef.current.width, 0);
+    //   canvasCtx.scale(-1, 1);
+    //   canvasCtx.drawImage(image, 0, 0, 370, 277);
+    //   canvasCtx.restore();
+    // });
 
     socket.on('prediction', function(pred){
       console.log("FUCKKK", pred)
