@@ -1,9 +1,6 @@
 from modules import *
 from folder_setup import *
 
-
-
-
 classes = {label:num for num, label in enumerate(actions)}
 
 sequences, labels = [], []

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import IconButton from '@mui/material/IconButton';
+import ScriptTag from 'react-script-tag';
 import Webcam from "react-webcam";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -11,6 +12,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import VideoStreamPlsWork from './videoStreamPlsWork';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
 import {Camera} from "react-camera-pro";
@@ -44,6 +46,7 @@ LoadModel();
 
 function Translate(){
     const history = useHistory()
+    const videoRefPlsWork = useRef(null)
     try{
         useGlobalState("conversation_id")
     }catch{
@@ -72,10 +75,14 @@ function Translate(){
     }
         return(
             <div>
-                <MediapipeHolistic style={{
+                {/* <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '90px'}}/>
+                            marginTop: '90px'}}/> */}
+                {/* <video autoPlay={true} ref={videPlsWork} id="videoElement" width={750} height={500} >
+                    <ScriptTag isHydrating={true} type="text/javascript" src="./videoStreamPlsWork.js" />
+                </video> */}
+                <VideoStreamPlsWork />
 
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
