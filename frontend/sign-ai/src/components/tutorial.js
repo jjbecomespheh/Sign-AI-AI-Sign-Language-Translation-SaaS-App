@@ -26,6 +26,7 @@ function Tutorial(){
             vibrate();
             history.push('/translate');
         }
+    })
 
     function onClick(){
         vibrate();
