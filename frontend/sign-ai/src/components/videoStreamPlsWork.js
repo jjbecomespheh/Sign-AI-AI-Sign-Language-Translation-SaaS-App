@@ -48,31 +48,31 @@ function VideoStreamPlsWork(){
     }, []);
 
     function capture(video, scaleFactor) {
-         if(scaleFactor == null){
-             scaleFactor = 1;
-         }
-         console.log("FUCK EVERYONE", video)
-         console.log("FUCK SOME PEOPLE", video.width)
-         var w = video.width * scaleFactor;
-         var h = video.height * scaleFactor;
+      if(scaleFactor == null){
+        scaleFactor = 1;
+      }
+      console.log("FUCK EVERYONE", video)
+      console.log("FUCK SOME PEOPLE", video.width)
+      var w = video.width * scaleFactor;
+      var h = video.height * scaleFactor;
        
-         const canvasElement = canvasRef.current;
-        const canvasCtx = canvasElement.getContext("2d");
+      const canvasElement = canvasRef.current;
+      const canvasCtx = canvasElement.getContext("2d");
 
-        canvasCtx.save();
-        canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-        canvasCtx.translate(canvasRef.current.width, 0);
-        canvasCtx.scale(-1, 1);
-         
-        canvasCtx.drawImage(video, 0, 0, w, h);
-        return canvasElement;
-    } 
-    // let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
-    // let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
-    // let cap = new cv.VideoCapture(video);
+      canvasCtx.translate(canvasRef.current.width, 0);
+      canvasCtx.scale(-1, 1);
+        
+      canvasCtx.drawImage(video, 0, 0, w, h);
+      return canvasElement;
+  } 
+  // let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
+  // let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
+  // let cap = new cv.VideoCapture(video);
 
-    const FPS = 22;
+  const FPS = 22;
 
     setInterval(() => {
         // cap.read(src);
