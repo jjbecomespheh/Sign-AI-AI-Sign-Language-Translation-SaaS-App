@@ -62,9 +62,10 @@ function VideoStreamPlsWork(){
       canvasCtx.save();
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
       canvasCtx.globalCompositeOperation = 'source-over'
-      canvasCtx.translate(canvasRef.current.width, 0);
+      canvasCtx.translate(canvasRef.current.width,  0);
       canvasCtx.scale(-1, 1);
-      canvasCtx.drawImage(video, 0, 0, w, h);
+      canvasCtx.drawImage(video, 0, 0, 270, 340);
+      // canvasCtx.save();
       canvasCtx.restore();
       return canvasElement;
   } 
@@ -72,7 +73,7 @@ function VideoStreamPlsWork(){
   // let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
   // let cap = new cv.VideoCapture(video);
 
-  const FPS = 10;
+  const FPS = 50;
 
     setInterval(() => {
         // cap.read(src);
@@ -94,6 +95,9 @@ function VideoStreamPlsWork(){
 
 
     socket.on('response_back', function(image){
+      image ="data:image/png;base64," + image
+      // console.log("i get shit", image)
+      image = URL.createObjectURL(image)
       console.log("i get shit", image)
       var video_element = webcamRef.current.video
       video_element.src = image;
@@ -106,8 +110,7 @@ function VideoStreamPlsWork(){
       canvasCtx.globalCompositeOperation = 'source-over'
       canvasCtx.translate(canvasRef.current.width, 0);
       canvasCtx.scale(-1, 1);
-      image ="data:image/png;base64," + image
-      canvasCtx.drawImage(image, 0, 0, w, h);
+      canvasCtx.drawImage(image, 0, 0, 370, 277);
       canvasCtx.restore();
     });
 
