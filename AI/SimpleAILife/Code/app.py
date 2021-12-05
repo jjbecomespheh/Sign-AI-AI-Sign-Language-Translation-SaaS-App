@@ -69,6 +69,7 @@ def image(data_image):
                         sentence.append(actions[np.argmax(res)])
                 else:
                     sentence.append(actions[np.argmax(res)])
+            emit('prediction', actions[np.argmax(res)])
 
             if len(sentence) > 5: 
                 sentence = sentence[-5:]

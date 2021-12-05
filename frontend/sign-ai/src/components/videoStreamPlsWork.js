@@ -37,7 +37,8 @@ function VideoStreamPlsWork(){
       ) {
         camera = new cam.Camera(webcamRef.current.video, {
           onFrame: async () => {
-            setInterval(50)
+            console.log( webcamRef.current.video)
+            setInterval(25)
           },
           width: 640,
           height: 480,
@@ -52,19 +53,17 @@ function VideoStreamPlsWork(){
         scaleFactor = 1;
       }
       console.log("FUCK EVERYONE", video)
-      console.log("FUCK SOME PEOPLE", video.width)
-      var w = video.width * scaleFactor;
-      var h = video.height * scaleFactor;
+      var w = video.videoWidth
+      var h = video.videoHeight
+      console.log("IWUFHIUWHFIUWHFIUWHF", w,h)
        
       const canvasElement = canvasRef.current;
       const canvasCtx = canvasElement.getContext("2d");
-
       canvasCtx.save();
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
       canvasCtx.globalCompositeOperation = 'source-over'
       canvasCtx.translate(canvasRef.current.width, 0);
       canvasCtx.scale(-1, 1);
-        
       canvasCtx.drawImage(video, 0, 0, w, h);
       canvasCtx.restore();
       return canvasElement;
@@ -73,7 +72,7 @@ function VideoStreamPlsWork(){
   // let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
   // let cap = new cv.VideoCapture(video);
 
-  const FPS = 22;
+  const FPS = 10;
 
     setInterval(() => {
         // cap.read(src);
@@ -95,9 +94,26 @@ function VideoStreamPlsWork(){
 
 
     socket.on('response_back', function(image){
-        var video_element = webcamRef.current.video
-        video_element.src = image;
+      console.log("i get shit", image)
+      var video_element = webcamRef.current.video
+      video_element.src = image;
+      const canvasElement = canvasRef.current;
+      const canvasCtx = canvasElement.getContext("2d");
+      var w = video_element.videoWidth
+      var h = video_element.videoHeight
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.globalCompositeOperation = 'source-over'
+      canvasCtx.translate(canvasRef.current.width, 0);
+      canvasCtx.scale(-1, 1);
+      image ="data:image/png;base64," + image
+      canvasCtx.drawImage(image, 0, 0, w, h);
+      canvasCtx.restore();
     });
+
+    socket.on('prediction', function(pred){
+      console.log("FUCKKK", pred)
+    })
 
     return (<center>
         <div className="App">
