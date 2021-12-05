@@ -10,7 +10,6 @@ console.log(logo);
 
 function CoverPage(){
     const history = useHistory()
-    
     function vibrate() {
         if (!window) {
             return;
@@ -36,18 +35,12 @@ function CoverPage(){
         if (B > 140){
             vibrate();
             history.push('/tutorial');
-            
         }
-       
+
     });
-
-
-    
-
     function onClick(){
         vibrate();
-        history.push('/tutorial');
-
+        history.push('/tutorial')
     }
         return(
             <div>
