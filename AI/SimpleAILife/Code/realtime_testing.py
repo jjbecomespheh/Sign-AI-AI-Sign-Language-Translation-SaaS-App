@@ -11,7 +11,7 @@ sequence = []
 sentence = []
 threshold = 0.8
 
-model = keras.models.load_model('../Model/lstm_model_pls_work.h5')
+model = keras.models.load_model('Model/lstm_model_pls_work.h5')
 
 cap = cv2.VideoCapture(0)
 
@@ -26,12 +26,14 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
 
         keypoints = extract_keypoints(results)
         sequence.append(keypoints)
-        sequence = sequence[-30:]
-        print("len is ", len(sequence))
-        if len(sequence) == 30:
+        sequence = sequence[-20:]
+        # print("len is ", len(sequence))
+        if len(sequence) == 20:
             res = model.predict(np.expand_dims(sequence, axis=0))[0]
+            # print(r)
             print(actions[np.argmax(res)])
-            
+            # print(threshold)
+            # print(threshold<np.argmax(res))
             if res[np.argmax(res)] > threshold: 
                 if len(sentence) > 0: 
                     if actions[np.argmax(res)] != sentence[-1]:
@@ -55,4 +57,4 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
     cap.release()
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows()   

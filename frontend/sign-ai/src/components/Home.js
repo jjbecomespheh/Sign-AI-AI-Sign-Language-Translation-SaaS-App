@@ -9,7 +9,6 @@ import HelpIcon from '@mui/icons-material/Help';
 import { v4 as uuidv4 } from 'uuid';
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
-//import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 function Home(){
     const history = useHistory()
@@ -22,47 +21,45 @@ function Home(){
         var convo_id = uuidv4(); 
         store.setState("conversation_id", convo_id); 
         history.push('/translate')
-        //alert(convo_id)
-  
     }
 
     function goCoverPage(){
-        //alert("You clicked Home!")
         var convo_id = uuidv4(); 
         store.setState("conversation_id", convo_id); 
-        
         history.push('/cover-page')
     }
-   
         return(
             <div style={{marginTop: '150px'}}>
-                <Button
-                id = "cover_page"
-                className="NextHome" 
-                variant="contained"
-                onClick={goCoverPage} 
-                startIcon={<HelpIcon />} 
-                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                >Cover Page</Button>
-                
-                <Button 
-                    id = "newconv"
+                <div>
+                    <Button
+                    id = "cover_page"
                     className="NextHome" 
                     variant="contained"
-                    onClick={goTranslate} 
-                    startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                    >New Conversation</Button>
-                
-                <Button 
-                    className="NextHome" 
-                    variant="contained"
-                    onClick={goChatHistory} 
-                    startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                    >Chat History</Button>
+                    onClick={goCoverPage} 
+                    startIcon={<HelpIcon />} 
+                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                    >Cover Page</Button>
+                </div>
+                <div>
+                    <Button 
+                        id = "newconv"
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goTranslate} 
+                        startIcon={<TranslateIcon />} 
+                        style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >New Conversation</Button>
+                </div>
+                <div>
+                    <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goChatHistory} 
+                        startIcon={<HistoryIcon />}
+                        style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >Chat History</Button>
+                </div>
             </div>
         )
 }
-
 export default Home;

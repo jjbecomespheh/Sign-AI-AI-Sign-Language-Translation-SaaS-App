@@ -20,12 +20,10 @@ function Ask(){
         else {
             axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
             history.push('/translate');
-
         }
     }
     return(
         <div>
-
             <h1 style={{marginTop: '25px', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px', color: '#26580F'}}>
                 Please nod if you understand
             </h1>
@@ -44,7 +42,6 @@ function Ask(){
                     InputLabelProps={{style: {fontSize: 20}}} // font size of input label
                     />
             </div>
-
             <div>
                 <Button 
                     id = "ask_submit"

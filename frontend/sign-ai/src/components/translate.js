@@ -20,42 +20,36 @@ import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
-//import io from "socket.io-client"
 import '@fontsource/montserrat';
+
 import * as tf from '@tensorflow/tfjs'
+import { v4 as uuidv4 } from 'uuid';
+import * as Holistic from '@mediapipe/holistic'
+import * as camera_utils from '@mediapipe/camera_utils'
+import * as control_utils from '@mediapipe/control_utils'
+import * as drawing_utils from '@mediapipe/drawing_utils'
+import MediapipeHolistic from "./mediapipe_holistic";
 
-//const socket = io.connect('http://localhost:8000')
-
-//const MODEL_URL = 'https://github.com/Service-Design-Studio/1d-final-project-team-4/blob/main/frontend/sign-ai/public/tfjs/model.json';
-
-// const MODEL_URL = 'Users/jjbecomespheh/SUTD/Term-6/SDS/1d-final-project-team-4/frontend/sign-ai/public/tfjs/model.json'
-// const MODEL_URL = "./components/model.json"
-const MODEL_URL = 'https://drive.google.com/file/d/1Il4yTZjahSthCMlc5EkTvr6kEFoGgRYI/view?usp=sharing'
-
-
-async function LoadModel(MODEL_URL){
-
+async function LoadModel(){
     try {
         // For layered model
-        const model = await tf.loadLayersModel(MODEL_URL);
+        const model = await tf.loadLayersModel('/tfjs/model.json');
         await console.log("Load model success");
     } catch (err) {
+        console.log("GGWP");
         console.log(err);
     }
 }
-
-// const [model, setModel] = useState();
-
-// React.useEffect(() => {
-//     tf.ready().then(() => {
-//         LoadModel(MODEL_URL);
-//     });
-// }, []);
-LoadModel(MODEL_URL);
+LoadModel();
 
 function Translate(){
-
     const history = useHistory()
+    try{
+        useGlobalState("conversation_id")
+    }catch{
+        var convo_id = uuidv4(); 
+        store.setState("conversation_id", convo_id); 
+    }
     const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
     const translated_text = "Someone molested me";
@@ -69,64 +63,20 @@ function Translate(){
     }
 
     function activateNo(){
-        alert("Please Sign Again!");
+        //ttText = "Please re-sign your message"
+        //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
 
     function activateHome(){
         history.push('/')
     }
-    //Code start for socket:
-    // useEffect(() => {
-	// 	navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-	// 		setStream(stream)
-	// 			myVideo.current.srcObject = stream
-	// 	})
-    //Code end for socket:
-
-
-    const camera = useRef(null);
-    const [image, setImage] = useState(null);
-    const ref = useCamera({ audio: false });
-
         return(
             <div>
-                <div width={'300px'} height={'900px'}
-                    style={{borderRadius: '25px', marginTop: '20px', alignContent: 'center'}}>
-                    
-                    <VideoRecorder
-                        isFlipped={false}
-                        isOnInitially
-                        countdownTime={0}
-                        mimeType="video/webm;codecs=vp8,opus"
-                        // constraints={{
-                        //     audio: true,
-                        //     video: {
-                        //     width: { exact: 480, ideal: 480 },
-                        //     height: { exact: 940, ideal: 940 },
-                        //     aspectRatio: { exact: 0.900000001, ideal: 0.900000001 },
-                        //     }
-                        //}}
-                        onRecordingComplete={(videoBlob) => {
-                            // Do something with the video...
-                            console.log("videoBlob", videoBlob);
-                            //push("/videoPreview", { videoBlob });
-                        
-                        }}
-                        style={{width: 300}}
-                        />
+                <MediapipeHolistic style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}/>
 
-                        {/* <div className="video-container">
-                            <div className="video">
-                                {stream &&  <video playsInline muted ref={myVideo} autoPlay style={{ width: "300px" }} />}
-                            </div>
-                            <div className="video">
-                                {callAccepted && !callEnded ?
-                                <video playsInline ref={userVideo} autoPlay style={{ width: "300px"}} />:
-                                null}
-                            </div>
-                        </div> */}
-                </div>
-                
                 <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
@@ -135,12 +85,13 @@ function Translate(){
                         className="NextHome" 
                         variant="contained"
                         id="translated_text"
+                        disabled={true}
                         style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
                         >Start signing ... <br/>nod when you're done.</Button>
                 </div>
                 
                 <div>
-                    <div>
+                    <div style={{marginTop: '1px'}}>
                         <Button 
                             id="sign_again_btn"
                             onClick={activateNo} 
@@ -156,20 +107,20 @@ function Translate(){
                     </div>
 
                     <div>
-                        <Link to='/home'>
+                        <Link to='/home' style={{textDecoration: 'none'}}>
                             <Button 
                             id="home_btn"
                             onClick={activateHome} 
                             startIcon={<CallEndIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginRight:'10px', marginBottom:'10px'}}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginRight:'10px', marginBottom:'10px'}}
                             >End Convo</Button>
                         </Link>
-                        <Link to='/ask'>
+                        <Link to='/ask' style={{textDecoration: 'none'}}>
                             <Button 
                             id="ask_btn"
                             onClick={activateHome} 
                             startIcon={<QuestionAnswerIcon />}
-                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'10px', marginBottom:'10px' }}
+                            style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginBottom:'10px' }}
                             >Ask Question</Button>
                         </Link>
                     </div>
