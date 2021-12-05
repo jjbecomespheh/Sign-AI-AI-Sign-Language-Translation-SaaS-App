@@ -25,8 +25,10 @@ import * as control_utils from '@mediapipe/control_utils'
 import { drawConnectors, drawLandmarks, lerp } from '@mediapipe/drawing_utils'
 
 function MediapipeHolistic() {
+
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  
   const connect = window.drawConnectors;
   var camera = null;
   function onResults(results) {
