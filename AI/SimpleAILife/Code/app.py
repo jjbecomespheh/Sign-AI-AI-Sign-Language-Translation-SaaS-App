@@ -44,7 +44,7 @@ def image(data_image):
         # decode and convert into image
         b = io.BytesIO(base64.b64decode(data_image))
         pimg = Image.open(b)
-        pimg.show()
+        # pimg.show()
         # print(pimg, file=sys.stdout, flush=True)
         # print(np.ndarray(pimg), file=sys.stdout, flush=True)
         image, results = mediapipe_detection(np.asarray(pimg), holistic)

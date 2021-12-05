@@ -61,11 +61,12 @@ function VideoStreamPlsWork(){
 
       canvasCtx.save();
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-
+      canvasCtx.globalCompositeOperation = 'source-over'
       canvasCtx.translate(canvasRef.current.width, 0);
       canvasCtx.scale(-1, 1);
         
       canvasCtx.drawImage(video, 0, 0, w, h);
+      canvasCtx.restore();
       return canvasElement;
   } 
   // let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
