@@ -37,7 +37,7 @@ function VideoStreamPlsWork(){
       ) {
         camera = new cam.Camera(webcamRef.current.video, {
           onFrame: async () => {
-            console.log( webcamRef.current.video)
+            // console.log( webcamRef.current.video)
             setInterval(25)
           },
           width: 640,
@@ -52,19 +52,19 @@ function VideoStreamPlsWork(){
       if(scaleFactor == null){
         scaleFactor = 1;
       }
-      console.log("FUCK EVERYONE", video)
+      // console.log("FUCK EVERYONE", video)
       var w = video.videoWidth
       var h = video.videoHeight
-      console.log("IWUFHIUWHFIUWHFIUWHF", w,h)
+      // console.log("IWUFHIUWHFIUWHFIUWHF", w,h)
        
       const canvasElement = canvasRef.current;
       const canvasCtx = canvasElement.getContext("2d");
       canvasCtx.save();
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
       canvasCtx.globalCompositeOperation = 'source-over'
-      canvasCtx.translate(canvasRef.current.width,  0);
-      canvasCtx.scale(-1, 1);
-      canvasCtx.drawImage(video, 0, 0, 270, 340);
+      // canvasCtx.translate(30,  0);
+      canvasCtx.scale(0.5, 0.36);
+      canvasCtx.drawImage(video, 0, 0, w, h);
       // canvasCtx.save();
       canvasCtx.restore();
       return canvasElement;
@@ -73,7 +73,7 @@ function VideoStreamPlsWork(){
   // let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
   // let cap = new cv.VideoCapture(video);
 
-  const FPS = 50;
+  const FPS = 60;
 
     setInterval(() => {
         // cap.read(src);
@@ -85,34 +85,34 @@ function VideoStreamPlsWork(){
         // var data = document.getElementById("canvasOutput").toDataURL(type);
         // var video_element = document.getElementById("videoElement")
         var video_element = webcamRef.current.video
-        console.log("fwhiufhwefjwefwefwef", video_element)
+        // console.log("fwhiufhwefjwefwefwef", video_element)
         var frame = capture(video_element, 1)
         var data = frame.toDataURL(type);
         data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
-        console.log("DATA IS ", data)
+        // console.log("DATA IS ", data)
         socket.emit('image', data);
     }, 10000/FPS);
 
 
-    socket.on('response_back', function(image){
-      image ="data:image/png;base64," + image
-      // console.log("i get shit", image)
-      image = URL.createObjectURL(image)
-      console.log("i get shit", image)
-      var video_element = webcamRef.current.video
-      video_element.src = image;
-      const canvasElement = canvasRef.current;
-      const canvasCtx = canvasElement.getContext("2d");
-      var w = video_element.videoWidth
-      var h = video_element.videoHeight
-      canvasCtx.save();
-      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-      canvasCtx.globalCompositeOperation = 'source-over'
-      canvasCtx.translate(canvasRef.current.width, 0);
-      canvasCtx.scale(-1, 1);
-      canvasCtx.drawImage(image, 0, 0, 370, 277);
-      canvasCtx.restore();
-    });
+    // socket.on('response_back', function(image){
+    //   image ="data:image/png;base64," + image
+    //   // console.log("i get shit", image)
+    //   image = URL.createObjectURL(image)
+    //   console.log("i get shit", image)
+    //   var video_element = webcamRef.current.video
+    //   video_element.src = image;
+    //   const canvasElement = canvasRef.current;
+    //   const canvasCtx = canvasElement.getContext("2d");
+    //   var w = video_element.videoWidth
+    //   var h = video_element.videoHeight
+    //   canvasCtx.save();
+    //   canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    //   canvasCtx.globalCompositeOperation = 'source-over'
+    //   canvasCtx.translate(canvasRef.current.width, 0);
+    //   canvasCtx.scale(-1, 1);
+    //   canvasCtx.drawImage(image, 0, 0, 370, 250);
+    //   canvasCtx.restore();
+    // });
 
     socket.on('prediction', function(pred){
       console.log("FUCKKK", pred)

@@ -22,9 +22,12 @@ from keypoints_extraction import extract_keypoints
 import keras
 from folder_setup import *
 from visualization import prob_viz,colors
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+app.config['Access-Control-Allow-Origin'] = '*'
 socketio = SocketIO(app,  cors_allowed_origins="*")
+CORS(app,resources={r"*": {"origins": "*"}})
 
 model = keras.models.load_model('Model/lstm_model_pls_work.h5')
 sequence = []
