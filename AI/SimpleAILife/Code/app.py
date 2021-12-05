@@ -81,7 +81,7 @@ def image(data_image):
             # base64 encode
             stringData = base64.b64encode(imgencode).decode('utf-8')
             b64_src = 'data:image/jpg;base64,'
-            stringData = b64_src + stringData
+            stringData = b64_src + stringData  
 
             # emit the frame back
             emit('response_back', stringData)
