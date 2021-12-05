@@ -30,31 +30,35 @@ function Home(){
     }
         return(
             <div style={{marginTop: '150px'}}>
-                <Button
-                id = "cover_page"
-                className="NextHome" 
-                variant="contained"
-                onClick={goCoverPage} 
-                startIcon={<HelpIcon />} 
-                style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                >Cover Page</Button>
-                
-                <Button 
-                    id = "newconv"
+                <div>
+                    <Button
+                    id = "cover_page"
                     className="NextHome" 
                     variant="contained"
-                    onClick={goTranslate} 
-                    startIcon={<TranslateIcon />} 
-                    style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                    >New Conversation</Button>
-                
-                <Button 
-                    className="NextHome" 
-                    variant="contained"
-                    onClick={goChatHistory} 
-                    startIcon={<HistoryIcon />}
-                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
-                    >Chat History</Button>
+                    onClick={goCoverPage} 
+                    startIcon={<HelpIcon />} 
+                    style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                    >Cover Page</Button>
+                </div>
+                <div>
+                    <Button 
+                        id = "newconv"
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goTranslate} 
+                        startIcon={<TranslateIcon />} 
+                        style={{backgroundColor: '#f7b34d', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >New Conversation</Button>
+                </div>
+                <div>
+                    <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goChatHistory} 
+                        startIcon={<HistoryIcon />}
+                        style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >Chat History</Button>
+                        </div>
             </div>
         )
 }
