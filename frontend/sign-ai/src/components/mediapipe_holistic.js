@@ -137,7 +137,9 @@ function MediapipeHolistic() {
     ) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
-          await faceMesh.send({ image: webcamRef.current.video });
+          if (webcamRef.current!= null){
+            await faceMesh.send({ image: webcamRef.current.video });
+          }
         },
         width: 640,
         height: 480,
