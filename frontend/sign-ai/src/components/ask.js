@@ -54,7 +54,7 @@ function Ask(){
                     longvibrate();
                 }
                 else {
-                    axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+                    axios.post('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
                     history.push('/translate');
                     vibrate();
                 }
@@ -70,7 +70,7 @@ function Ask(){
             longvibrate();
         }
         else {
-            axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+            axios.post('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
             history.push('/translate');
         }
     }
