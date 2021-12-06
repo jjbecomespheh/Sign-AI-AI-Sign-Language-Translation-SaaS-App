@@ -24,8 +24,8 @@ function Tutorial(){
     }
 
     window.addEventListener('deviceorientation', function(e) {
-        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-        
+        setTimeout(() => {  console.log("Delay!"); }, 50);
+
         var B = e.beta;
         if (location.pathname == "/tutorial"){
             if (B > 150){

@@ -42,26 +42,37 @@ function Ask(){
         window.navigator.vibrate(400);
     }
 
-    window.addEventListener('deviceorientation', function(e) {
-        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-        var B = e.beta;
-        if (location.pathname == "/ask"){
-            if (B > 150){
+    // function tilt(){
+    //     // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+    //     var B = tilt.beta;
+    //     if (location.pathname == "/ask"){
+    //         if (B > 150){
                 
-                console.log(question)
-                if (question === ''){
-                    alert("Please key in something into the text field")
-                    longvibrate();
-                }
-                else {
-                    axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
-                    history.push('/translate');
-                    vibrate();
-                }
-            }
-        }
-        
-    });
+    //             console.log(question)
+    //             if (question === ''){
+    //                 alert("Please key in something into the text field")
+    //                 longvibrate();
+    //             }
+    //             else {
+    //                 axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+    //                 history.push('/translate');
+    //                 vibrate();
+    //                 }
+    //             }
+    //         } 
+    //     }
+
+    // const Component = (props) => {  
+    //     React.useEffect(() => {
+    //         window.addEventListener('deviceorientation', tilt );
+    //     });
+    //     React.useEffect(() => {
+    //         return () => {
+    //             window.removeEventListener('deviceorientation', tilt);
+    //             console.log("Dismount!")
+    //         };
+    //     }, []);
+    // }
     
     const askButton = () => {
         console.log(question)
