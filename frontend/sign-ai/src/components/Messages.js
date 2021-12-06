@@ -91,7 +91,7 @@ export default function Message () {
         return(
             myMessages.map((messageObj) => {
                 return(<div>
-                {messageObj.sender == 'Police' ? 
+                {(messageObj.sender == 'Police' || messageObj.sender.split()[0] == 'Officer') ? 
             <MessageRight
                 message={messageObj.message}
                 photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
