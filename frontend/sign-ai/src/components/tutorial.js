@@ -3,9 +3,13 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {useHistory} from 'react-router-dom';
 import '@fontsource/montserrat';
+import { useLocation } from 'react-router-dom'
 
 function Tutorial(){
     const history = useHistory()
+
+    const location = useLocation();
+
     function vibrate() {
         if (!window) {
             return;
@@ -16,15 +20,18 @@ function Tutorial(){
         if (!window.navigator.vibrate) {
             return;
         }
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(250);
     }
 
     window.addEventListener('deviceorientation', function(e) {
         // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+        
         var B = e.beta;
-        if (B > 140){
+        if (location.pathname == "/tutorial"){
+            if (B > 150){
             vibrate();
             history.push('/translate');
+            }
         }
     })
 

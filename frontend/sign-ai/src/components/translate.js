@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
-import {Camera} from "react-camera-pro";
+s
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 import { TextField } from "@mui/material";
@@ -119,7 +119,7 @@ function Translate(){
                         <Link to='/ask' style={{textDecoration: 'none'}}>
                             <Button 
                             id="ask_btn"
-                            onClick={activateHome} 
+                            //onClick={activateHome} 
                             startIcon={<QuestionAnswerIcon />}
                             style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginBottom:'10px' }}
                             >Ask Question</Button>

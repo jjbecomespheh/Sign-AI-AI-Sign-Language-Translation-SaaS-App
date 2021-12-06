@@ -30,6 +30,8 @@ function MediapipeHolistic() {
   const connect = window.drawConnectors;
   var camera = null;
   function onResults(results) {
+
+    
     const videoWidth = webcamRef.current.video.videoWidth;
     const videoHeight = webcamRef.current.video.videoHeight;
 
