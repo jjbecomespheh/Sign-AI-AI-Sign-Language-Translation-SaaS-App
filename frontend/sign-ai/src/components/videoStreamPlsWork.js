@@ -91,6 +91,7 @@ function VideoStreamPlsWork(){
         data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
         // console.log("DATA IS ", data)
         socket.emit('image', data);
+
     }, 10000/FPS);
 
 
@@ -123,6 +124,7 @@ function VideoStreamPlsWork(){
           <Webcam
             ref={webcamRef}
             style={{
+              display: 'none',
               borderRadius: '12px', 
               marginTop: '20px', 
               alignContent: 'center',
@@ -136,6 +138,7 @@ function VideoStreamPlsWork(){
             ref={canvasRef}
             className="output_canvas"
             style={{
+              display: 'none',
               borderRadius: '25px', 
               marginTop: '20px', 
               alignContent: 'center',
