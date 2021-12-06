@@ -25,10 +25,8 @@ import * as control_utils from '@mediapipe/control_utils'
 import { drawConnectors, drawLandmarks, lerp } from '@mediapipe/drawing_utils'
 
 function MediapipeHolistic() {
-
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  
   const connect = window.drawConnectors;
   var camera = null;
   function onResults(results) {
@@ -44,8 +42,8 @@ function MediapipeHolistic() {
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-    canvasCtx.translate(canvasElement.width, 0);
-    canvasCtx.scale(0.1, 0.1);
+    canvasCtx.translate(canvasRef.current.width, 0);
+    canvasCtx.scale(-1, 1);
 
     canvasCtx.drawImage(
       results.image,
@@ -139,7 +137,7 @@ function MediapipeHolistic() {
     ) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
-          if (webcamRef.current!= null){
+          if (webcamRef.current!=null){
             await faceMesh.send({ image: webcamRef.current.video });
           }
         },

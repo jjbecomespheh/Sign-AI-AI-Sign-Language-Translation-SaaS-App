@@ -58,7 +58,7 @@ function Home(){
                         startIcon={<HistoryIcon />}
                         style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
                         >Chat History</Button>
-                </div>
+                        </div>
             </div>
         )
 }
