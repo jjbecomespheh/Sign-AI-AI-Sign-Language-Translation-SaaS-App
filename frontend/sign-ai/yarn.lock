@@ -10879,6 +10879,11 @@
   dependencies:
     "object-assign" "^4.1.0"
 
+"react-animations@^1.0.0":
+  "integrity" "sha512-ePPpVgdKnNEXm+LP1ww5s3n0JzebBw9QdRfxRqogzeg1PDIn6kf0pmvgeTeVZQXXpGmHImkIeTiaQR1O6xjntA=="
+  "resolved" "https://registry.npmjs.org/react-animations/-/react-animations-1.0.0.tgz"
+  "version" "1.0.0"
+
 "react-app-polyfill@^1.0.6":
   "integrity" "sha512-OfBnObtnGgLGfweORmdZbyEz+3dgVePQBb3zipiaDsMHV1NpWm0rDFYIVXFV/AK+x4VIIfWHhrdMIeoTLyRr2g=="
   "resolved" "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz"

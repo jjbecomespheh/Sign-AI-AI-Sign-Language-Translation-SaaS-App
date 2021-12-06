@@ -4,9 +4,13 @@ import Stack from '@mui/material/Stack';
 import {useHistory} from 'react-router-dom';
 import '@fontsource/montserrat';
 import { useLocation } from 'react-router-dom'
+import {bounce} from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+
 
 function Tutorial(){
     const history = useHistory()
+    const Bounce = styled.div`animation: 3s ${keyframes`${bounce}`} infinite`;
 
     const location = useLocation();
 
@@ -54,14 +58,14 @@ function Tutorial(){
                         style={{width: 350, height: 300, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', textTransform: "None", fontSize: "22px", fontFamily: 'Montserrat', textAlign: 'center'}}
                         >Start signing when the Officer turns the phone screen to you. Nod when you are done signing</Button>
                 </div>
-                <h4 style={{
-                            position: 'absolute', left: '50%', top: '48%',
+                <Bounce><h4 style={{
+                            position: 'relative', left: '50%', top: '48%',
                             transform: 'translate(-50%, -50%)',
                             color: '#26580F',
-                            marginTop: '245px',
+                            marginTop: '0px',
                             fontFamily: 'Montserrat',
                             fontSize: '20px',
-                            }}>Nod if you are ready</h4>
+                            }}>Nod if you are ready</h4></Bounce>
                 <div>
                     <Button 
                         id="tutorial_next"
