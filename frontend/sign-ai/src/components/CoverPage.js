@@ -28,16 +28,50 @@ function CoverPage(){
         }
         window.navigator.vibrate(205);
     }
+    var statee = 0
+    
+    function handleOrientationEvent(event) {
 
-    window.addEventListener('deviceorientation', function(e) {
-        var B = e.beta;
-        if (location.pathname == "/cover-page"){
-            if (B > 150){
+        event.stopPropagation();
+        
+        var B = event.beta;
+        if (location.pathname === "/cover-page"){
+            if (B > 150 && statee === 0) {
+                statee = 1;
+                
+            }
+            else if (B < 100 && statee === 1){
+
                 vibrate();
+                window.removeEventListener('deviceorientation', handleOrientationEvent);
                 history.push('/tutorial');
             }
         }
-    });
+
+    }
+    
+    if(window.DeviceOrientationEvent) {
+
+        window.addEventListener('deviceorientation', handleOrientationEvent);
+      }
+
+    // window.addEventListener('deviceorientation', function(e) {
+    //     // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+    //     e.stopPropagation();
+        
+    //     var B = e.beta;
+    //     if (location.pathname === "/cover-page"){
+    //         if (B > 150 && statee === 0) {
+    //             statee = 1;
+                
+    //         }
+    //         else if (B < 100 && statee === 1){
+    //             vibrate();
+    //             window.removeEventListener('deviceorientation', useCapture)
+    //             history.push('/tutorial');
+    //         }
+    //     }
+    // });
 
     function onClick(){
         vibrate();
@@ -45,7 +79,7 @@ function CoverPage(){
     }
 
         return(
-            <div>
+            <div id="cover_page">
                 <h1 
                 style={{color: '#26580F', fontFamily: 'Montserrat', marginTop: "30px"}}>Let's talk<br/>using this App!</h1>
                 <div className="intro">

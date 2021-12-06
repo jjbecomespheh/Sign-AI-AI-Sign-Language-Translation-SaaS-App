@@ -27,17 +27,31 @@ function Tutorial(){
         window.navigator.vibrate(250);
     }
 
-    window.addEventListener('deviceorientation', function(e) {
-        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+    var statee = 0
+
+    function handleOrientationEvent(event) {
+
+        event.stopPropagation();
         
-        var B = e.beta;
-        if (location.pathname == "/tutorial"){
-            if (B > 150){
-            vibrate();
-            history.push('/translate');
+        var B = event.beta;
+        if (location.pathname === "/tutorial"){
+            if (B > 150 && statee === 0) {
+                statee = 1;
+                
+            }
+            else if (B < 100 && statee === 1){
+                vibrate();
+                window.removeEventListener('deviceorientation', handleOrientationEvent);
+                history.push('/translate');
             }
         }
-    })
+
+    }
+    
+    if(window.DeviceOrientationEvent) {
+
+        window.addEventListener('deviceorientation', handleOrientationEvent);
+      }
 
     function onClick(){
         vibrate();
