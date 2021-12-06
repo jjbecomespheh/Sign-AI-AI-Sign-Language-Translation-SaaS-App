@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
-import {Camera} from "react-camera-pro";
+s
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 import { TextField } from "@mui/material";
