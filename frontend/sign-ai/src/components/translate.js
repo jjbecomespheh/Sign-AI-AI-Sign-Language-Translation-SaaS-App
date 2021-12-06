@@ -95,30 +95,40 @@ function Translate(){
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/>
                             
-
                 <div style={{
                             position:'relative', bottom:'50%', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
                     {/* <Grid columnSpacing={3}>
                         <Grid> */}
-                        <Button
+                        {/* <Button
                             className="NextHome" 
                             variant="contained"
                             id="translated_text"
                             disabled={true}
                             style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
-                            >Start signing ... <br/>nod when you're done.</Button>
+                            >Start signing ... <br/>nod when you're done.</Button> */}
                             {/* Translation: */}
                             {/* <p /> */}
                         {/* </Grid>
                         <Grid> */}
+
                         <TextField
                         id="outlined-name"
-                        label="Translation"
+                        label="Translating Sign..."
+                        multiline
+                        rows={3}
+                        placeholder="Please type your message"
+                        style={{width: '370px', borderRadius: '20px', fontSize: 25, marginTop: '30px', position: 'relative'}}
+                        color="warning"
+                        variant="filled"
                         value={translatedText}
                         onChange={handleChange}
+                        multiline InputProps={{style: {fontSize: 25}}} // font size of input text
+                        InputLabelProps={{style: {fontSize: 20}}} // font size of input label
                         />
+
+
                         {/* </Grid>
                     </Grid> */}
                 </div>
