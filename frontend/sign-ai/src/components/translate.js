@@ -13,15 +13,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
-s
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 import { TextField } from "@mui/material";
-import VideoRecorder from 'react-video-recorder'
+import VideoRecorder from 'react-video-recorder';
+import Grid from '@mui/material/Grid';
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
-
+import io from 'socket.io-client';
 import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
@@ -53,42 +53,74 @@ function Translate(){
     }
     const [conversation_id] = useGlobalState("conversation_id");
     const [question, setQuestion] = useState('');
+    const [translatedText, setTranslatedText] = useState('')
     const translated_text = "Someone molested me";
+    const handleChange = (event) => {
+        setTranslatedText(event.target.value);
+      };
+    var socket = io('http://localhost:5000');
+
+    socket.on('connect', function(){
+        console.log("Connected...!", socket.connected)
+    });
 
     const videoConstraints = {
         facingMode: "user"
         };
     
     function activateYes(){
-        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translated_text});
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
+        setTranslatedText('')
     }
 
     function activateNo(){
         //ttText = "Please re-sign your message"
         //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
-
+    socket.on('prediction', function(pred){
+        console.log("FUCKKK", pred)
+        if(pred == translatedText.split().pop()){
+          console.log("same shit ", pred, translatedText)
+        }else{
+          setTranslatedText(translatedText + " " + pred)
+        }
+      })
     function activateHome(){
         history.push('/')
     }
         return(
             <div>
-                <VideoStreamPlsWork style={{
+                <VideoStreamPlsWork socket={socket} style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/>
+                            
 
                 <div style={{
-                            position: 'relative', left: '50%', top: '50%',
+                            position:'relative', bottom:'50%', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
-                    <Button
-                        className="NextHome" 
-                        variant="contained"
-                        id="translated_text"
-                        disabled={true}
-                        style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
-                        >Start signing ... <br/>nod when you're done.</Button>
+                    {/* <Grid columnSpacing={3}>
+                        <Grid> */}
+                        <Button
+                            className="NextHome" 
+                            variant="contained"
+                            id="translated_text"
+                            disabled={true}
+                            style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
+                            >Start signing ... <br/>nod when you're done.</Button>
+                            {/* Translation: */}
+                            {/* <p /> */}
+                        {/* </Grid>
+                        <Grid> */}
+                        <TextField
+                        id="outlined-name"
+                        label="Translation"
+                        value={translatedText}
+                        onChange={handleChange}
+                        />
+                        {/* </Grid>
+                    </Grid> */}
                 </div>
                 
                 <div>
