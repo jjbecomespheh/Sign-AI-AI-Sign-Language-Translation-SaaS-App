@@ -29,6 +29,7 @@ import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
+import VideoStreamPlsWork from "./videoStreamPlsWork";
 
 async function LoadModel(){
     try {
@@ -72,7 +73,7 @@ function Translate(){
     }
         return(
             <div>
-                <MediapipeHolistic style={{
+                <VideoStreamPlsWork style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/>
