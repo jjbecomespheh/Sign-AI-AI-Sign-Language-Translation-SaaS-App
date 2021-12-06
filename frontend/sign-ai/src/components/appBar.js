@@ -11,7 +11,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import logo from '../logo.png'
+import logo from 'icon_new.png'
 console.log(logo); // /logo.84287d09.png
 
 

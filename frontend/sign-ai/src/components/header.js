@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-import logo2 from '../logo2.png'
+import logo2 from '../icon_latest.png'
 import "./header.css";
 
 console.log(logo2); // /logo.84287d09.png
@@ -30,7 +30,10 @@ class Header extends React.Component{
                     </IconButton> */}
                     
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} position='relative'>
-                    <img className="photo2" src={logo2} alt="Logo"/>
+                    <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
+                        <img className="photo2" src={logo2} alt="Logo" style={{margin: 'auto',textAlign: 'center', width:'120px'}}/>
+                    </div>
+                    
                     </Typography>
                 </Toolbar>
             </AppBar>
