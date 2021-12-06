@@ -45,7 +45,9 @@
     "state-pool": "^0.6.0",
     "styled-components": "^5.3.3",
     "use-camera": "^0.2.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "webpack": "^4.0.0",
+    "webpack-html-plugin": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,7 +55,7 @@
     "test": "cucumber-js src/features/*.feature --format progress-bar --format html:./cucumber-report.html --publish",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://127.0.0.1:8000",
+  "proxy": "http://sign-ai-service-x4uj6fmx2a-as.a.run.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
