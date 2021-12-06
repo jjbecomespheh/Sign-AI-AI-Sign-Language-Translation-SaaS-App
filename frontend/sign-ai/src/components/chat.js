@@ -14,7 +14,7 @@ function ChatHistoryNestedList(){
     const [display, setDisplay] = useState(false)
 
     function getDbStuff(){
-        axios.get("https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json").then((res) => {setData(res.data); return});
+        axios.get("https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json", { crossdomain: true }).then((res) => {setData(res.data); return});
         setDisplay(true)
     }
 
