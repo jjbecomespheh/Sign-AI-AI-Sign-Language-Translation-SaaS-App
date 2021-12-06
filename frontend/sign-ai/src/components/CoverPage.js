@@ -5,12 +5,14 @@ import logo from '../logo.png'
 import { useHistory } from "react-router";
 import "./coverPage.css";
 import '@fontsource/montserrat';
+import { useLocation } from 'react-router-dom'
 
 console.log(logo); 
 
 function CoverPage(){
     const history = useHistory()
-
+    const location = useLocation();
+   
     function vibrate() {
         if (!window) {
             return;
@@ -21,23 +23,25 @@ function CoverPage(){
         if (!window.navigator.vibrate) {
             return;
         }
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(205);
     }
 
     window.addEventListener('deviceorientation', function(e) {
         // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
         var B = e.beta;
-
-        if (B > 140){
-            vibrate();
-            history.push('/tutorial');
+        if (location.pathname == "/cover-page"){
+            if (B > 150){
+                vibrate();
+                history.push('/tutorial');
+            }
         }
-
     });
+
     function onClick(){
         vibrate();
         history.push('/tutorial')
     }
+
         return(
             <div>
                 <h1 
@@ -73,7 +77,7 @@ function CoverPage(){
                         </Button>
                     </div>
                 </div>                
-        </div>
+            </div>
         )
 }
 export default CoverPage;

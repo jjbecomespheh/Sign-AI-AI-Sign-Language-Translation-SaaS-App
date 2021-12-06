@@ -25,12 +25,13 @@
 #   username: anirudh
 #   password: 6969
 
-default: &default
-  adapter: sqlite3
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+# default: &default
+  # adapter: sqlite3
+  
+  # encoding: unicode
+  # # For details on connection pooling, see Rails configuration guide
+  # # https://guides.rubyonrails.org/configuring.html#database-pooling
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
   # adapter: postgresql
   # # Configure additional properties here.
@@ -40,18 +41,30 @@ default: &default
   # host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
   # port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
 
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: "postgres"
+  password: "postgres"  
+  timeout: 5000
+
+
 # Runs db on gcp even on development environment
-# development:
-#   adapter: postgresql
-#   # Configure additional properties here.
-#   username: "postgres" # e.g. "my-database-user"
-#   password: "postgres" # e.g. "my-database-password"
-#   database: "chats"
-#   host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
-#   port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
 development:
-  <<: *default
+  adapter: sqlite3
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Configure additional properties here.
   database: backend_dev
+  # host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
+#   host: <%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql/sign-ai:asia-southeast1:sign-ai-db' } %> #<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>
+#   port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
+# # development:
+#   <<: *default
+#   database: backend_dev
 
 
   # The specified database role being used to connect to postgres.
@@ -109,7 +122,17 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  # adapter: postgresql
+  # # Configure additional properties here.
+  # username: "sign-ai" # e.g. "my-database-user"
+  # password: <%= Rails.application.credentials.gcp[:db_password] %> # e.g. "my-database-password"
+  # database: "chats"
+  # # host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" }%> # '172.17.0.1' if deployed to GAE Flex
+  # host: <%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>
+  # port: <%= ENV.fetch("DB_PORT")  { 5432 }%>
   <<: *default
-  database: backend_production
-  username: backend
-  password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
+  database: "chats" #<%= ENV["PRODUCTION_DB_NAME"] %> 
+  username: "postgres"  #<%= ENV["PRODUCTION_DB_USERNAME"] %> 
+  password: "postgres"
+  # password: <%= Rails.application.credentials.gcp[:db_password] %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql/sign-ai:asia-southeast1:sign-ai-db' } %>" #/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>" #sign-ai:asia-southeast1:sign-ai-db

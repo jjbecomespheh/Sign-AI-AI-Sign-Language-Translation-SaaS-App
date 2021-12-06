@@ -58,12 +58,12 @@ def image(data_image):
         # print(keypoints, file=sys.stdout, flush=True)
         sequence.append(keypoints)
         sequence = sequence[-20:]
-        print(len(sequence), file=sys.stdout, flush=True)
+        print(f"Len: {len(sequence)}", file=sys.stdout, flush=True)
         # print("len is ", len(sequence))
         if len(sequence) == 20:
             res = model.predict(np.expand_dims(sequence, axis=0))[0]
             # print(r)
-            print(actions[np.argmax(res)])
+            print(f"Prediction:{actions[np.argmax(res)]}", file=sys.stdout, flush=True)
             # print(threshold)
             # print(threshold<np.argmax(res))
             if res[np.argmax(res)] > threshold: 
@@ -77,24 +77,24 @@ def image(data_image):
             if len(sentence) > 5: 
                 sentence = sentence[-5:]
 
-            print(sentence, file=sys.stdout, flush=True)
-            image = prob_viz(res, actions, image, colors)
-            imgencode = cv2.imencode('.jpg', image)[1]
+            print(f"Sentence: {sentence}", file=sys.stdout, flush=True)
+            # image = prob_viz(res, actions, image, colors)
+            # imgencode = cv2.imencode('.jpg', image)[1]
 
-            # base64 encode
-            stringData = base64.b64encode(imgencode).decode('utf-8')
-            b64_src = 'data:image/jpg;base64,'
-            stringData = b64_src + stringData  
+            # # base64 encode
+            # stringData = base64.b64encode(imgencode).decode('utf-8')
+            # b64_src = 'data:image/jpg;base64,'
+            # stringData = b64_src + stringData  
 
-            # emit the frame back
-            emit('response_back', stringData)
+            # # emit the frame back
+            # emit('response_back', stringData)
 
     ## converting RGB to BGR, as opencv standards
-    frame = cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
+    # frame = cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
 
-    # Process the image frame
-    frame = imutils.resize(frame, width=700)
-    frame = cv2.flip(frame, 1)
+    # # Process the image frame
+    # frame = imutils.resize(frame, width=700)
+    # frame = cv2.flip(frame, 1)
     
 
 if __name__ == "__main__":
