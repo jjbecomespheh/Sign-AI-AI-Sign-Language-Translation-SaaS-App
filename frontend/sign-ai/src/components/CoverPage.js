@@ -12,11 +12,6 @@ console.log(logo);
 function CoverPage(){
     const history = useHistory()
     const location = useLocation();
-
-    
-
-    window.addEventListener('deviceorientation', function(e) {
-        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
    
     function vibrate() {
         if (!window) {
