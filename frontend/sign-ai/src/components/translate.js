@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
-import {Camera} from "react-camera-pro";
+s
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
 import { TextField } from "@mui/material";
@@ -29,6 +29,7 @@ import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
+import VideoStreamPlsWork from "./videoStreamPlsWork";
 
 async function LoadModel(){
     try {
@@ -72,7 +73,7 @@ function Translate(){
     }
         return(
             <div>
-                <MediapipeHolistic style={{
+                <VideoStreamPlsWork style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/>

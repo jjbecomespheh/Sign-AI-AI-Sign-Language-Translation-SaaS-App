@@ -29,7 +29,7 @@ function CoverPage(){
     window.addEventListener('deviceorientation', function(e) {
         // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
         var B = e.beta;
-        if (location.pathname == "/tutorial"){
+        if (location.pathname == "/cover-page"){
             if (B > 150){
                 vibrate();
                 history.push('/tutorial');
