@@ -26,7 +26,7 @@ function CoverPage(){
         window.navigator.vibrate(205);
     }
     var statee = 0
-
+    
     function handleOrientationEvent(event) {
 
         event.stopPropagation();
@@ -38,6 +38,7 @@ function CoverPage(){
                 
             }
             else if (B < 100 && statee === 1){
+
                 vibrate();
                 window.removeEventListener('deviceorientation', handleOrientationEvent);
                 history.push('/tutorial');

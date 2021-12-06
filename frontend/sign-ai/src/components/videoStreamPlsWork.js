@@ -1,21 +1,21 @@
 import io from 'socket.io-client';
 import React from "react";
 import { useState, useRef , Fragment, useEffect} from "react";
-import { Player } from 'video-react';
+// import { Player } from 'video-react';
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
-function VideoStreamPlsWork(){
+function VideoStreamPlsWork(props){
     // var videoRef = useRef(<Player autoPlay={true} ref={videoRef} id="videoElement" width={750} height={500} />)
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
+    
     var camera = null;
+    
 
-    var socket = io('http://localhost:5000');
-
-    socket.on('connect', function(){
-        console.log("Connected...!", socket.connected)
-    });
+    var socket = props.socket;
 
     // var video = webcamRef.current.video;
 
@@ -63,7 +63,7 @@ function VideoStreamPlsWork(){
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
       canvasCtx.globalCompositeOperation = 'source-over'
       // canvasCtx.translate(30,  0);
-      canvasCtx.scale(0.5, 0.36);
+      canvasCtx.scale(0.5, 0.37);
       canvasCtx.drawImage(video, 0, 0, w, h);
       // canvasCtx.save();
       canvasCtx.restore();
@@ -91,6 +91,7 @@ function VideoStreamPlsWork(){
         data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
         // console.log("DATA IS ", data)
         socket.emit('image', data);
+
     }, 10000/FPS);
 
 
@@ -114,15 +115,14 @@ function VideoStreamPlsWork(){
     //   canvasCtx.restore();
     // });
 
-    socket.on('prediction', function(pred){
-      console.log("FUCKKK", pred)
-    })
+    
 
     return (<center>
         <div className="App">
           <Webcam
             ref={webcamRef}
             style={{
+              display: 'none',
               borderRadius: '12px', 
               marginTop: '20px', 
               alignContent: 'center',
@@ -136,6 +136,7 @@ function VideoStreamPlsWork(){
             ref={canvasRef}
             className="output_canvas"
             style={{
+              display: 'none',
               borderRadius: '25px', 
               marginTop: '20px', 
               alignContent: 'center',
@@ -145,7 +146,6 @@ function VideoStreamPlsWork(){
               height: 277,
             }}
           ></canvas>
-          
         </div>
       </center>)
 }
