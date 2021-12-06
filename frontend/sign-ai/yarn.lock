@@ -6045,15 +6045,6 @@
   dependencies:
     "bser" "2.1.1"
 
-"fbjs@^0.2.1":
-  "integrity" "sha1-YiBhYwpD4R+EUBe5BEqqZI7T9zE="
-  "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-0.2.1.tgz"
-  "version" "0.2.1"
-  dependencies:
-    "core-js" "^1.0.0"
-    "promise" "^7.0.3"
-    "whatwg-fetch" "^0.9.0"
-
 "fbjs@^0.8.4", "fbjs@^0.8.9":
   "integrity" "sha512-EQaWFK+fEPSoibjNy8IxUtaFOMXcWsY0JaVrQoZR9zC8N2Ygf9iDITPWjUTVIax95b6I742JFLqASHfsag/vKA=="
   "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-0.8.18.tgz"
@@ -10667,7 +10658,7 @@
   "resolved" "https://registry.npmjs.org/promise-inflight/-/promise-inflight-1.0.1.tgz"
   "version" "1.0.1"
 
-"promise@^7.0.3", "promise@^7.1.1":
+"promise@^7.1.1":
   "integrity" "sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg=="
   "resolved" "https://registry.npmjs.org/promise/-/promise-7.3.1.tgz"
   "version" "7.3.1"
@@ -11125,13 +11116,6 @@
     "classnames" "^2.2.1"
     "prop-types" "^15.5.8"
 
-"react-tap-event-plugin@^1.0.0":
-  "integrity" "sha1-eiSFBanpq+zDUrLasxPRdoXFGt8="
-  "resolved" "https://registry.npmjs.org/react-tap-event-plugin/-/react-tap-event-plugin-1.0.0.tgz"
-  "version" "1.0.0"
-  dependencies:
-    "fbjs" "^0.2.1"
-
 "react-test-renderer@>=15.5.3 <17.0.0":
   "integrity" "sha512-L8yPjqPE5CZO6rKsKXRO/rVPiaCOy0tQQJbC+UjPNlobl5mad59lvPjwFsQHTvL03caVDIVr9x9/OSgDe6I5Eg=="
   "resolved" "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.14.0.tgz"
@@ -11195,7 +11179,7 @@
   "resolved" "https://registry.npmjs.org/react-webcam/-/react-webcam-6.0.0.tgz"
   "version" "6.0.0"
 
-"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0", "react@^15.0.0", "react@^15.0.0 || ^16.0.0", "react@^15.0.0-0", "react@^15.4.2", "react@^16.0.0", "react@^16.14.0", "react@^16.8.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.3", "react@^17.0.2", "react@>= 16.8.0", "react@>=15", "react@>=15.3.0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.8.3", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0", "react@^15.0.0", "react@^15.0.0 || ^16.0.0", "react@^15.4.2", "react@^16.0.0", "react@^16.14.0", "react@^16.8.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.3", "react@^17.0.2", "react@>= 16.8.0", "react@>=15", "react@>=15.3.0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.8.3", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -13134,11 +13118,6 @@
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
 
-"typescript@^3.2.1", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
-  "integrity" "sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw=="
-  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.5.2.tgz"
-  "version" "4.5.2"
-
 "ua-parser-js@^0.7.30":
   "integrity" "sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ=="
   "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.31.tgz"
@@ -13679,11 +13658,6 @@
   dependencies:
     "iconv-lite" "0.4.24"
 
-"whatwg-fetch@^0.9.0":
-  "integrity" "sha1-DjaExsuZlbQ+/J3wPkw2XZX9nMA="
-  "resolved" "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz"
-  "version" "0.9.0"
-
 "whatwg-fetch@^3.0.0", "whatwg-fetch@>=0.10.0":
   "integrity" "sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA=="
   "resolved" "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz"
@@ -13974,7 +13948,12 @@
   dependencies:
     "async-limiter" "~1.0.0"
 
-"ws@>=7.4.6", "ws@~8.2.3":
+"ws@>=7.4.6":
+  "integrity" "sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w=="
+  "resolved" "https://registry.npmjs.org/ws/-/ws-7.5.5.tgz"
+  "version" "7.5.5"
+
+"ws@~8.2.3":
   "integrity" "sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA=="
   "resolved" "https://registry.npmjs.org/ws/-/ws-8.2.3.tgz"
   "version" "8.2.3"
