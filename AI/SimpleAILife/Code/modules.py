@@ -17,3 +17,9 @@ from tensorflow.keras.layers import LSTM, Dense
 # from sklearn.metrics import multilabel_confusion_matrix
 from sklearn.metrics import accuracy_score
 
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+print(sys.path)
+

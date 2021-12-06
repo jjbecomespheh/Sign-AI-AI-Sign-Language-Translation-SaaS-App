@@ -16,25 +16,32 @@ function CoverPage(){
     window.addEventListener('deviceorientation', function(e) {
         // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
    
+    function vibrate() {
+        if (!window) {
+            return;
+        }
+        if (!window.navigator) {
+            return;
+        }
+        if (!window.navigator.vibrate) {
+            return;
+        }
+        window.navigator.vibrate(200);
+    }
+
+    window.addEventListener('deviceorientation', function(e) {
+        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
         var B = e.beta;
 
         if (B > 140){
             vibrate();
             history.push('/tutorial');
-            
         }
-       
+
     });
-
-
-    function vibrate() {
-        navigator.vibrate(500);  
-    }
-
     function onClick(){
         vibrate();
-        history.push('/tutorial');
-
+        history.push('/tutorial')
     }
 
         return(

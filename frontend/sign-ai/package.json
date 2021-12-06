@@ -27,7 +27,6 @@
     "chromedriver": "^95.0.0",
     "gyroscope": "^0.0.0-1",
     "history": "^5.1.0",
-    "html-webpack-plugin": "^5.5.0",
     "i": "^0.3.7",
     "material-ui": "^0.15.0",
     "moment": "^2.29.1",
@@ -47,8 +46,7 @@
     "state-pool": "^0.6.0",
     "styled-components": "^5.3.3",
     "use-camera": "^0.2.2",
-    "web-vitals": "^1.0.1",
-    "webpack": "^5.64.4"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
