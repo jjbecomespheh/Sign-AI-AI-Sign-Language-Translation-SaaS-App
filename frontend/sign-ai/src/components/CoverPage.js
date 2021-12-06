@@ -13,6 +13,11 @@ function CoverPage(){
     const history = useHistory()
     const location = useLocation();
 
+    
+
+    window.addEventListener('deviceorientation', function(e) {
+        // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+   
     function vibrate() {
         if (!window) {
             return;
@@ -41,6 +46,7 @@ function CoverPage(){
         vibrate();
         history.push('/tutorial')
     }
+
         return(
             <div>
                 <h1 
@@ -76,7 +82,7 @@ function CoverPage(){
                         </Button>
                     </div>
                 </div>                
-        </div>
+            </div>
         )
 }
 export default CoverPage;
