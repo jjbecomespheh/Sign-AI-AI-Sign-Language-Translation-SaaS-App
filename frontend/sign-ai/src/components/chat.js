@@ -1,8 +1,15 @@
 import React, {useState} from "react";
 import axios from "axios"
 import NestedList from "./nestedList";
+import {useHistory} from 'react-router-dom';
+import { Button } from '@material-ui/core'
+
 
 function ChatHistoryNestedList(){
+    const history = useHistory()
+    function goHome(){
+        history.push('/home')
+    }
 
     const [data, setData] = useState([])
     const [display, setDisplay] = useState(false)
@@ -22,7 +29,14 @@ function ChatHistoryNestedList(){
         return(
             <div>
                 {data.length>2 ? <NestedList data={data}></NestedList> : "Display is false lol"}
+                <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goHome} 
+                        style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px',  width: '275px', height: '60px', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >Back</Button>
             </div>
+            
         )
 }
 

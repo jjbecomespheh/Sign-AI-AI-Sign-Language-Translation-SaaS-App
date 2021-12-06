@@ -7,6 +7,10 @@ import {MessageLeft} from './MessageTemp';
 import {MessageRight} from './MessageTemp';
 import ListSubheader from '@mui/material/ListSubheader';
 import '@fontsource/montserrat';
+import {useHistory} from 'react-router-dom';
+import HistoryIcon from '@mui/icons-material/History';
+import { Button } from '@material-ui/core'
+
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -52,6 +56,10 @@ const useStyles = makeStyles((theme) =>
     );
 
 export default function Message () {
+    const history = useHistory()
+    function goChatHistory(){
+        history.push('/chat-history')
+    }
 
     const {index, conv_id} = useParams()
     const [message, setMessage] = useState([])
@@ -117,6 +125,13 @@ export default function Message () {
                     </p>
                 </Paper>
             </Paper>
+            <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goChatHistory} 
+                        style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >Back</Button>
+
       </div>
     )
 
