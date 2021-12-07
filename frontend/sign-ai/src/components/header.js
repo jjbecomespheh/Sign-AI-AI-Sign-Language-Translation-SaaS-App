@@ -8,6 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import logo2 from '../icon_latest2.png'
 import "./header.css";
 import { MenuItems } from './MenuItems';
+import { Button } from "@material-ui/core";
+
 
 console.log(logo2); // /logo.84287d09.png
 class Header extends React.Component{
@@ -32,26 +34,25 @@ class Header extends React.Component{
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} position='relative'>
                     <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
                         <img className="photo2" src={logo2} alt="Logo" style={{margin: 'auto',textAlign: 'center', width:'55px', height: '55px'}}/>
-                    </div>
-                    <div className="menu-icon" onClick={this.handleClick}>
-                        <i className={this.state.clicked ? 'fas fa-times': 'fas fa-bars'}></i>
-
-                    </div>
-                    <ul className={this.state.clicked ? 'nav-menu active': 'nav-menu' }>
-                        {MenuItems.map((item, index)=>{
-                            return (
-                                <li key={index}>
-                                    <a className={item.cName} href={item.url} >
-                                        {item.title}
-                                    </a>
-                                </li>
-                            )
-                        })}
                         
-                    </ul>
-                    
+                    </div>
+            
                     </Typography>
                 </Toolbar>
+                <div className="menu-icon" onClick={this.handleClick}>
+                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                </div>
+                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                    {MenuItems.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <a className={item.cName} href={item.url}>
+                                {item.title}
+                                </a>
+                            </li>
+                        )
+                    })}
+                </ul>
             </AppBar>
             <div
       style={{
