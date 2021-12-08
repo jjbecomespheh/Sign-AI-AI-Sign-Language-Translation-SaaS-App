@@ -49,7 +49,7 @@ joblib==1.1.0
 jsonschema
 jupyter==1.0.0
 jupyter-client==7.0.6
-jupyter-console==6.4.0
+jupyter-console
 jupyter-core==4.9.1
 jupyterlab-pygments==0.1.2
 jupyterlab-widgets==1.0.2
