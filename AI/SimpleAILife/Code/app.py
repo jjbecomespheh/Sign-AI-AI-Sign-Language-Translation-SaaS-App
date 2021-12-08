@@ -26,7 +26,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['Access-Control-Allow-Origin'] = '*'
-socketio = SocketIO(app,  cors_allowed_origins="*")
+socketio = SocketIO(app,  cors_allowed_origins="*", ping_timeout=20,)
 CORS(app,resources={r"*": {"origins": "*"}})
 
 model = keras.models.load_model('Model/lstm_model_pls_work.h5')
@@ -72,22 +72,20 @@ def image(data_image):
                         sentence.append(actions[np.argmax(res)])
                 else:
                     sentence.append(actions[np.argmax(res)])
-            emit('prediction', actions[np.argmax(res)])
-
             if len(sentence) > 5: 
                 sentence = sentence[-5:]
+            emit('response_back', " ".join(sentence))
+            print("sentence is ", sentence, file=sys.stdout, flush=True)
+            # image = prob_viz(res, actions, image, colors)
+            # imgencode = cv2.imencode('.jpg', image)[1]
 
-            print(sentence, file=sys.stdout, flush=True)
-            image = prob_viz(res, actions, image, colors)
-            imgencode = cv2.imencode('.jpg', image)[1]
+            # # base64 encode
+            # stringData = base64.b64encode(imgencode).decode('utf-8')
+            # b64_src = 'data:image/jpg;base64,'
+            # stringData = b64_src + stringData  
 
-            # base64 encode
-            stringData = base64.b64encode(imgencode).decode('utf-8')
-            b64_src = 'data:image/jpg;base64,'
-            stringData = b64_src + stringData  
-
-            # emit the frame back
-            emit('response_back', stringData)
+            # # emit the frame back
+            # emit('response_back', stringData)
 
     ## converting RGB to BGR, as opencv standards
     frame = cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
@@ -98,4 +96,4 @@ def image(data_image):
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)

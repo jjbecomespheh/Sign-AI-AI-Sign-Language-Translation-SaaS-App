@@ -15,12 +15,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
-import { TextField } from "@mui/material";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
-
+import { containerClasses, TextField } from "@mui/material";
 import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
@@ -28,6 +27,7 @@ import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
+import VideoStreamPlsWork from "./videoStreamPlsWork";
 
 async function LoadModel(){
     try {
@@ -50,6 +50,7 @@ function Translate(){
         store.setState("conversation_id", convo_id); 
     }
     const [conversation_id] = useGlobalState("conversation_id");
+    const [translatedText, setTranslatedText] = useState('')
     const [question, setQuestion] = useState('');
     const translated_text = "Someone molested me";
 
@@ -58,8 +59,12 @@ function Translate(){
         };
     
     function activateYes(){
-        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translated_text});
+        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
     }
+
+    const childToParent = (childdata) => {
+        setTranslatedText(childdata);
+      } 
 
     function activateNo(){
         //ttText = "Please re-sign your message"
@@ -71,12 +76,17 @@ function Translate(){
     }
         return(
             <div>
+                <VideoStreamPlsWork translatedText={translatedText} childToParent={childToParent} style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}/>
+
                 <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/>
 
-                <div style={{
+                {/* <div style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
@@ -87,6 +97,22 @@ function Translate(){
                         disabled={true}
                         style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
                         >Start signing ... <br/>nod when you're done.</Button>
+                </div> */}
+
+                <div style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}>
+                    <TextField
+                        label="Translated text..."
+                        rows={3}
+                        style={{width: 350, height: 120, alignContent: "center", margin: '15px', fontSize: 20, fontFamily: 'Montserrat', textTransform: "None"}}
+                        value={translatedText}
+                        onChange={(event) => {setTranslatedText(event.target.value); }}
+
+                        multiline InputProps={{style: {fontSize: 30}}} // font size of input text
+                        InputLabelProps={{style: {fontSize: 20}}} // font size of input label
+                        />
                 </div>
                 
                 <div>
