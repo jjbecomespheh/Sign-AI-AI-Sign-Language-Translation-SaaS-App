@@ -82,7 +82,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
-              <img className="photo" src={logo} alt="Logo"/>
+              {/* <img className="photo" src={logo} alt="Logo"/> */}
             </div>
           )}
         </Toolbar>

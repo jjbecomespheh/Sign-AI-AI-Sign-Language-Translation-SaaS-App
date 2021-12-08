@@ -58,7 +58,10 @@ function Translate(){
     const handleChange = (event) => {
         setTranslatedText(event.target.value);
       };
-    var socket = io('http://localhost:5000');
+    var socket = io('http://localhost:5000',{cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+     }});
 
     socket.on('connect', function(){
         console.log("Connected...!", socket.connected)

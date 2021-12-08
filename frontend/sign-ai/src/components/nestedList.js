@@ -50,17 +50,17 @@ export default function NestedList(props) {
           var conversation_id = datapoint.conversation_id.toString() 
           if(mydict[created_at] === undefined){
             mydict[created_at] = {}
-              mydict[created_at][conversation_time] = {index: datapoint.id, conv_id:conversation_id }
+              mydict[created_at][conversation_id] = {index: datapoint.id, conv_time:conversation_time }
               // mydict[created_at][conversation_id] = {index: datapoint.id}
           }
           else{
-            if(mydict[created_at][conversation_time] === undefined){
-              mydict[created_at][conversation_time] = {index: datapoint.id, conv_id:conversation_id }
+            if(mydict[created_at][conversation_id] === undefined){
+              mydict[created_at][conversation_id] = {index: datapoint.id, conv_time:conversation_time }
             }
           }
       }
       setDataDict(mydict)
-      console.log(mydict)
+    console.log("mydict", mydict)
   }
   const handleClick = () => {
     setOpenLayer1(!openLayer1);
@@ -115,7 +115,7 @@ export default function NestedList(props) {
               {openLayer1 ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
           </CardContent >
-          {Object.entries(value).map(([conv_time,indices]) => {
+          {Object.entries(value).map(([conv_id,indices]) => {
             console.log(indices)
             console.log("lmaooo")
             return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
@@ -147,11 +147,11 @@ export default function NestedList(props) {
                         bgcolor: 'divider',
                       },
                   }}
-                onClick={() => handleClick2(indices.index, indices.conv_id)}>
+                onClick={() => handleClick2(indices.index, conv_id)}>
                     <ListItemIcon>
                       <QuestionAnswerIcon />
                     </ListItemIcon>
-                    <ListItemText primary={conv_time.toString()} id={indices.conv_id}/>
+                    <ListItemText primary={indices.conv_time.toString()} id={conv_id}/>
                 </ListItemButton>
               </List>
             </Collapse>
