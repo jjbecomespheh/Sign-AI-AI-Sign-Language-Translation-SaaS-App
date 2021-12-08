@@ -5,3 +5,4 @@ cloud_sql_proxy
 .DS_Store
 frontend/.DS_Store
 frontend/sign-ai/cucumber-report.html
+/AI/SimpleAILife/Code/__pycache__/
