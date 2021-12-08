@@ -124,7 +124,7 @@ function Translate(){
                         label="Translating Sign..."
                         multiline
                         rows={3}
-                        placeholder="Please type your message"
+                        placeholder="Please start signing ..."
                         style={{width: '370px', borderRadius: '20px', fontSize: 25, marginTop: '30px', position: 'relative'}}
                         color="warning"
                         variant="filled"
