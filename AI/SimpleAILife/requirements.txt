@@ -27,7 +27,7 @@ entrypoints==0.3
 Flask==2.0.2
 Flask-Cors==3.0.10
 Flask-SocketIO==5.1.1
-flatbuffers==1.12
+flatbuffers==2.0
 gast==0.4.0
 google-auth==2.3.3
 google-auth-oauthlib==0.4.6
@@ -77,9 +77,8 @@ opencv-contrib-python==4.5.4.58
 opencv-python==4.5.4.58
 opt-einsum==3.3.0
 packaging==21.2
-pafy==0.5.5
-pandas
-pandocfilters==1.5.0
+pandas==1.3.4
+pandocfilters==1.5.0x
 parso==0.8.2
 pickleshare==0.7.5
 Pillow==8.4.0
@@ -91,7 +90,6 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
 Pygments==2.10.0
-# PyInquirer==1.0.3
 pyparsing==2.4.7
 pyrsistent==0.18.0
 python-dateutil==2.8.2
@@ -102,14 +100,13 @@ pywin32==302
 pywin32-ctypes==0.2.0
 PyYAML==6.0
 readme-renderer==30.0
-regex==2021.11.10
 requests==2.26.0
 requests-oauthlib==1.3.0
 requests-toolbelt==0.9.1
 rfc3986==1.5.0
-rsa==4.7.2
-scikit-learn
-scipy
+rsa==4.8
+scikit-learn==1.0.1
+scipy==1.7.2
 Send2Trash==1.8.0
 six==1.16.0
 sklearn==0.0
@@ -136,7 +133,6 @@ wcwidth==0.2.5
 webencodings==0.5.1
 Werkzeug==2.0.2
 widgetsnbextension==3.5.2
-wrapt==1.12.1
-youtube-dl==2021.6.6
+wrapt==1.13.3
 zipp==3.6.0
 gunicorn
