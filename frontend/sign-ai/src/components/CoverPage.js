@@ -6,12 +6,15 @@ import { useHistory } from "react-router";
 import "./coverPage.css";
 import '@fontsource/montserrat';
 import { useLocation } from 'react-router-dom'
+import {bounce} from 'react-animations';
+import styled, { keyframes } from 'styled-components';
 
 console.log(logo); 
 
 function CoverPage(){
     const history = useHistory()
     const location = useLocation();
+    const Bounce = styled.div`animation: 3s ${keyframes`${bounce}`} infinite`;
    
     function vibrate() {
         if (!window) {
@@ -91,20 +94,20 @@ function CoverPage(){
                             style={{width: 350, height: 350, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', textTransform: "None", fontSize: "22px", fontFamily: 'Montserrat', textAlign: 'center'}}
                             >Your statement will be recorded with our camera, it will be kept confidential and will solely be used for law and training purposes.</Button>
                     </div>
-                    <h4 style={{
-                                position: 'absolute', left: '50%', top: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                color: '#26580F',
-                                marginTop: '230px',
-                                fontFamily: 'Montserrat',
-                                fontSize: '20px',
-                                }}>Nod to consent</h4>
+                    <Bounce><h4 style={{
+                            position: 'relative', left: '50%', top: '48%',
+                            transform: 'translate(-50%, -50%)',
+                            color: '#26580F',
+                            marginTop: '25px',
+                            fontFamily: 'Montserrat',
+                            fontSize: '20px',
+                            }}>Nod if you are ready</h4></Bounce>
                     <div>
                         <Button 
                         id = "cover_next"
                         className="NextHome" 
                         variant="contained"
-                        style={{backgroundColor: '#F49619', width: "300px", color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '25px', fontFamily: 'Montserrat'}}
+                        style={{backgroundColor: '#F49619', width: "300px", color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '0px', fontFamily: 'Montserrat'}}
                         onClick={()=> onClick()}> 
                             Next
                         </Button>
