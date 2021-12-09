@@ -3,15 +3,17 @@ import ml5 from "ml5";
 import Loader from 'react-loader-spinner';
 import useInterval from '@use-it/interval';
 import Chart from './Chart'
+import { Button } from '@material-ui/core';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 let classifier;
 
-export default function StreamVideo() {
+export default function StreamVideo({childToParent}) {
   const videoRef = useRef();
-  const [start, setStart] = useState(false);
+  const [start, setStart] = useState(true);
   const [result, setResult] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const myarr = ["None"];
 
   useEffect(() => {
     classifier = ml5.imageClassifier("./model/tm_my_image_model_2/model.json", () => {
@@ -26,30 +28,29 @@ export default function StreamVideo() {
   }, []);
 
   useInterval(() => {
+    var immediate_pass = ""
     if (classifier && start) {
       classifier.classify(videoRef.current, (error, results) => {
         if (error) {
           console.error(error);
           return;
         }
-        console.log(results[0].label)
+        console.log("lol 8is ", (results[0].label))
+        if(results[0].label !== "No Sign Detected"){
+          childToParent(results[0].label)
+        }
         setResult(results);
       });
     }
   }, 500);
-
-  const toggle = () => {
-    setStart(!start);
-    setResult([]);
-  }
 
   return (
     <div className="container">
       <Loader
         type="Watch"
         color="#00BFFF"
-        height={200}
-        width={200}
+        height={370}
+        width={244}
         visible={!loaded}
         style={{display:'flex', justifyContent:'center', marginTop:'30px' }}
       />
@@ -57,22 +58,12 @@ export default function StreamVideo() {
         <div className="capture">
           <video
             ref={videoRef}
-            style={{ transform: "scale(-1, 1)" }}
-            width="300"
-            height="150"
+            style={{ transform: "scale(-1, 1)" , display:"none"}}
+            width="370"
+            height="244"
           />
-          {loaded && (
-            <button onClick={() => toggle()}>
-              {start ? "Stop" : "Start"}
-            </button>
-          )}
+          <p />
         </div>
-        {result.length > 0 && (
-          <div>
-            {console.log(result)}
-            <Chart data={result[0]} />
-          </div>
-        )}
       </div>
     </div>
   );
