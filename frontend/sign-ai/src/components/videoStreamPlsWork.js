@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
 import {store, useGlobalState} from 'state-pool';
+import WebcamStreamCapture from './WebcamRecordingStuff'
 
 function VideoStreamPlsWork({translatedText, childToParent}){
     // var videoRef = useRef(<Player autoPlay={true} ref={videoRef} id="videoElement" width={750} height={500} />)
@@ -12,11 +13,11 @@ function VideoStreamPlsWork({translatedText, childToParent}){
     const canvasRef = useRef(null);
     var camera = null;
 
-    var socket = io('http://localhost:5000');
+    // var socket = io('wss://test-flask-eventlet-x4uj6fmx2a-as.a.run.app:8080', {transport:["websocket","polling"]});
 
-    socket.on('connect', function(){
-        console.log("Connected...!", socket.connected)
-    });
+    // socket.on('connect', function(){
+    //     console.log("Connected...!", socket.connected)
+    // });
 
     // var video = webcamRef.current.video;
 
@@ -52,7 +53,7 @@ function VideoStreamPlsWork({translatedText, childToParent}){
           var data = frame.toDataURL(type);
           data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
           // console.log("DATA IS ", data)
-          socket.emit('image', data);
+          axios.post('http://localhost:5000', data);
           },
           width: 640,
           height: 480,

@@ -20,26 +20,29 @@ import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
 import { containerClasses, TextField } from "@mui/material";
-import * as tf from '@tensorflow/tfjs'
+// import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
-import VideoStreamPlsWork from "./videoStreamPlsWork";
+// import VideoStreamPlsWork from "videoStreamPlsWork";
+import {WebcamStreamCapture} from './WebcamRecordingStuff';
+import StreamVideo from './streamVideo';
 
-async function LoadModel(){
-    try {
-        // For layered model
-        const model = await tf.loadLayersModel('/tfjs/model.json');
-        await console.log("Load model success");
-    } catch (err) {
-        console.log("GGWP");
-        console.log(err);
-    }
-}
-LoadModel();
+
+// async function LoadModel(){
+//     try {
+//         // For layered model
+//         const model = await tf.loadLayersModel('/tfjs/model.json');
+//         await console.log("Load model success");
+//     } catch (err) {
+//         console.log("GGWP");
+//         console.log(err);
+//     }
+// }
+// LoadModel();
 
 function Translate(){
     const history = useHistory()
@@ -76,15 +79,28 @@ function Translate(){
     }
         return(
             <div>
-                <VideoStreamPlsWork translatedText={translatedText} childToParent={childToParent} style={{
+                {/* <VideoStreamPlsWork translatedText={translatedText} childToParent={childToParent} style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '90px'}}/>
+                            marginTop: '90px'}}/> */}
+                {/* <VideoRecorder
+                    onRecordingComplete={videoBlob => {
+                    // Do something with the video...
+                    console.log('videoBlob', videoBlob)
+                    }}
+                /> */}
+                <StreamVideo/>
+                {/* {result.length > 0 && (
+                    <div>
+                        <Chart data={result[0]} />
+                    </div>
+                )} */}
 
-                <MediapipeHolistic style={{
+
+                {/* <WebcamStreamCapture style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '90px'}}/>
+                            marginTop: '90px'}}/> */}
 
                 {/* <div style={{
                             position: 'relative', left: '50%', top: '50%',
