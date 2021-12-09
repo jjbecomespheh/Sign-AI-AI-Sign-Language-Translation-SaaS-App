@@ -22,14 +22,14 @@ import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
 import io from 'socket.io-client';
-import * as tf from '@tensorflow/tfjs'
+// import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
-import VideoStreamPlsWork from "./videoStreamPlsWork";
+import StreamVideo from './streamVideo';
 
 
 // async function LoadModel(){
@@ -55,19 +55,19 @@ function Translate(){
     const [conversation_id] = useGlobalState("conversation_id");
     const [translatedText, setTranslatedText] = useState('')
     const [question, setQuestion] = useState('');
-    const [translatedText, setTranslatedText] = useState('')
-    const translated_text = "Someone molested me";
+    // const [translatedText, setTranslatedText] = useState('')
+    // const translated_text = "Someone molested me";
     const handleChange = (event) => {
         setTranslatedText(event.target.value);
       };
-    var socket = io('http://localhost:5000',{cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-     }});
+    // var socket = io('http://localhost:5000',{cors: {
+    //     origin: "*",
+    //     methods: ["GET", "POST"]
+    //  }});
 
-    socket.on('connect', function(){
-        console.log("Connected...!", socket.connected)
-    });
+    // socket.on('connect', function(){
+    //     console.log("Connected...!", socket.connected)
+    // });
 
     const videoConstraints = {
         facingMode: "user"
@@ -87,14 +87,14 @@ function Translate(){
         //ttText = "Please re-sign your message"
         //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
-    socket.on('prediction', function(pred){
-        console.log("FUCKKK", pred)
-        if(pred == translatedText.split().pop()){
-          console.log("same shit ", pred, translatedText)
-        }else{
-          setTranslatedText(translatedText + " " + pred)
-        }
-      })
+    // socket.on('prediction', function(pred){
+    //     console.log("FUCKKK", pred)
+    //     if(pred == translatedText.split().pop()){
+    //       console.log("same shit ", pred, translatedText)
+    //     }else{
+    //       setTranslatedText(translatedText + " " + pred)
+    //     }
+    //   })
     function activateHome(){
         history.push('/')
     }
@@ -142,7 +142,7 @@ function Translate(){
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
-                    <TextField
+                    {/* <TextField
                         label="Translated text..."
                         rows={3}
                         style={{width: 350, height: 120, alignContent: "center", margin: '15px', fontSize: 20, fontFamily: 'Montserrat', textTransform: "None"}}
@@ -151,7 +151,7 @@ function Translate(){
 
                         multiline InputProps={{style: {fontSize: 30}}} // font size of input text
                         InputLabelProps={{style: {fontSize: 20}}} // font size of input label
-                        />
+                        /> */}
                     {/* <Grid columnSpacing={3}>
                         <Grid> */}
                         {/* <Button
