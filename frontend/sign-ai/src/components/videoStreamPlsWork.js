@@ -3,21 +3,29 @@ import React from "react";
 import { useState, useRef , Fragment, useEffect} from "react";
 import { Button } from '@material-ui/core';
 import * as cam from "@mediapipe/camera_utils";
-import Webcam from "react-webcam";
 import {store, useGlobalState} from 'state-pool';
 import WebcamStreamCapture from './WebcamRecordingStuff'
 
 function VideoStreamPlsWork({translatedText, childToParent}){
+// import { Player } from 'video-react';
+import * as cam from "@mediapipe/camera_utils";
+import Webcam from "react-webcam";
+
+
+function VideoStreamPlsWork(props){
     // var videoRef = useRef(<Player autoPlay={true} ref={videoRef} id="videoElement" width={750} height={500} />)
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
+    
     var camera = null;
+    
 
     // var socket = io('wss://test-flask-eventlet-x4uj6fmx2a-as.a.run.app:8080', {transport:["websocket","polling"]});
 
     // socket.on('connect', function(){
     //     console.log("Connected...!", socket.connected)
     // });
+    var socket = props.socket;
 
     // var video = webcamRef.current.video;
 
@@ -78,7 +86,7 @@ function VideoStreamPlsWork({translatedText, childToParent}){
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
       canvasCtx.globalCompositeOperation = 'source-over'
       // canvasCtx.translate(30,  0);
-      canvasCtx.scale(0.5, 0.36);
+      canvasCtx.scale(0.5, 0.37);
       canvasCtx.drawImage(video, 0, 0, w, h);
       // canvasCtx.save();
       canvasCtx.restore();
@@ -107,6 +115,24 @@ function VideoStreamPlsWork({translatedText, childToParent}){
     //     // console.log("DATA IS ", data)
     //     socket.emit('image', data);
     // }, 10000/FPS);
+    setInterval(() => {
+        // cap.read(src);
+        if(webcamRef.current == null){
+            console.log("LOL")
+            return
+        }
+        var type = "image/png"
+        // var data = document.getElementById("canvasOutput").toDataURL(type);
+        // var video_element = document.getElementById("videoElement")
+        var video_element = webcamRef.current.video
+        // console.log("fwhiufhwefjwefwefwef", video_element)
+        var frame = capture(video_element, 1)
+        var data = frame.toDataURL(type);
+        data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
+        // console.log("DATA IS ", data)
+        socket.emit('image', data);
+
+    }, 10000/FPS);
 
 
     // socket.on('response_back', function(image){
@@ -172,6 +198,37 @@ function VideoStreamPlsWork({translatedText, childToParent}){
             disabled={true}
             style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
             >Start signing ... <br/>nod when you're done.</Button> */}
+    
+
+    return (<center>
+        <div className="App">
+          <Webcam
+            ref={webcamRef}
+            style={{
+              display: 'none',
+              borderRadius: '12px', 
+              marginTop: '20px', 
+              alignContent: 'center',
+              position: "absolute",
+              zindex: 9,
+              width: 370,
+              height: 277,
+            }}
+          />
+          <canvas
+            ref={canvasRef}
+            className="output_canvas"
+            style={{
+              display: 'none',
+              borderRadius: '25px', 
+              marginTop: '20px', 
+              alignContent: 'center',
+              position: "relative",
+              zindex: 9,
+              width: 370,
+              height: 277,
+            }}
+          ></canvas>
         </div>
       </center>
       )

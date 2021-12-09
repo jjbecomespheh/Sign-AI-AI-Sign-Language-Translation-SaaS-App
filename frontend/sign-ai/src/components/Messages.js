@@ -7,6 +7,8 @@ import {MessageLeft} from './MessageTemp';
 import {MessageRight} from './MessageTemp';
 import ListSubheader from '@mui/material/ListSubheader';
 import '@fontsource/montserrat';
+import {useHistory} from 'react-router-dom';
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) =>
         createStyles({
@@ -52,6 +54,11 @@ const useStyles = makeStyles((theme) =>
     );
 
 export default function Message () {
+    const history = useHistory()
+    
+    function goChatHistory(){
+        history.push('/chat-history')
+    }
 
     const {index, conv_id} = useParams()
     const [message, setMessage] = useState([])
@@ -61,11 +68,11 @@ export default function Message () {
 
 
     useEffect(()=> {
-        axios.get(`/chats/${index}.json`).then((res) => {
+        axios.get(`https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats/${index}.json`, { crossdomain: true }).then((res) => {
             console.log(res.data.created_at.split('T'));
             setDateCur(res.data.created_at.split('T')[0].toString()); return});    
         
-        axios.get('/chats.json').then((res) => {
+        axios.get('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json', { crossdomain: true }).then((res) => {
             const res_data = res.data
             var needed_messages = []
             for(var datapoint of res_data){
@@ -84,7 +91,7 @@ export default function Message () {
         return(
             myMessages.map((messageObj) => {
                 return(<div>
-                {messageObj.sender == 'Police' ? 
+                {(messageObj.sender == 'Police' || messageObj.sender.split()[0] == 'Officer') ? 
             <MessageRight
                 message={messageObj.message}
                 photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
@@ -117,6 +124,12 @@ export default function Message () {
                     </p>
                 </Paper>
             </Paper>
+            <Button 
+                        className="NextHome" 
+                        variant="contained"
+                        onClick={goChatHistory} 
+                        style={{backgroundColor: '#2c7973', color: '#FFFFFF', borderRadius: '12px', margin: '2px', marginTop: '15px', width: '275px', height: '60px', position:'relative', fontFamily: 'Montserrat', textTransform: "None", fontSize: '20px'}}
+                        >Back</Button>
       </div>
     )
 

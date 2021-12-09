@@ -52,12 +52,13 @@ function Ask(){
         if (location.pathname === "/ask"){
             if (B > 150 && statee === 0) {
                 statee = 1;
-                
+              
             }
             else if (B < 100 && statee === 1){
                 if(!askRef.current){
                     console.log("You fuckimg moron")
                     return;
+
                 }
                 askRef.current.click();
                 // console.log(question)
@@ -111,9 +112,11 @@ function Ask(){
             longvibrate();
         }
         else {
+
             vibrate();
             console.log("Should work")
             axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
+
             history.push('/translate');
         }
     }

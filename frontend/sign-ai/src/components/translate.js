@@ -15,21 +15,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef , Fragment, capture} from "react";
 import {useHistory} from 'react-router-dom';
 import useCamera from "use-camera";
-import VideoRecorder from 'react-video-recorder'
+import { TextField } from "@mui/material";
+import VideoRecorder from 'react-video-recorder';
+import Grid from '@mui/material/Grid';
 import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
-import { containerClasses, TextField } from "@mui/material";
-// import * as tf from '@tensorflow/tfjs'
+import io from 'socket.io-client';
+import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
 import * as control_utils from '@mediapipe/control_utils'
 import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
-// import VideoStreamPlsWork from "videoStreamPlsWork";
-import {WebcamStreamCapture} from './WebcamRecordingStuff';
-import StreamVideo from './streamVideo';
+import VideoStreamPlsWork from "./videoStreamPlsWork";
 
 
 // async function LoadModel(){
@@ -55,14 +55,28 @@ function Translate(){
     const [conversation_id] = useGlobalState("conversation_id");
     const [translatedText, setTranslatedText] = useState('')
     const [question, setQuestion] = useState('');
+    const [translatedText, setTranslatedText] = useState('')
     const translated_text = "Someone molested me";
+    const handleChange = (event) => {
+        setTranslatedText(event.target.value);
+      };
+    var socket = io('http://localhost:5000',{cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+     }});
+
+    socket.on('connect', function(){
+        console.log("Connected...!", socket.connected)
+    });
 
     const videoConstraints = {
         facingMode: "user"
         };
     
     function activateYes(){
-        axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
+        // axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
+        axios.post('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText, crossdomain: true});
+        setTranslatedText('')
     }
 
     const childToParent = (childdata) => {
@@ -73,13 +87,22 @@ function Translate(){
         //ttText = "Please re-sign your message"
         //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
-
+    socket.on('prediction', function(pred){
+        console.log("FUCKKK", pred)
+        if(pred == translatedText.split().pop()){
+          console.log("same shit ", pred, translatedText)
+        }else{
+          setTranslatedText(translatedText + " " + pred)
+        }
+      })
     function activateHome(){
         history.push('/')
     }
         return(
             <div>
                 {/* <VideoStreamPlsWork translatedText={translatedText} childToParent={childToParent} style={{
+
+                <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}/> */}
@@ -90,12 +113,6 @@ function Translate(){
                     }}
                 /> */}
                 <StreamVideo/>
-                {/* {result.length > 0 && (
-                    <div>
-                        <Chart data={result[0]} />
-                    </div>
-                )} */}
-
 
                 {/* <WebcamStreamCapture style={{
                             position: 'relative', left: '50%', top: '50%',
@@ -103,7 +120,13 @@ function Translate(){
                             marginTop: '90px'}}/> */}
 
                 {/* <div style={{
+                <VideoStreamPlsWork socket={socket} style={{
                             position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}/>
+                            
+                <div style={{
+                            position:'relative', bottom:'50%', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
                     <Button
@@ -129,6 +152,38 @@ function Translate(){
                         multiline InputProps={{style: {fontSize: 30}}} // font size of input text
                         InputLabelProps={{style: {fontSize: 20}}} // font size of input label
                         />
+                    {/* <Grid columnSpacing={3}>
+                        <Grid> */}
+                        {/* <Button
+                            className="NextHome" 
+                            variant="contained"
+                            id="translated_text"
+                            disabled={true}
+                            style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
+                            >Start signing ... <br/>nod when you're done.</Button> */}
+                            {/* Translation: */}
+                            {/* <p /> */}
+                        {/* </Grid>
+                        <Grid> */}
+
+                        <TextField
+                        id="outlined-name"
+                        label="Translating Sign..."
+                        multiline
+                        rows={3}
+                        placeholder="Please start signing ..."
+                        style={{width: '370px', borderRadius: '20px', fontSize: 25, marginTop: '30px', position: 'relative'}}
+                        color="warning"
+                        variant="filled"
+                        value={translatedText}
+                        onChange={handleChange}
+                        multiline InputProps={{style: {fontSize: 25}}} // font size of input text
+                        InputLabelProps={{style: {fontSize: 20}}} // font size of input label
+                        />
+
+
+                        {/* </Grid>
+                    </Grid> */}
                 </div>
                 
                 <div>
