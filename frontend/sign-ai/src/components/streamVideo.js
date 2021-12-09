@@ -14,7 +14,7 @@ export default function StreamVideo() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    classifier = ml5.imageClassifier("./model/tm_my_image_model/model.json", () => {
+    classifier = ml5.imageClassifier("./model/tm_my_image_model_2/model.json", () => {
       navigator.mediaDevices
         .getUserMedia({ video: true, audio: false })
         .then((stream) => {
