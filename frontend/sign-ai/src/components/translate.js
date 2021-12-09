@@ -31,17 +31,18 @@ import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
 import VideoStreamPlsWork from "./videoStreamPlsWork";
 
-async function LoadModel(){
-    try {
-        // For layered model
-        const model = await tf.loadLayersModel('/tfjs/model.json');
-        await console.log("Load model success");
-    } catch (err) {
-        console.log("GGWP");
-        console.log(err);
-    }
-}
-LoadModel();
+
+// async function LoadModel(){
+//     try {
+//         // For layered model
+//         const model = await tf.loadLayersModel('/tfjs/model.json');
+//         await console.log("Load model success");
+//     } catch (err) {
+//         console.log("GGWP");
+//         console.log(err);
+//     }
+// }
+// LoadModel();
 
 function Translate(){
     const history = useHistory()
@@ -52,6 +53,7 @@ function Translate(){
         store.setState("conversation_id", convo_id); 
     }
     const [conversation_id] = useGlobalState("conversation_id");
+    const [translatedText, setTranslatedText] = useState('')
     const [question, setQuestion] = useState('');
     const [translatedText, setTranslatedText] = useState('')
     const translated_text = "Someone molested me";
@@ -72,9 +74,14 @@ function Translate(){
         };
     
     function activateYes(){
+        // axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
         axios.post('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText, crossdomain: true});
         setTranslatedText('')
     }
+
+    const childToParent = (childdata) => {
+        setTranslatedText(childdata);
+      } 
 
     function activateNo(){
         //ttText = "Please re-sign your message"
@@ -93,12 +100,26 @@ function Translate(){
     }
         return(
             <div>
+                {/* <VideoStreamPlsWork translatedText={translatedText} childToParent={childToParent} style={{
 
                 <MediapipeHolistic style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
-                            marginTop: '90px'}}/>
+                            marginTop: '90px'}}/> */}
+                {/* <VideoRecorder
+                    onRecordingComplete={videoBlob => {
+                    // Do something with the video...
+                    console.log('videoBlob', videoBlob)
+                    }}
+                /> */}
+                <StreamVideo/>
 
+                {/* <WebcamStreamCapture style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}/> */}
+
+                {/* <div style={{
                 <VideoStreamPlsWork socket={socket} style={{
                             position: 'relative', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
@@ -108,6 +129,29 @@ function Translate(){
                             position:'relative', bottom:'50%', left: '50%', top: '50%',
                             transform: 'translate(-50%, -50%)',
                             marginTop: '90px'}}>
+                    <Button
+                        className="NextHome" 
+                        variant="contained"
+                        id="translated_text"
+                        disabled={true}
+                        style={{width: 370, height: 150, backgroundColor: '#F8F4EC', borderRadius: '12px', color: '#002600', fontFamily: 'Montserrat', textTransform: "None", fontSize: '25px'}}
+                        >Start signing ... <br/>nod when you're done.</Button>
+                </div> */}
+
+                <div style={{
+                            position: 'relative', left: '50%', top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            marginTop: '90px'}}>
+                    <TextField
+                        label="Translated text..."
+                        rows={3}
+                        style={{width: 350, height: 120, alignContent: "center", margin: '15px', fontSize: 20, fontFamily: 'Montserrat', textTransform: "None"}}
+                        value={translatedText}
+                        onChange={(event) => {setTranslatedText(event.target.value); }}
+
+                        multiline InputProps={{style: {fontSize: 30}}} // font size of input text
+                        InputLabelProps={{style: {fontSize: 20}}} // font size of input label
+                        />
                     {/* <Grid columnSpacing={3}>
                         <Grid> */}
                         {/* <Button

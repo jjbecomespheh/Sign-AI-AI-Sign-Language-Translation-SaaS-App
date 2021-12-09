@@ -26,7 +26,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['Access-Control-Allow-Origin'] = '*'
-socketio = SocketIO(app,  cors_allowed_origins="*")
+socketio = SocketIO(app,  cors_allowed_origins="*", ping_timeout=20,)
 CORS(app,resources={r"*": {"origins": "*"}})
 
 model = keras.models.load_model('Model/lstm_model_pls_work.h5')
@@ -72,15 +72,20 @@ def image(data_image):
                         sentence.append(actions[np.argmax(res)])
                 else:
                     sentence.append(actions[np.argmax(res)])
-            emit('prediction', actions[np.argmax(res)])
-
             if len(sentence) > 5: 
                 sentence = sentence[-5:]
+            emit('response_back', " ".join(sentence))
+            print("sentence is ", sentence, file=sys.stdout, flush=True)
+            # image = prob_viz(res, actions, image, colors)
+            # imgencode = cv2.imencode('.jpg', image)[1]
 
+<<<<<<< HEAD:AI/SimpleAILife/Code/app.py
+=======
             print(f"Sentence: {sentence}", file=sys.stdout, flush=True)
             # image = prob_viz(res, actions, image, colors)
             # imgencode = cv2.imencode('.jpg', image)[1]
 
+>>>>>>> main:AI/SimpleAILife/ModelServer/main.py
             # # base64 encode
             # stringData = base64.b64encode(imgencode).decode('utf-8')
             # b64_src = 'data:image/jpg;base64,'
@@ -98,4 +103,4 @@ def image(data_image):
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
