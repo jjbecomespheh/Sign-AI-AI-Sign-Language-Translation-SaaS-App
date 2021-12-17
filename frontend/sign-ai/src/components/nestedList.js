@@ -51,7 +51,6 @@ export default function NestedList(props) {
           if(mydict[created_at] === undefined){
             mydict[created_at] = {}
               mydict[created_at][conversation_id] = {index: datapoint.id, conv_time:conversation_time }
-              // mydict[created_at][conversation_id] = {index: datapoint.id}
           }
           else{
             if(mydict[created_at][conversation_id] === undefined){

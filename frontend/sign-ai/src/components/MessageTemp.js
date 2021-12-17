@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) =>
       padding: "10px",
       backgroundColor: "#A8DDFD",
       width: "60%",
-      //height: "50px",
       textAlign: "left",
       font: "400 .9em 'Open Sans', sans-serif",
       border: "1px solid #97C6E3",
@@ -114,7 +113,6 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-//avatarが左にあるメッセージ（他人）
 export const MessageLeft = (props) => {
   const message = props.message ? props.message : "no message";
   const timestamp = props.timestamp ? props.timestamp : "";
@@ -142,7 +140,6 @@ export const MessageLeft = (props) => {
     </>
   );
 };
-//avatarが右にあるメッセージ（自分）
 export const MessageRight = (props) => {
   const classes = useStyles();
   const message = props.message ? props.message : "no message";

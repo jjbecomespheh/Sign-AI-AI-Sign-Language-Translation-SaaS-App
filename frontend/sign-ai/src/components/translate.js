@@ -22,7 +22,6 @@ import axios from "axios";
 import {store, useGlobalState} from 'state-pool';
 import '@fontsource/montserrat';
 import io from 'socket.io-client';
-// import * as tf from '@tensorflow/tfjs'
 import { v4 as uuidv4 } from 'uuid';
 import * as Holistic from '@mediapipe/holistic'
 import * as camera_utils from '@mediapipe/camera_utils'
@@ -54,7 +53,6 @@ function Translate(){
         };
     
     function activateYes(){
-        // axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText});
         axios.post('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json',{"conversation_id": conversation_id, "sender": "Deaf", "message": translatedText, crossdomain: true});
         setTranslatedText('')
     }
@@ -71,8 +69,6 @@ function Translate(){
       } 
 
     function activateNo(){
-        //ttText = "Please re-sign your message"
-        //Instead of throwing an alert, it should change/refresh the text in text box to -> "Please re-sign your message!"
     }
 
     function activateHome(){
@@ -132,7 +128,6 @@ function Translate(){
                         <Link to='/ask' style={{textDecoration: 'none'}}>
                             <Button 
                             id="ask_btn"
-                            //onClick={activateHome} 
                             startIcon={<QuestionAnswerIcon />}
                             style={{backgroundColor: '#f7b34d', width: '180px' , height: '50px', color: '#FFFFFF', borderRadius: '12px', position:'relative',marginTop:'0px', marginBottom:'10px' }}
                             >Ask Question</Button>

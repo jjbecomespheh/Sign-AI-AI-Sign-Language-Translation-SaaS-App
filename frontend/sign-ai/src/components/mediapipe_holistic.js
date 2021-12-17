@@ -109,9 +109,7 @@ function MediapipeHolistic() {
     });
     canvasCtx.restore();
   }
-  // }
 
-  // setInterval(())
   useEffect(() => {
     const faceMesh = new Holistic({
       locateFile: (file) => {

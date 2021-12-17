@@ -4,7 +4,6 @@ import Loader from 'react-loader-spinner';
 import useInterval from '@use-it/interval';
 import Chart from './Chart'
 import { Button } from '@material-ui/core';
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 let classifier;
 
