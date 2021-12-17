@@ -45,7 +45,7 @@ function MediapipeHolistic() {
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
     canvasCtx.translate(canvasRef.current.width, 0);
-    canvasCtx.scale(-1, 1);
+    canvasCtx.scale(-0.9, 0.9);
 
     canvasCtx.drawImage(
       results.image,

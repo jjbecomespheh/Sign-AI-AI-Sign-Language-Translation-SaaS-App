@@ -11,7 +11,6 @@ import { MenuItems } from './MenuItems';
 import { Button } from "@material-ui/core";
 import { Alert } from "@mui/material";
 
-// console.log(logo2); // /logo.84287d09.png
 class Header extends React.Component{
      
     state = {clicked: false}

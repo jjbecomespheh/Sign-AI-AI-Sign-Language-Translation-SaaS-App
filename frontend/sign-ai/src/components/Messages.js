@@ -69,7 +69,6 @@ export default function Message () {
 
     useEffect(()=> {
         axios.get(`https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats/${index}.json`, { crossdomain: true }).then((res) => {
-            console.log(res.data.created_at.split('T'));
             setDateCur(res.data.created_at.split('T')[0].toString()); return});    
         
         axios.get('https://sign-ai-service-x4uj6fmx2a-as.a.run.app/chats.json', { crossdomain: true }).then((res) => {

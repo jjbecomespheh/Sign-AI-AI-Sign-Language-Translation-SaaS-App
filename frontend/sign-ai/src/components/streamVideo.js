@@ -35,7 +35,6 @@ export default function StreamVideo({childToParent}) {
           console.error(error);
           return;
         }
-        console.log("lol 8is ", (results[0].label))
         if(results[0].label !== "No Sign Detected"){
           childToParent(results[0].label)
         }

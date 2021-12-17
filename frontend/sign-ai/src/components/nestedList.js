@@ -60,7 +60,6 @@ export default function NestedList(props) {
           }
       }
       setDataDict(mydict)
-    console.log("mydict", mydict)
   }
   const handleClick = () => {
     setOpenLayer1(!openLayer1);
@@ -116,8 +115,6 @@ export default function NestedList(props) {
             </ListItemButton>
           </CardContent >
           {Object.entries(value).map(([conv_id,indices]) => {
-            console.log(indices)
-            console.log("lmaooo")
             return <Collapse in={openLayer1} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding style={{backgroundColor:"#f8f4ec"}}>
                   <ListItemButton size="medium"

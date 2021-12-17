@@ -14,7 +14,6 @@ export const WebcamStreamCapture = () => {
         isInitialMount.current = false;
       } else {
         if (!capturing) {
-          console.log('running handleDownload')
           handleDownload();
         }
       }

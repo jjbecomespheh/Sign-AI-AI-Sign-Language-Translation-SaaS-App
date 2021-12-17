@@ -9,8 +9,6 @@ import { useLocation } from 'react-router-dom'
 import {bounce} from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 
-console.log(logo); 
-
 function CoverPage(){
     const history = useHistory()
     const location = useLocation();

@@ -31,19 +31,6 @@ import * as drawing_utils from '@mediapipe/drawing_utils'
 import MediapipeHolistic from "./mediapipe_holistic";
 import StreamVideo from './streamVideo';
 
-
-// async function LoadModel(){
-//     try {
-//         // For layered model
-//         const model = await tf.loadLayersModel('/tfjs/model.json');
-//         await console.log("Load model success");
-//     } catch (err) {
-//         console.log("GGWP");
-//         console.log(err);
-//     }
-// }
-// LoadModel();
-
 function Translate(){
     const history = useHistory()
     try{
@@ -57,7 +44,7 @@ function Translate(){
     const [question, setQuestion] = useState('');
     const [myarr, setMyArr] = useState([" "]);
 
-    var theshit = []
+    var wordArr = []
     const handleChange = (event) => {
         setTranslatedText(event.target.value);
       };
@@ -74,15 +61,12 @@ function Translate(){
 
     const childToParent = (childdata) => {
         setTranslatedText(childdata);
-
-        console.log(theshit)
-        console.log("wiofhweuiohfuiwefw", childdata,  theshit[-1])
-        theshit.push(childdata)
+        wordArr.push(childdata)
         
        
         setMyArr([...myarr, childdata])
-        if(theshit.length > 20){
-            theshit = [theshit[theshit.length -1]]
+        if(wordArr.length > 20){
+            wordArr = [wordArr[wordArr.length -1]]
         }
       } 
 

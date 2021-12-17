@@ -56,23 +56,10 @@ function Ask(){
             }
             else if (B < 100 && statee === 1){
                 if(!askRef.current){
-                    console.log("You fuckimg moron")
                     return;
 
                 }
                 askRef.current.click();
-                // console.log(question)
-                // if (question === ''){
-                //     alert("Please key in something into the text field")
-                //     longvibrate();
-                //     window.removeEventListener('deviceorientation', handleOrientationEvent);
-                // }
-                // else {
-                //     vibrate();
-                //     axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
-                //     window.removeEventListener('deviceorientation', handleOrientationEvent);
-                //     history.push('/translate');
-                //     }
             }
         }
 
@@ -83,30 +70,8 @@ function Ask(){
         window.addEventListener('deviceorientation', handleOrientationEvent);
       }
 
-    // function tilt(){
-    //     // alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-    //     var B = tilt.beta;
-    //     if (location.pathname == "/ask"){
-    //         if (B > 150){
-                
-    //             console.log(question)
-    //             if (question === ''){
-    //                 alert("Please key in something into the text field")
-    //                 longvibrate();
-    //             }
-    //             else {
-    //                 axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
-    //                 history.push('/translate');
-    //                 vibrate();
-    //                 }
-    //             }
-    //         } 
-    //     }
-
-    
     
     const askButton = () => {
-        console.log(question)
         if (question === ''){
             alert("Please key in something into the text field")
             longvibrate();
@@ -114,7 +79,6 @@ function Ask(){
         else {
 
             vibrate();
-            console.log("Should work")
             axios.post('/chats.json',{"conversation_id": conversation_id, "sender": "Police", "message": question})
 
             history.push('/translate');
