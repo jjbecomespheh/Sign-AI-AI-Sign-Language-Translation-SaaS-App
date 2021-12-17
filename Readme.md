@@ -1,6 +1,26 @@
 **Readme file for SDS Team CloudOnRails (Team 4)**
 
-_*add anything here_
+
+
+# A Collaboration between Team 4, Home Team Science and Technology Agency(HTX) , Singapore University of Science and Technology Information Systems Technology Design(SUTD ISTD) pillar and Google!!
+
+Application description: Home Team Officers are unfamiliar with sign language and are unable to communicate with the deaf who are speech impaired. This language barrier hinders the officers’ ability to communicate and serve the deaf public effectively. This web application aims to solve that using computer vision. Some additional features are added as well. More information at: https://sites.google.com/sutd.edu.sg/team4-cloudonrails/home
+
+
+
+Summary of features:
+
+- Automatic sign language transcription for 8 signs
+- Type to ask deaf 
+- Chat history 
+- Cover and tutorial page
+
+
+
+Deployed at: https://sign-ai.as.r.appspot.com/home
+
+
+
 # Let's begin the magic! ;)
 
 ```
@@ -31,3 +51,4 @@ the frontend side will be started on localhost:3000
 `cd frontend/sign-ai && npm test`
 
 If it fails, run the second time. Make sure you run `npm install` after you do a pull
+
