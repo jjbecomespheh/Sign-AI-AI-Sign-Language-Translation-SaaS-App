@@ -2,7 +2,7 @@
 
 # A Collaboration between Team 4, Home Team Science and Technology Agency(HTX) , Singapore University of Science and Technology Information Systems Technology Design(SUTD ISTD) pillar and Google!!
 
-<img width="833" alt="Screenshot 2022-04-01 at 3 49 12 AM" src="https://user-images.githubusercontent.com/50895766/161137222-746b41cf-7a83-496e-ad0e-e1b6562a4a89.png">
+![Screenshot 2022-04-01 at 3 51 01 AM](https://user-images.githubusercontent.com/50895766/161137507-d3faa5aa-936b-46ad-b9e6-7594b9befbda.jpg)
 
 Application description: Home Team Officers are unfamiliar with sign language and are unable to communicate with the deaf who are speech impaired. This language barrier hinders the officers’ ability to communicate and serve the deaf public effectively. This web application aims to solve that using computer vision. Some additional features are added as well. More information at: https://sites.google.com/sutd.edu.sg/team4-cloudonrails/home
 
