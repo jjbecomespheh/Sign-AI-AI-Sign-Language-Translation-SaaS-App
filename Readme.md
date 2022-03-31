@@ -1,12 +1,12 @@
-**Readme file for SDS Team CloudOnRails (Team 4)**
+**README file for 60.004 Service Design Studio: Team CloudOnRails (Team 4)**
 
-# A Collaboration between Team 4, Home Team Science and Technology Agency(HTX) , Singapore University of Science and Technology Information Systems Technology Design(SUTD ISTD) pillar and Google!!
+# SUTD 60.004 Service Design Studio Project with Home Team Science and Technology Agency (HTX), mentored by Google Cloud Platform Mentors
 
 ![Screenshot 2022-04-01 at 3 51 01 AM](https://user-images.githubusercontent.com/50895766/161137507-d3faa5aa-936b-46ad-b9e6-7594b9befbda.jpg)
 
-Application description: Home Team Officers are unfamiliar with sign language and are unable to communicate with the deaf who are speech impaired. This language barrier hinders the officers’ ability to communicate and serve the deaf public effectively. This web application aims to solve that using computer vision. Some additional features are added as well. More information at: https://sites.google.com/sutd.edu.sg/team4-cloudonrails/home
+**Application description:** Home Team Officers are unfamiliar with sign language and are unable to communicate with the deaf who are speech impaired. This language barrier hinders the officers’ ability to communicate and serve the deaf public effectively. This web application aims to solve that using computer vision. Some additional features are added as well. More information at: https://sites.google.com/sutd.edu.sg/team4-cloudonrails/home
 
-Summary of features:
+**Summary of features:**
 - Automatic sign language transcription for 8 signs
 - Type to ask deaf 
 - Chat history 
